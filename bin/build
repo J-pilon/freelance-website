@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+# Install dependencies from cache if available
+if [ -d /cache/bundle ]; then
+  cp -r /cache/bundle vendor/bundle
+fi
+
+# Install gems
+bundle install --path vendor/bundle
+
+# Cache the installed dependencies
+mkdir -p /cache
+cp -r vendor/bundle /cache/bundle
+
+# Precompile assets
+bundle exec rake assets:precompile
