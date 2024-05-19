@@ -1,0 +1,7 @@
+linters:
+  RuboCop:
+    enabled: true
+    autocorrect: true
+
+all:
+  autocorrect: true
