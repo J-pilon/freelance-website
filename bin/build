@@ -1,18 +1,18 @@
 #!/bin/bash
 
-set -e
-
-# Install dependencies from cache if available
-if [ -d /cache/bundle ]; then
-  cp -r /cache/bundle vendor/bundle
+# Ensure we are not running as root
+if [ "$EUID" -eq 0 ]; then
+  echo "Please do not run as root"
+  exit 1
 fi
 
-# Install gems
-bundle install --path vendor/bundle
+# Set the Bundler path configuration
+bundle config set --local path 'vendor/bundle'
 
-# Cache the installed dependencies
-mkdir -p /cache
-cp -r vendor/bundle /cache/bundle
+# Install dependencies
+bundle install
 
 # Precompile assets
-bundle exec rake assets:precompile
+RAILS_ENV=production bundle exec rake assets:precompile
+
+echo "Build completed successfully"
