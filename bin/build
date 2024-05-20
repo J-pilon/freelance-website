@@ -12,6 +12,9 @@ bundle config set --local path 'vendor/bundle'
 # Install dependencies
 bundle install
 
+# Install yarn dependencies
+yarn install --check-files
+
 # Precompile assets
 RAILS_ENV=production bundle exec rake assets:precompile
 

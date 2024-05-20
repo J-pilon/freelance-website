@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --background-black: theme("colors.background-black");
+  /* --background-black: theme("colors.background-black");
   --background-navy: theme("colors.background-navy");
-  --primary: theme("colors.primary");
+  --primary: theme("colors.primary-1"); */
   /* --secondary: theme("colors.secondary"); */
   /* --accent: theme("colors.accent");
   --light: theme("colors.light");
@@ -172,7 +172,7 @@
 
 @layer components {
   .btn-primary {
-    @apply text-gray-900 no-underline border-transparent btn bg-primary;
+    @apply text-gray-900 no-underline border-transparent btn bg-primary-1;
   }
 
   /* .btn-secondary {
@@ -189,7 +189,7 @@
   .pill {
     @apply px-5 py-2 bg-gray-700 rounded-full whitespace-nowrap;
     & > * {
-      @apply text-lg font-semibold text-primary;
+      @apply text-lg font-semibold text-primary-1;
     }
   }
   .grid-container {
