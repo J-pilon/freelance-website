@@ -37,7 +37,7 @@ module.exports = {
         "gray-800": "#1f2937",
         "gray-900": "#111827",
         "gray-950": "#030712",
-        primary: "#FFD701",
+        "primary-1": "#FFD701",
         // 'light': '#FFFAF4',
         // 'gray': '#C6C6C6',
         // 'light-gray': '#F5F5F5',

@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/j-pilon/freelance-website.git",
   "author": "Josiah <josiah.pilon@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build:css": "tailwindcss -o ./app/assets/builds/tailwind.css",
+    "build": "yarn build:css"
+  }
 }
