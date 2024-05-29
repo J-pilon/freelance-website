@@ -29,11 +29,11 @@ module HomeHelper
 
   private
 
-  def asset_exists?(asset)
-    if Rails.env.production?
-      Rails.application.assets_manifest.assets[asset].present?
-    else
-      Rails.application.assets.find_asset(asset).present?
-    end
-  end
+  # def asset_exists?(asset)
+  #   if Rails.env.production?
+  #     Rails.application.assets_manifest.assets[asset].present?
+  #   else
+  #     Rails.application.assets.find_asset(asset).present?
+  #   end
+  # end
 end

@@ -82,14 +82,14 @@
 
     <h4 class="mb-16">The skills, tools and technologies we use</h5>
 
-    <div class="grid-container">
+    <%# <div class="grid-container">
       <% languages.each do |language| %>
-          <div class="grid-item">
-            <%= language_icon(language) %>
-            <p><%= language[:name] %></p>
+          <%# <div class="grid-item">
+            <%= language_icon(language) 
+            <p><%= language[:name]</p>
           </div>
       <% end %>
-    </div>
+    <%# </div> %>
 </section>
 
 <section class="bg-background-navy">
