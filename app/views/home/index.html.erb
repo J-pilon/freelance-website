@@ -1,5 +1,13 @@
 <section class="bg-background-black">
-  <div class="content-container flex-col-center md:flex-row-reverse md:gap-8">
+  <div class="relative content-container flex-col-center md:flex-row-reverse md:gap-8">
+    <%# <div class="absolute w-[600px] h-auto transform rotate-90 right-[-500px] z-0">
+      <%= image_tag("abstract-1.png")
+    </div>
+
+    <div class="absolute w-[600px] h-auto transform rotate-90 left-[-570px] z-0">
+      <%= image_tag("abstract-2.png") 
+    </div> %>
+
     <div class="w-full rounded-lg image-container">
       <%= image_tag("Josiah-March2024-11-M.jpg") %>
     </div>
@@ -74,25 +82,8 @@
   </div>
 </section>
 
+
 <section class="bg-background-black">
-  <div class="content-container flex-col-center">
-    <div class="mb-16 pill">
-      <p>Skills</p>
-    </div>
-
-    <h4 class="mb-16">The skills, tools and technologies we use</h5>
-
-    <%# <div class="grid-container">
-      <% languages.each do |language| %>
-          <%# <div class="grid-item">
-            <%= language_icon(language) 
-            <p><%= language[:name]</p>
-          </div>
-      <% end %>
-    <%# </div> %>
-</section>
-
-<section class="bg-background-navy">
   <div class="content-container flex-col-center">
     <div class="mb-16 pill">
       <p>Testimonials</p>
@@ -126,7 +117,7 @@
   </div>
 </section>
 
-<section class="bg-background-black">
+<section class="bg-background-navy">
   <div class="content-container flex-col-center">
     <div class="mb-16 pill">
       <p>Get in touch</p>
