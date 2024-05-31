@@ -1,123 +1,16 @@
-<section class="bg-background-black">
-  <div class="relative content-container flex-col-center md:flex-row-reverse md:gap-8">
-    <%# <div class="absolute w-[600px] h-auto transform rotate-90 right-[-500px] z-0">
-      <%= image_tag("abstract-1.png")
-    </div>
+<section class="h-screen bg-background-navy">
+  <div class="flex flex-col items-center justify-center w-full">
+    <h1 class="text-[55px]">Website coming soon!</h1>
 
-    <div class="absolute w-[600px] h-auto transform rotate-90 left-[-570px] z-0">
-      <%= image_tag("abstract-2.png") 
-    </div> %>
-
-    <div class="w-full rounded-lg image-container">
-      <%= image_tag("Josiah-March2024-11-M.jpg") %>
-    </div>
-
-    <div class="w-full">
-      <h1>Hi, I'm Josiah</h1>
-
-      <p>I'm here to help tech startups and leaders like you bring your ideas to life through smart, simple digital solutions. Whether you're building your dream app or looking to streamline your operations, <strong>I've got you covered.</strong></p>
-
-      <div class="my-2 space-x-2 flex-row-start">
-        <div class="icon">
-          <%= image_tag("icons/location-light.svg") %>
-        </div>
-
-        <p>Langley, Canada</p>
-      </div>
-
-      <div class="space-x-2 flex-row-start">
-        <div class="w-4 h-4 text-transparent bg-green-600 rounded-full">
-          o
-        </div>
-
-        <p>Available for new projects</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="bg-background-navy">
-  <div class="content-container flex-col-center">
-    <div class="mb-16 pill">
-      <p>About me</p>
-    </div>
-
-    <div class="flex-col-center md:flex-row md:justify-between md:gap-8">
-      <div class="w-full rounded-lg image-container">
-        <%= image_tag("Josiah-March2024-1-M.jpg") %>
-      </div>
-
-      <div class="w-full">
-        <h2>Curious about me? Here you have it</h2>
-
-        <p class="mb-8">
-          I'm a passionate, self-proclaimed developer who specializes in full stack development (React.js & Node.js). I am very enthusiastic about bringing the technical and visual aspects of digital products to life. User experience, pixel perfect design, and writing clear, readable, highly performant code matters to me.
-        </p>
-
-        <p class="mb-8">
-          Who I want to work with:
-        </p>
-
-        <ul class="mb-8 h-1/2">
-          <li>Startup Founders, CEOs, and Tech Leaders</li>
-
-          <li>Innovators seeking to make a big impact with technology</li>
-
-          <li>Teams looking for a reliable partner to make tech easy and effective</li>
-
-          <li>Aspiring indie hackers</li>
-        </ul>
-
-        <p class="mb-8">
-          One last thing, I'm available for freelance work, so feel free to reach out and say hello! I promise I don't bite 😉
-        </p>
-
-        <div class="w-full flex-row-center">
-          <div class="w-60">
-            <%= link_to "Schedule a call", "", class: "btn-primary btn-lg" %>
-          </div>
-        </div>
-      </div>
+    <div>
+      <%= image_tag("construction.png") %>
     </div>
   </div>
 </section>
 
 
-<section class="bg-background-black">
-  <div class="content-container flex-col-center">
-    <div class="mb-16 pill">
-      <p>Testimonials</p>
-    </div>
 
-    <h4 class="mb-16">Nice things people have said about me</h5>
-
-    <div class="flex flex-row gap-5">
-      <%= render partial: "shared/testimonial-card", locals: {
-        name: "John Doe",
-        file: "placeholder-profile-image.jpg",
-        message: "“Job well done! I am really impressed. He is very very good at what he does:) I would recommend Sagar and will rehire in the future for Frontend development.”",
-        title: "Founder",
-        company: "Startup"
-        } %>
-      <%= render partial: "shared/testimonial-card", locals: {
-        name: "John Doe",
-        file: "placeholder-profile-image.jpg",
-        message: "“Great guy, highly recommended for any COMPLEX front-end development job! His skills are top-notch and he will be an amazing addition to any team.”",
-        title: "Founder",
-        company: "Startup"
-        } %>
-      <%= render partial: "shared/testimonial-card", locals: {
-        name: "John Doe",
-        file: "placeholder-profile-image.jpg",
-        message: "“Sagar was extremely easy and pleasant to work with and he truly cares about the project being a success. Sagar has a high level of knowledge and was able to work on my MERN stack application without any issues.”",
-        title: "Founder",
-        company: "Startup"
-        } %>
-    </div>
-  </div>
-</section>
-
-<section class="bg-background-navy">
+<section class="bg-background-navy" data-scroll-into-view-target="contactInfo">
   <div class="content-container flex-col-center">
     <div class="mb-16 pill">
       <p>Get in touch</p>
