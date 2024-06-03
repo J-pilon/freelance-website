@@ -1,0 +1,10 @@
+<div class="flex items-center <%= reverse ? "flex-row-reverse": "flex-row" %>">
+  <div class="w-[500px] h-[385px]">
+    <%= image_tag(image_src, class: "rounded-xl-box-shadow") %>
+  </div>
+
+  <div class="w-1/2 <%= reverse ? "mr-16" : "ml-16" %>">
+    <h2><%= heading %></h2>
+    <p><%= description %></p>
+  </div>
+</div>
