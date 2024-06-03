@@ -38,6 +38,7 @@ module.exports = {
         "gray-900": "#111827",
         "gray-950": "#030712",
         primary: "#FFD701",
+        secondary: "#ADD8E6",
         // 'light': '#FFFAF4',
         // 'gray': '#C6C6C6',
         // 'light-gray': '#F5F5F5',
