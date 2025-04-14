@@ -26,14 +26,4 @@ module HomeHelper
       content_tag(:span, 'Icon not available', class: 'missing-icon')
     end
   end
-
-  private
-
-  # def asset_exists?(asset)
-  #   if Rails.env.production?
-  #     Rails.application.assets_manifest.assets[asset].present?
-  #   else
-  #     Rails.application.assets.find_asset(asset).present?
-  #   end
-  # end
 end
