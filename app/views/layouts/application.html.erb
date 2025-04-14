@@ -12,9 +12,9 @@
   </head>
 
   <body>
-    <main data-controller="scroll-into-view">
+    <main class="min-h-screen bg-background-navy" data-controller="scroll-into-view">
       <%= render partial: "shared/navbar" %>
-      <%= yield %>
+      <div class=""><%= yield %></div>
     </main>
   </body>
 </html>

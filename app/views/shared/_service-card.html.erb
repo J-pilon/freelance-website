@@ -1,10 +1,10 @@
-<div class="flex items-center <%= reverse ? "flex-row-reverse": "flex-row" %>">
-  <div class="w-[500px] h-[385px]">
+<div class="flex flex-col md:flex-row items-center <%= reverse ? "md:flex-row-reverse": "md:flex-row" %>">
+  <div class="max-w-[500px] mb-4 md:mb-0">
     <%= image_tag(image_src, class: "rounded-xl-box-shadow") %>
   </div>
 
-  <div class="w-1/2 <%= reverse ? "mr-16" : "ml-16" %>">
-    <h2><%= heading %></h2>
+  <div class="w-full text-center md:w-1/2 <%= reverse ? "md:mr-16" : "md:ml-16" %>">
+    <h3><%= heading %></h3>
     <p><%= description %></p>
   </div>
 </div>

@@ -1,58 +1,51 @@
-<section class="full-view-height bg-background-navy">
-  <div class="relative content-container flex-col-center md:flex-row">
-    <div class="w-full md:w-1/2">
-      <h1 class="text-[55px]">Software development should <strong class="text-secondary">NOT</strong> be complicated</h1>
-
-      <p class="">Our unique approach to software development focuses on understanding your concerns and presenting data to back up your decisions, ensuring that our custom software solutions meet and exceed your business objectives.</p>
+<section class="flex items-center justify-center min-h-screen px-4 py-12 bg-background-navy md:px-8">
+  <div class="flex flex-col items-center justify-center w-full h-full gap-8 content-container lg:flex-row">
+    <div class="w-full space-y-6 text-center lg:w-full lg:text-left">
+      <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">Software development should <strong class="text-secondary">NOT</strong> be complicated</h1>
+      <p class="text-base text-white sm:text-lg">Our unique approach to software development focuses on understanding your concerns and presenting data to back up your decisions, ensuring that our custom software solutions meet and exceed your business objectives.</p>
     </div>
-
-    <div class="">
-      <%= image_tag("icons/swoosh.svg") %>
+    <div class="flex justify-center w-full">
+      <%= image_tag("icons/swoosh.svg", class: "") %>
     </div>
   </div>
 </section>
 
-<section class="bg-background-black">
-  <div class="content-container flex-col-center">
-    <div class="mb-16 pill">
-      <p>What we stand for</p>
+<section class="px-4 py-16 bg-background-black md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-8 pill">
+      <p class="text-sm tracking-widest text-white uppercase">What we stand for</p>
     </div>
 
-    <div class="flex-col-center md:flex-row md:justify-between md:gap-16">
-      <div class="w-full image-container">
-        <%= image_tag("Josiah-March2024-1-M.jpg", class: "rounded-xl-box-shadow") %>
+    <div class="flex flex-col items-start md:flex-row md:justify-between md:gap-16">
+      <div class="w-full mb-8 md:w-1/2 md:mb-0">
+        <%= image_tag("Josiah-March2024-1-M.jpg", class: "rounded-xl shadow-lg w-full h-auto") %>
       </div>
 
-      <div class="w-full space-y-8">
-        <div>
-          <h3>Making Development Enjoyable</h3>
-          <p>At ClientFirst Labs Ltd, we prioritize making the software development process an enjoyable experience for our clients. We take the time to understand your concerns and work closely with you to ensure that the entire development journey is positive and fulfilling.</p>
+      <div class="w-full space-y-10 md:w-1/2">
+        <div class="text-center md:text-left">
+          <h3 class="">Making Development Enjoyable</h3>
+          <p class="">At ClientFirst Labs Ltd, we prioritize making the software development process an enjoyable experience for our clients...</p>
         </div>
-
-        <div>
-          <h3>Data-Backed Decision Making</h3>
-          <p>We understand the importance of data in decision-making. At ClientFirst Labs Ltd, we present and utilize data to back up the decisions made during the development process, ensuring that your custom software solutions are based on sound reasoning and industry best practices.</p>
+        <div class="text-center md:text-left">
+          <h3 class="">Data-Backed Decision Making</h3>
+          <p class="">We understand the importance of data in decision-making. At ClientFirst Labs Ltd, we present and utilize data...</p>
         </div>
-
-        <div>
-          <h3>Client-Focused Approach</h3>
-          <p>ClientFirst Labs Ltd is dedicated to placing your needs at the forefront of everything we do. Our client-focused approach ensures that the custom software solutions we deliver not only meet your business objectives but also exceed your expectations.</p>
+        <div class="text-center md:text-left">
+          <h3 class="">Client-Focused Approach</h3>
+          <p class="">ClientFirst Labs Ltd is dedicated to placing your needs at the forefront of everything we do...</p>
         </div>
-
-        <div class="w-full flex-row-start">
-          <div class="w-60">
-            <%= link_to "Schedule a call", "https://calendly.com/josiah-freelance-developer/discovery", class: "btn-primary btn-lg" %>
-          </div>
+        <div class="pt-4">
+          <%= link_to "Schedule a call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg w-full md:w-auto hover:text-gray-800" %>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="bg-background-navy">
-  <div class="content-container flex-col-center">
-    <div class="mb-16 pill">
-      <p>What we do</p>
+<section class="px-4 py-16 bg-background-navy md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-8 pill">
+      <p class="text-sm tracking-widest text-white uppercase">What we do</p>
     </div>
 
     <div class="flex-col w-full space-y-16">
@@ -61,93 +54,109 @@
         image_src: asset_path("web-application-dev.jpg"),
         heading: "Web Application Design & Development",
         description: "Transform your startup’s vision into a robust and scalable web application with ClientFirst Labs. Our team specializes in creating user-friendly, high-performance web applications tailored to meet your business needs. Benefit from our expertise in the latest technologies to ensure your application is secure, maintainable, and ready for future growth."
-        } %>
+      } %>
+
       <%= render partial: "shared/service-card", locals: {
         reverse: true,
         image_src: asset_path("mobile-dev.jpg"),
         heading: "Mobile Application Design & Development",
         description: "Enhance your startup’s reach with custom mobile applications designed and developed by ClientFirst Labs. We deliver seamless, intuitive mobile experiences that engage users and drive business growth. Whether it's for iOS or Android, our solutions are optimized for performance and usability, ensuring your app stands out in a competitive market."
-        } %>
+      } %>
       
       <%= render partial: "shared/service-card", locals: {
         reverse: false,
         image_src: asset_path("modernization.webp"),
         heading: "Website Modernization",
         description: "Give your startup a competitive edge with a modernized website from ClientFirst Labs. We revamp outdated websites to improve aesthetics, functionality, and user experience, making your business more appealing and accessible to customers. Modernize your online presence to boost engagement, enhance SEO, and increase conversion rates."
-        } %>
+      } %>
     </div>
   </div>
 </section>
 
-<section class="bg-background-black">
-  <div class="content-container flex-col-center">
-    <div class="mb-16 pill">
-      <p>Ready to start</p>
+<section class="px-4 py-16 bg-background-black md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-8 pill">
+      <p class="text-sm tracking-widest text-white uppercase">Ready to start</p>
     </div>
 
-    <h2 class="w-3/4 text-center">
-      Ready to experience our client-focused and data-driven software development approach?
-    </h2>
-    
-    <div class="mt-8 w-60">
-      <%= link_to "Schedule a call", "https://calendly.com/josiah-freelance-developer/discovery", class: "btn-primary btn-lg" %>
+    <h2 class="max-w-xl text-2xl text-center text-white sm:text-3xl md:text-4xl">Ready to experience our client-focused and data-driven software development approach?</h2>
+
+    <div class="mt-8">
+      <%= link_to "Schedule a call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
     </div>
   </div>
 </section>
 
-<section class="bg-background-navy">
-  <div class="content-container flex-col-center">
-    <div class="mb-16 pill">
-      <p>Testimonials</p>
+<section class="px-4 py-16 bg-background-navy md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-8 pill">
+      <p class="text-sm tracking-widest text-white uppercase">Testimonials</p>
     </div>
 
-    <div class="flex flex-row gap-7">
-      <%= render partial: "shared/testimonial-card", locals: {
-        name: "Mark Proudfoot",
-        message: "“Josiah excelled in building our company's software with clear and concise communication, ensuring a smooth and efficient development process.”",
-        title: "President",
-        company: "Wecasa"
-        } %>
-      <%= render partial: "shared/testimonial-card", locals: {
-        name: "Aaron Dufall",
-        message: "“Meeting a tight deadline, Josiah's agility and precision in developing key features not only propelled our project beyond expectations but also showcased his dependable expertise in software development tailored to our needs.”",
-        title: "President",
-        company: "Scalelabs"
-        } %>
-      <%= render partial: "shared/testimonial-card", locals: {
-        name: "Roger Kondrat",
-        message: "“Josiah's dedication to self-improvement is truly remarkable. His proactive approach to learning and staying ahead of industry trends is evident in the high-quality work he consistently delivers.”",
-        title: "President",
-        company: "OpenRangeDevs"
-        } %>
+    <div data-controller="carousel"
+      data-carousel-autoplay-value="true"
+      data-carousel-interval-value="5000"
+      class="relative w-full max-w-4xl mx-auto overflow-hidden rounded-xl">
+
+      <div class="relative">
+        <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
+          <%= render partial: "shared/testimonial-card", locals: {
+            name: "Mark Proudfoot",
+            message: "“Josiah excelled in building our company's software with clear and concise communication, ensuring a smooth and efficient development process.”",
+            title: "President",
+            company: "Wecasa"
+          } %>
+        </div>
+        <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
+          <%= render partial: "shared/testimonial-card", locals: {
+            name: "Aaron Dufall",
+            message: "“Meeting a tight deadline, Josiah's agility and precision in developing key features not only propelled our project beyond expectations but also showcased his dependable expertise in software development tailored to our needs.”",
+            title: "President",
+            company: "Scalelabs"
+          } %>
+        </div>
+        <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
+          <%= render partial: "shared/testimonial-card", locals: {
+            name: "Roger Kondrat",
+            message: "“Josiah's dedication to self-improvement is truly remarkable. His proactive approach to learning and staying ahead of industry trends is evident in the high-quality work he consistently delivers.”",
+            title: "President",
+            company: "OpenRangeDevs"
+          } %>
+        </div>
+      </div>
+
+      <button data-action="click->carousel#previous"
+              class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary left-4 top-1/2 bg-white/70 hover:bg-white">
+        ◀
+      </button>
+
+      <button data-action="click->carousel#next"
+              class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary right-4 top-1/2 bg-white/70 hover:bg-white">
+        ▶
+      </button>
     </div>
   </div>
 </section>
 
-<section class="h-[714px] bg-background-black" data-scroll-into-view-target="contactInfo">
-  <div class="content-container flex-col-center">
-    <div class="mb-16 pill">
-      <p>Get in touch</p>
+<section class="min-h-[714px] bg-background-black py-16 px-4 md:px-8" data-scroll-into-view-target="contactInfo">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-8 pill">
+      <p class="text-sm tracking-widest text-white uppercase">Get in touch</p>
     </div>
 
-    <div class="mb-4 flex-row-center">
-      <%= image_tag("icons/email-light.svg", class: "w-8 h-auto") %>
-      <h1 class="mx-4 mb-0">josiah@clientfirstlabs.io</h1>
-      <%# <%= image_tag("icons/copy-light.svg", class: "w-8 h-auto")  %>
+    <div class="flex items-center mb-4 text-white">
+      <%= image_tag("icons/email-light.svg", class: "w-6 h-6") %>
+      <h1 class="ml-4 text-lg">josiah@clientfirstlabs.io</h1>
     </div>
 
-    <div class="flex-row-center">
-      <%= image_tag("icons/phone-light.svg", class: "w-8 h-auto") %>
-      <h1 class="mx-4 mb-0">+1 (778) 344-4798</h1>
-      <%# <%= image_tag("icons/copy-light.svg", class: "w-8 h-auto")  %>
+    <div class="flex items-center mb-4 text-white">
+      <%= image_tag("icons/phone-light.svg", class: "w-6 h-6") %>
+      <h1 class="ml-4 text-lg">+1 (778) 344-4798</h1>
     </div>
 
-    <div class="mt-8 w-60">
-      <%= link_to "Schedule a call", "https://calendly.com/josiah-freelance-developer/discovery", class: "btn-primary btn-lg" %>
-    </div>
-    <div>
-      <p></p>
-      <div></div>
+    <div class="mt-8">
+      <%= link_to "Schedule a call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
     </div>
   </div>
 </section>
+

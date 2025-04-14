@@ -5,19 +5,24 @@ module.exports = {
   content: [
     "./app/**/*.html.erb",
     "./app/helpers/**/*.rb",
-    "./app/assets/javascripts/**/*.js",
-    "./app/javascript/**/*.js",
+    "./app/assets/javascripts/**/*.{js,ts}",
+    "./app/javascript/**/*.{js,ts,jsx,tsx}",
+    "./app/views/**/*.{html,erb}",
+    "./app/components/**/*.{html.erb,rb}",
   ],
   theme: {
     fontSize: {
       sm: ".5rem",
       md: ".75rem",
-      lg: "1rem",
-      xl: "1.125rem",
+      base: "1rem",
+      lg: "1.125rem",
+      xl: "1.25rem",
       "2xl": "1.5rem",
       "3xl": "2rem",
       "4xl": "2.75rem",
       "5xl": "3rem",
+      "6xl": "3.75rem",
+      "7xl": "4.5rem",
     },
     extend: {
       fontFamily: {
@@ -39,6 +44,7 @@ module.exports = {
         "gray-950": "#030712",
         primary: "#FFD701",
         secondary: "#ADD8E6",
+        // Uncomment to restore legacy colors
         // 'light': '#FFFAF4',
         // 'gray': '#C6C6C6',
         // 'light-gray': '#F5F5F5',
