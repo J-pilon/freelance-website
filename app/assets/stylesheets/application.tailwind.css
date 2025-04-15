@@ -73,7 +73,7 @@
 
 @layer components {
   .btn-primary {
-    @apply text-gray-900 no-underline border-transparent btn bg-primary;
+    @apply text-gray-900 no-underline border-transparent btn bg-primary max-w-52;
   }
 
   /* .btn-secondary {
@@ -89,9 +89,9 @@
   }
 
   .pill {
-    @apply px-5 py-2 bg-gray-700 rounded-full whitespace-nowrap;
+    @apply px-3 py-2 bg-gray-700 rounded-full whitespace-nowrap;
     & > * {
-      @apply text-lg font-semibold text-primary;
+      @apply font-semibold text-md text-primary;
     }
   }
 

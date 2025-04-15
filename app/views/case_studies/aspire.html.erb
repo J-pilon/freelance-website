@@ -1,0 +1,133 @@
+<section class="px-4 py-12 text-center sm:px-8 md:px-16 md:text-left">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col items-center gap-8 md:flex-row md:items-start">
+      <div class="flex-1 space-y-4">
+        <div  class="w-full max-w-[250px] mb-4 md:mb-0">
+          <%= image_tag "aspire/logo.png", class: "object-fit" %>
+        </div>
+        
+        <p class="text-lg text-white/80">Empowering Insurance Agents with a Breakthrough Digital Platform</p>
+      </div>
+      
+      <div class="flex-1">
+        <div class="w-full bg-transparent">
+          <%= image_tag "aspire/hero.png" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-12 bg-background-black sm:px-8 md:px-16">
+  <div class="max-w-5xl mx-auto">
+    <h3 class="mb-6 font-semibold">Results</h3>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      <div>
+        <h4 class="mb-3 font-bold">Automation</h4>
+        <p class="">Enabling insurance agents to automate repetitive tasks, giving them more time to focus on delivering exceptional service to their clients.</p>
+      </div>
+
+      <div>
+        <h4 class="mb-3 font-bold">All in One Solution</h4>
+        <p class="">Integrating a range of tools and features for effortless information gathering that streamline workflows and drive increased sales for the business.</p>
+      </div>
+
+      <div>
+        <h4 class="mb-3 font-bold">Ease of Use</h4>
+        <p class="">An intuitive interface displaying only essential information, reducing cognitive load and boosting efficiency for both admins and users.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-12 bg-background-navy sm:px-8 md:px-16">
+  <div class="max-w-5xl mx-auto space-y-12">
+    <h3 class="text-xl font-semibold">The development process</h3>
+
+    <div  class="w-full max-w-[1024px] mb-4 md:mb-0">
+      <%= image_tag "aspire/dev-process-desktop.png", class: "object-fit" %>
+    </div>
+    
+    <p class="">
+      Want to see your business reach new heights? Here's how we helped Aspire 
+      achieve remarkable results. We kicked off the development process with an 
+      in-depth exploration of their company structure and vision for the future. By 
+      immersing ourselves in their branding, unique value proposition, and initial UI 
+      designs, we crafted solutions perfectly tailored to their needs – just as we'll do for 
+      your business.<br><br> 
+      
+      Success requires careful planning, which is why we developed a strategic 
+      roadmap that turned their vision into reality. Every milestone was tied to concrete 
+      business objectives, and our weekly check-ins ensured we delivered tangible 
+      value at every step. This approach means you'll see real results throughout our 
+      partnership.<br><br> 
+      
+      Your software will be built to the highest industry standards, just as we did for 
+      Aspire. We'll maintain consistent design elements that remain flexible enough to 
+      evolve alongside your business.
+    </p>
+    
+    <div class="mt-8">
+      <%= link_to "Get in touch", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-12 bg-background-black sm:px-8 md:px-16">
+  <div class="max-w-5xl mx-auto">
+    <h3 class="mb-6 text-xl font-semibold">Key Features</h3>
+    <div class="space-y-32">
+      <div class="flex flex-col items-center gap-8 md:flex-row">
+        <div  class="w-full max-w-[650px] min-w-[420px] mb-4 md:mb-0">
+          <%= image_tag "aspire/key-features_visualized-data.png", class: "w-full" %>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="mb-2 font-bold">Visualized Data</h4>
+          <p class="">The platform transformed complex insurance data into clear, actionable insightsthrough intuitive visualizations. Agents can track key metrics like policyperformance, client retention, and sales pipelines at a glance.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center gap-8 md:flex-row-reverse">
+        <div  class="w-full max-w-[650px] min-w-[420px] mb-4 md:mb-0">
+          <%= image_tag "aspire/key-features_password-management.png", class: "w-full" %>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="mb-2 font-bold">Password Management</h4>
+          <p class="">A robust password management system helps agents securely store and accesstheir credentials across multiple insurance portals. Agents can seamlessly switchbetween different insurance provider platforms without compromising on security.</p>
+        </div>
+      </div>
+      
+      <div class="flex flex-col items-center gap-8 md:flex-row">
+        <div  class="w-full max-w-[650px] min-w-[420px] mb-4 md:mb-0">
+          <%= image_tag "aspire/key-features_application-tracking.png", class: "w-full" %>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="mb-2 font-bold">Streamlined Application Tracking</h4>
+          <p class="">An intuitive status tracking system guides agents through every step of thereview process with real-time indicators and automated notifications. Thisapproach eliminates any confusion and helps agents manage multipleapplications efficiently.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="min-h-[714px] bg-background-navy py-16 px-4 md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-16 pill">
+      <p class="">Get in touch</p>
+    </div>
+
+    <div class="flex items-center mb-4 text-white">
+      <%= image_tag("icons/email-light.svg", class: "w-6 h-6") %>
+      <h3 class="ml-4"><%= link_to "josiah@clientfirstlabs.io", "mailto:josiah@clientfirstlabs.io" %></h3>
+    </div>
+
+    <div class="flex items-center mb-4 text-white">
+      <%= image_tag("icons/phone-light.svg", class: "w-6 h-6") %>
+      <h4 class="ml-4">+1 (778) 344-4798</h4>
+    </div>
+  </div>
+</section>

@@ -2,5 +2,8 @@
 
 Rails.application.routes.draw do
   root 'home#index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  resource :case_studies, only: [] do
+    get 'aspire', on: :member, to: 'case_studies#aspire', as: :aspire
+  end
 end
