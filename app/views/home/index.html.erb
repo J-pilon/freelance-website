@@ -1,7 +1,7 @@
 <section class="flex items-center justify-center min-h-screen px-4 py-12 bg-background-navy md:px-8">
   <div class="flex flex-col items-center justify-center w-full h-full gap-8 content-container lg:flex-row">
     <div class="w-full space-y-6 text-center lg:w-full lg:text-left">
-      <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">Software development should <strong class="text-secondary">NOT</strong> be complicated</h1>
+      <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">Your local software <strong class="text-secondary">experts</strong> that deliver results</h1>
       <p class="text-base text-white sm:text-lg">Our unique approach to software development focuses on understanding your concerns and presenting data to back up your decisions, ensuring that our custom software solutions meet and exceed your business objectives.</p>
     </div>
     <div class="flex justify-center w-full">
@@ -12,30 +12,29 @@
 
 <section class="px-4 py-16 bg-background-black md:px-8">
   <div class="flex flex-col items-center content-container">
-    <div class="mb-8 pill">
-      <p class="text-sm tracking-widest text-white uppercase">What we stand for</p>
+    <div class="mb-16 pill">
+      <p class="">What we stand for</p>
     </div>
 
     <div class="flex flex-col items-start md:flex-row md:justify-between md:gap-16">
       <div class="w-full mb-8 md:w-1/2 md:mb-0">
-        <%= image_tag("Josiah-March2024-1-M.jpg", class: "rounded-xl shadow-lg w-full h-auto") %>
+        <%= image_tag("Josiah-March2024-8-M.jpg", class: "rounded-xl shadow-lg w-full h-auto") %>
       </div>
 
       <div class="w-full space-y-10 md:w-1/2">
         <div class="text-center md:text-left">
-          <h3 class="">Making Development Enjoyable</h3>
-          <p class="">At ClientFirst Labs Ltd, we prioritize making the software development process an enjoyable experience for our clients...</p>
-        </div>
-        <div class="text-center md:text-left">
-          <h3 class="">Data-Backed Decision Making</h3>
-          <p class="">We understand the importance of data in decision-making. At ClientFirst Labs Ltd, we present and utilize data...</p>
-        </div>
-        <div class="text-center md:text-left">
           <h3 class="">Client-Focused Approach</h3>
-          <p class="">ClientFirst Labs Ltd is dedicated to placing your needs at the forefront of everything we do...</p>
+          <p class="">Your goals drive our roadmap. We listen before we build, and we adapt as your needs evolve. We don't chase trends—we focus on what moves your business forward. Every decision, from UX to infrastructure, is made with your success in mind.</p>
         </div>
-        <div class="pt-4">
-          <%= link_to "Schedule a call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg w-full md:w-auto hover:text-gray-800" %>
+
+        <div class="text-center md:text-left">
+          <h3 class="">Product-First Thinking</h3>
+          <p class="">We focus on what your users are really trying to accomplish and build features that move the needle. Whether it’s automating repetitive processes, optimizing critical workflows, or refining key user interactions, we care deeply about the “why” behind every feature. That lens leads to software that’s not only functional, but intuitive, impactful, and—most importantly—used.</p>
+        </div>
+        
+        <div class="text-center md:text-left">
+          <h3 class="">On Budget, On Purpose</h3>
+          <p class="">We treat your budget like it’s our own. From day one, we prioritize the features that deliver the most value and avoid scope creep disguised as “nice-to-haves.” Our process is transparent, and our estimates are grounded in real experience—so you’re never caught off guard. Predictable spend, no surprises.</p>
         </div>
       </div>
     </div>
@@ -44,8 +43,8 @@
 
 <section class="px-4 py-16 bg-background-navy md:px-8">
   <div class="flex flex-col items-center content-container">
-    <div class="mb-8 pill">
-      <p class="text-sm tracking-widest text-white uppercase">What we do</p>
+    <div class="mb-16 pill">
+      <p class="">What we do</p>
     </div>
 
     <div class="flex-col w-full space-y-16">
@@ -75,22 +74,47 @@
 
 <section class="px-4 py-16 bg-background-black md:px-8">
   <div class="flex flex-col items-center content-container">
-    <div class="mb-8 pill">
-      <p class="text-sm tracking-widest text-white uppercase">Ready to start</p>
+    <div class="mb-16 pill">
+      <p class="">Our work</p>
     </div>
 
-    <h2 class="max-w-xl text-2xl text-center text-white sm:text-3xl md:text-4xl">Ready to experience our client-focused and data-driven software development approach?</h2>
+    <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
+      <div class="flex justify-center w-full mb-4 md:mb-0">
+        <%= image_tag("aspire/case-study-home.png", class: "max-w-[500px]") %>
+      </div>
 
-    <div class="mt-8">
-      <%= link_to "Schedule a call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
+      <div class="w-full">
+        <div class="w-full">
+          <h2 class="text-4xl text-center text-white md:text-left">Aspire</h2>
+          <p class="w-full mt-4 text-3xl text-center md:w-3/4 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
+        </div>
+
+        <div class="flex justify-center w-full mt-16 md:justify-start">
+          <%= link_to "View case study", aspire_case_studies_path, class: "text-xl text-primary" %>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="px-4 py-16 bg-background-navy md:px-8">
   <div class="flex flex-col items-center content-container">
-    <div class="mb-8 pill">
-      <p class="text-sm tracking-widest text-white uppercase">Testimonials</p>
+    <div class="mb-16 pill">
+      <p class="">Ready to start</p>
+    </div>
+
+    <h2 class="max-w-xl text-2xl text-center text-white sm:text-3xl md:text-4xl">Let’s turn your ideas into results!</h2>
+
+    <div class="mt-8">
+      <%= link_to "Get in touch", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-16 bg-background-black md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-16 pill">
+      <p class="">Testimonials</p>
     </div>
 
     <div data-controller="carousel"
@@ -126,36 +150,32 @@
       </div>
 
       <button data-action="click->carousel#previous"
-              class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary left-4 top-1/2 bg-white/70 hover:bg-white">
+              class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary left-4 top-1/2 bg-white/50 hover:bg-white">
         ◀
       </button>
 
       <button data-action="click->carousel#next"
-              class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary right-4 top-1/2 bg-white/70 hover:bg-white">
+              class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary right-4 top-1/2 bg-white/50 hover:bg-white">
         ▶
       </button>
     </div>
   </div>
 </section>
 
-<section class="min-h-[714px] bg-background-black py-16 px-4 md:px-8" data-scroll-into-view-target="contactInfo">
+<section class="min-h-[714px] bg-background-navy py-16 px-4 md:px-8" data-scroll-into-view-target="contactInfo">
   <div class="flex flex-col items-center content-container">
-    <div class="mb-8 pill">
-      <p class="text-sm tracking-widest text-white uppercase">Get in touch</p>
+    <div class="mb-16 pill">
+      <p class="">Get in touch</p>
     </div>
 
     <div class="flex items-center mb-4 text-white">
       <%= image_tag("icons/email-light.svg", class: "w-6 h-6") %>
-      <h1 class="ml-4 text-lg">josiah@clientfirstlabs.io</h1>
+      <h3 class="ml-4"><%= link_to "josiah@clientfirstlabs.io", "mailto:josiah@clientfirstlabs.io" %></h3>
     </div>
 
     <div class="flex items-center mb-4 text-white">
       <%= image_tag("icons/phone-light.svg", class: "w-6 h-6") %>
-      <h1 class="ml-4 text-lg">+1 (778) 344-4798</h1>
-    </div>
-
-    <div class="mt-8">
-      <%= link_to "Schedule a call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
+      <h4 class="ml-4">+1 (778) 344-4798</h4>
     </div>
   </div>
 </section>
