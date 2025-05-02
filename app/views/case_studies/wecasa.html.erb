@@ -1,0 +1,124 @@
+<section class="px-4 py-12 text-center sm:px-8 md:px-16 md:text-left">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col items-center gap-8 md:flex-row md:items-start">
+      <div class="flex-1 space-y-4">
+        <div  class="w-full max-w-[250px] mb-4 md:mb-0">
+          <%= image_tag "wecasa/logo.svg", class: "object-fit" %>
+        </div>
+        
+        <p class="text-lg text-white/80">Making Luxury Vacation Homes Truly Shareable</p>
+      </div>
+      
+      <div class="flex-1">
+        <div class="bg-transparent w-[500px] lg:w-[720px]">
+          <%= image_tag "wecasa/hero.png", class: "object-fit w-full" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-12 bg-background-black sm:px-8 md:px-16">
+  <div class="max-w-5xl mx-auto">
+    <h3 class="mb-6 font-semibold">Results</h3>
+
+    <div class="grid gap-8 md:grid-cols-3">
+      <div>
+        <h4 class="mb-3 font-bold">Equitable Booking Logic</h4>
+        <p class="">We engineered a custom rules engine that fairly distributes vacation time among multiple owners, accounting for seasonal demand, ownership share, and cancellation history.</p>
+      </div>
+
+      <div>
+        <h4 class="mb-3 font-bold">Responsive Cross-Device Experience</h4>
+        <p class="">Built for elegance and usability, the platform delivers a seamless booking experience across mobile, tablet, and desktop—ensuring owners can manage their getaways from anywhere.</p>
+      </div>
+
+      <div>
+        <h4 class="mb-3 font-bold">Seamless Owner Support</h4>
+        <p class="">With built-in communication tools, owners can connect with Wecasa at any point in their journey to guarantee an exceptional stay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-12 bg-background-navy sm:px-8 md:px-16">
+  <div class="max-w-5xl mx-auto space-y-12">
+    <h3 class="text-xl font-semibold">The development process</h3>
+
+    <div  class="w-full max-w-[1024px] mb-4 md:mb-0">
+      <%= image_tag "wecasa/development-process.png", class: "object-fit" %>
+    </div>
+    
+    <p class="">
+      Luxury, shared. That was Wecasa’s big idea—redefining how high-end vacation homes could be co-owned and enjoyed. But the concept hinged on one critical factor: fairness.<br><br> 
+
+      We kicked off by mapping out every edge case in their booking model—from long weekends to school holidays and high-season disputes. This required more than a calendar—it needed logic, math, and diplomacy. We collaborated closely with Wecasa’s team to develop a transparent, rules-based system that made booking feel effortless and equitable.<br><br> 
+
+      Design mattered just as much. Whether an owner was checking availability on their phone at the airport or planning a summer getaway from their desktop, the interface needed to feel intuitive and polished. So, we built a responsive front-end that met luxury expectations while keeping interactions fast and frustration-free.<br><br> 
+
+      Throughout the process, we maintained weekly feedback loops and tied every milestone back to key business goals—clarity for co-owners, confidence for investors, and scalability for the platform.
+    </p>
+    
+    <div class="mt-8">
+      <%= link_to "Get in touch", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-12 bg-background-black sm:px-8 md:px-16">
+  <div class="max-w-5xl mx-auto">
+    <h3 class="mb-6 text-xl font-semibold">Key Features</h3>
+    <div class="space-y-32">
+      <div class="flex flex-col items-center gap-8 md:flex-row">
+        <div  class="w-full max-w-[650px] min-w-[420px] mb-4 md:mb-0">
+          <%= image_tag "wecasa/booking-rules.png", class: "w-full" %>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="mb-2 font-bold">Rules-Based Booking Engine</h4>
+          <p class="">Allocates vacation time fairly based on ownership percentage, preferred dates, and cancellation behavior—automatically enforcing fairness.</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center gap-8 md:flex-row-reverse">
+        <div  class="w-full max-w-[650px] min-w-[420px] mb-4 md:mb-0">
+          <%= image_tag "wecasa/responsive-design.png", class: "w-full" %>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="mb-2 font-bold">Responsive Design for All Devices</h4>
+          <p class="">From tap-friendly mobile views to rich desktop interfaces, the app adapts beautifully to every screen size and context.</p>
+        </div>
+      </div>
+      
+      <div class="flex flex-col items-center gap-8 md:flex-row">
+        <div  class="w-full max-w-[650px] min-w-[420px] mb-4 md:mb-0">
+          <%= image_tag "wecasa/contact-us.png", class: "w-full" %>
+        </div>
+
+        <div class="text-center md:text-left">
+          <h4 class="mb-2 font-bold">Owner Concierge Access</h4>
+          <p class="">Integrated contact options ensure owners can reach Wecasa support before, during, or after their stay—with issues handled quickly and personally.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="min-h-[714px] bg-background-navy py-16 px-4 md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-16 pill">
+      <p class="">Get in touch</p>
+    </div>
+
+    <div class="flex items-center mb-4 text-white">
+      <%= image_tag("icons/email-light.svg", class: "w-6 h-6") %>
+      <h3 class="ml-4"><%= link_to "josiah@clientfirstlabs.io", "mailto:josiah@clientfirstlabs.io" %></h3>
+    </div>
+
+    <div class="flex items-center mb-4 text-white">
+      <%= image_tag("icons/phone-light.svg", class: "w-6 h-6") %>
+      <h4 class="ml-4">+1 (778) 344-4798</h4>
+    </div>
+  </div>
+</section>

@@ -77,23 +77,97 @@
     <div class="mb-16 pill">
       <p class="">Our work</p>
     </div>
-
-    <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-      <div class="flex justify-center w-full mb-4 md:mb-0">
-        <%= image_tag("aspire/case-study-home.png", class: "max-w-[500px]") %>
-      </div>
-
-      <div class="w-full">
-        <div class="w-full">
-          <h2 class="text-4xl text-center text-white md:text-left">Aspire</h2>
-          <p class="w-full mt-4 text-3xl text-center md:w-3/4 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
+    
+    <div class="flex flex-col items-center space-y-16 md:hidden">
+      <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
+        <div class="flex justify-center w-full mb-4 md:mb-0">
+          <%= image_tag("aspire/case-study-home.png", class: "max-w-[500px]") %>
         </div>
 
-        <div class="flex justify-center w-full mt-16 md:justify-start">
-          <%= link_to "View case study", aspire_case_studies_path, class: "text-xl text-primary" %>
+        <div class="w-full">
+          <div class="w-full">
+            <h2 class="text-4xl text-center text-white md:text-left">Aspire</h2>
+            <p class="w-full mt-4 text-3xl text-center md:w-4/5 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
+          </div>
+
+          <div class="flex justify-center w-full mt-16 md:justify-start">
+            <%= link_to "View case study", aspire_case_studies_path, class: "text-xl text-primary" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
+        <div class="flex justify-center w-full mb-4 md:mb-0">
+          <%= image_tag("wecasa/case-study-home.png", class: "max-w-[500px]") %>
+        </div>
+
+        <div class="w-full">
+          <div class="w-full">
+            <h2 class="text-4xl text-center text-white md:text-left">Wecasa</h2>
+            <p class="w-full mt-4 text-3xl text-center md:w-4/5 md:text-left">Creating a Web and Mobile Platform to Simplify Second Home Management</p>
+          </div>
+
+          <div class="flex justify-center w-full mt-16 md:justify-start">
+            <%= link_to "View case study", "", class: "text-xl text-primary" %>
+          </div>
         </div>
       </div>
     </div>
+
+    <div data-controller="carousel"
+      data-carousel-autoplay-value="false"
+      data-carousel-interval-value="5000"
+      class="relative hidden w-full max-w-5xl mx-auto overflow-hidden rounded-xl md:block">
+
+      <div class="relative">
+        <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
+          <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
+            <div class="flex justify-center w-full mb-4 md:mb-0">
+              <%= image_tag("aspire/case-study-home.png", class: "max-w-[500px]") %>
+            </div>
+
+            <div class="w-full">
+              <div class="w-full">
+                <h2 class="text-4xl text-center text-white md:text-left">Aspire</h2>
+                <p class="w-full mt-4 text-3xl text-center md:w-3/4 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
+              </div>
+
+              <div class="flex justify-center w-full mt-16 md:justify-start">
+                <%= link_to "View case study", aspire_case_studies_path, class: "text-xl text-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
+          <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
+            <div class="flex justify-center w-full mb-4 md:mb-0">
+              <%= image_tag("wecasa/case-study-home.png", class: "max-w-[500px]") %>
+            </div>
+
+            <div class="w-full">
+              <div class="w-full">
+                <h2 class="text-4xl text-center text-white md:text-left">Wecasa</h2>
+                <p class="w-full mt-4 text-3xl text-center md:w-3/4 md:text-left">Making Luxury Vacation Homes Truly Shareable</p>
+              </div>
+
+              <div class="flex justify-center w-full mt-16 md:justify-start">
+                <%= link_to "View case study", wecasa_case_studies_path, class: "text-xl text-primary" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button data-action="click->carousel#previous"
+        class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary left-4 top-1/2 bg-white/50 hover:bg-white">
+        ◀
+      </button>
+
+      <button data-action="click->carousel#next"
+        class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary right-4 top-1/2 bg-white/50 hover:bg-white">
+        ▶
+      </button>
   </div>
 </section>
 
@@ -117,47 +191,27 @@
       <p class="">Testimonials</p>
     </div>
 
-    <div data-controller="carousel"
-      data-carousel-autoplay-value="true"
-      data-carousel-interval-value="5000"
-      class="relative w-full max-w-4xl mx-auto overflow-hidden rounded-xl">
+    <div class="flex flex-col items-center justify-center w-full gap-8 lg:gap-12 lg:flex-row">
+      <%= render partial: "shared/testimonial-card", locals: {
+        name: "Mark Proudfoot",
+        message: "“Josiah excelled in building our company's software with clear and concise communication, ensuring a smooth and efficient development process.”",
+        title: "President",
+        company: "Wecasa"
+      } %>
 
-      <div class="relative">
-        <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
-          <%= render partial: "shared/testimonial-card", locals: {
-            name: "Mark Proudfoot",
-            message: "“Josiah excelled in building our company's software with clear and concise communication, ensuring a smooth and efficient development process.”",
-            title: "President",
-            company: "Wecasa"
-          } %>
-        </div>
-        <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
-          <%= render partial: "shared/testimonial-card", locals: {
-            name: "Aaron Dufall",
-            message: "“Meeting a tight deadline, Josiah's agility and precision in developing key features not only propelled our project beyond expectations but also showcased his dependable expertise in software development tailored to our needs.”",
-            title: "President",
-            company: "Scalelabs"
-          } %>
-        </div>
-        <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
-          <%= render partial: "shared/testimonial-card", locals: {
-            name: "Roger Kondrat",
-            message: "“Josiah's dedication to self-improvement is truly remarkable. His proactive approach to learning and staying ahead of industry trends is evident in the high-quality work he consistently delivers.”",
-            title: "President",
-            company: "OpenRangeDevs"
-          } %>
-        </div>
-      </div>
-
-      <button data-action="click->carousel#previous"
-              class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary left-4 top-1/2 bg-white/50 hover:bg-white">
-        ◀
-      </button>
-
-      <button data-action="click->carousel#next"
-              class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary right-4 top-1/2 bg-white/50 hover:bg-white">
-        ▶
-      </button>
+      <%= render partial: "shared/testimonial-card", locals: {
+        name: "Aaron Dufall",
+        message: "“Meeting a tight deadline, Josiah's agility and precision in developing key features not only propelled our project beyond expectations but also showcased his dependable expertise in software development tailored to our needs.”",
+        title: "President",
+        company: "Scalelabs"
+      } %>
+      
+      <%= render partial: "shared/testimonial-card", locals: {
+        name: "Roger Kondrat",
+        message: "“Josiah's dedication to self-improvement is truly remarkable. His proactive approach to learning and staying ahead of industry trends is evident in the high-quality work he consistently delivers.”",
+        title: "President",
+        company: "OpenRangeDevs"
+      } %>
     </div>
   </div>
 </section>
