@@ -1,6 +1,6 @@
-<section class="flex items-center justify-center min-h-screen px-4 py-12 bg-background-navy md:px-8">
-  <div class="flex flex-col items-center justify-center w-full h-full gap-8 content-container lg:flex-row">
-    <div class="w-full space-y-6 text-center lg:w-full lg:text-left">
+<section class="flex justify-center items-center px-4 py-12 min-h-screen bg-background-navy md:px-8">
+  <div class="flex flex-col gap-8 justify-center items-center w-full h-full content-container lg:flex-row">
+    <div class="space-y-6 w-full text-center lg:w-full lg:text-left">
       <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">Your local software <strong class="text-secondary">experts</strong> that deliver results</h1>
       <p class="text-base text-white sm:text-lg">Our unique approach to software development focuses on understanding your concerns and presenting data to back up your decisions, ensuring that our custom software solutions meet and exceed your business objectives.</p>
     </div>
@@ -17,11 +17,11 @@
     </div>
 
     <div class="flex flex-col items-start md:flex-row md:justify-between md:gap-16">
-      <div class="w-full mb-8 md:w-1/2 md:mb-0">
+      <div class="mb-8 w-full md:w-1/2 md:mb-0">
         <%= image_tag("Josiah-March2024-8-M.jpg", class: "rounded-xl shadow-lg w-full h-auto") %>
       </div>
 
-      <div class="w-full space-y-10 md:w-1/2">
+      <div class="space-y-10 w-full md:w-1/2">
         <div class="text-center md:text-left">
           <h3 class="">Client-Focused Approach</h3>
           <p class="">Your goals drive our roadmap. We listen before we build, and we adapt as your needs evolve. We don't chase trends—we focus on what moves your business forward. Every decision, from UX to infrastructure, is made with your success in mind.</p>
@@ -47,7 +47,7 @@
       <p class="">What we do</p>
     </div>
 
-    <div class="flex-col w-full space-y-16">
+    <div class="flex-col space-y-16 w-full">
       <%= render partial: "shared/service-card", locals: {
         reverse: false,
         image_src: asset_path("web-application-dev.jpg"),
@@ -68,6 +68,13 @@
         heading: "Website Modernization",
         description: "Give your startup a competitive edge with a modernized website from ClientFirst Labs. We revamp outdated websites to improve aesthetics, functionality, and user experience, making your business more appealing and accessible to customers. Modernize your online presence to boost engagement, enhance SEO, and increase conversion rates."
       } %>
+
+      <%= render partial: "shared/service-card", locals: {
+        reverse: true,
+        image_src: asset_path("staff-augmentation.png"),
+        heading: "Staff Augmentation",
+        description: "Done-With-You Feature Delivery for Overcapacity Agencies. We embed a senior engineer into your stack (React, Rails, iOS, or Python) in under 48 hours. You get a product-minded developer with proven agency experience, providing daily async updates and requiring zero micromanagement. Our focus is always on MVP impact, not building unnecessary features, and you can scale our involvement up or down as needed. We guarantee bug-free delivery, fixing any issues at no extra cost. Multiply your staff's efforts and ship faster—without the overhead of hiring more employees."
+      } %>
     </div>
   </div>
 </section>
@@ -79,35 +86,35 @@
     </div>
     
     <div class="flex flex-col items-center space-y-16 md:hidden">
-      <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-        <div class="flex justify-center w-full mb-4 md:mb-0">
+      <div class="flex flex-col justify-center items-center w-full md:gap-8 md:flex-row">
+        <div class="flex justify-center mb-4 w-full md:mb-0">
           <%= image_tag("aspire/case-study-home.png", class: "max-w-[500px]") %>
         </div>
 
         <div class="w-full">
           <div class="w-full">
             <h2 class="text-4xl text-center text-white md:text-left">Aspire</h2>
-            <p class="w-full mt-4 text-3xl text-center md:w-4/5 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
+            <p class="mt-4 w-full text-3xl text-center md:w-4/5 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
           </div>
 
-          <div class="flex justify-center w-full mt-16 md:justify-start">
+          <div class="flex justify-center mt-16 w-full md:justify-start">
             <%= link_to "View case study", aspire_case_studies_path, class: "text-xl text-primary" %>
           </div>
         </div>
       </div>
 
-      <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-        <div class="flex justify-center w-full mb-4 md:mb-0">
+      <div class="flex flex-col justify-center items-center w-full md:gap-8 md:flex-row">
+        <div class="flex justify-center mb-4 w-full md:mb-0">
           <%= image_tag("wecasa/case-study-home.png", class: "max-w-[500px]") %>
         </div>
 
         <div class="w-full">
           <div class="w-full">
             <h2 class="text-4xl text-center text-white md:text-left">Wecasa</h2>
-            <p class="w-full mt-4 text-3xl text-center md:w-4/5 md:text-left">Creating a Web and Mobile Platform to Simplify Second Home Management</p>
+            <p class="mt-4 w-full text-3xl text-center md:w-4/5 md:text-left">Creating a Web and Mobile Platform to Simplify Second Home Management</p>
           </div>
 
-          <div class="flex justify-center w-full mt-16 md:justify-start">
+          <div class="flex justify-center mt-16 w-full md:justify-start">
             <%= link_to "View case study", "", class: "text-xl text-primary" %>
           </div>
         </div>
@@ -117,22 +124,22 @@
     <div data-controller="carousel"
       data-carousel-autoplay-value="false"
       data-carousel-interval-value="5000"
-      class="relative hidden w-full max-w-5xl mx-auto overflow-hidden rounded-xl md:block">
+      class="hidden overflow-hidden relative mx-auto w-full max-w-5xl rounded-xl md:block">
 
       <div class="relative">
         <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
-          <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-            <div class="flex justify-center w-full mb-4 md:mb-0">
+          <div class="flex flex-col justify-center items-center w-full md:gap-8 md:flex-row">
+            <div class="flex justify-center mb-4 w-full md:mb-0">
               <%= image_tag("aspire/case-study-home.png", class: "max-w-[500px]") %>
             </div>
 
             <div class="w-full">
               <div class="w-full">
                 <h2 class="text-4xl text-center text-white md:text-left">Aspire</h2>
-                <p class="w-full mt-4 text-3xl text-center md:w-3/4 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
+                <p class="mt-4 w-full text-3xl text-center md:w-3/4 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
               </div>
 
-              <div class="flex justify-center w-full mt-16 md:justify-start">
+              <div class="flex justify-center mt-16 w-full md:justify-start">
                 <%= link_to "View case study", aspire_case_studies_path, class: "text-xl text-primary" %>
               </div>
             </div>
@@ -140,18 +147,18 @@
         </div>
 
         <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
-          <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-            <div class="flex justify-center w-full mb-4 md:mb-0">
+          <div class="flex flex-col justify-center items-center w-full md:gap-8 md:flex-row">
+            <div class="flex justify-center mb-4 w-full md:mb-0">
               <%= image_tag("wecasa/case-study-home.png", class: "max-w-[500px]") %>
             </div>
 
             <div class="w-full">
               <div class="w-full">
                 <h2 class="text-4xl text-center text-white md:text-left">Wecasa</h2>
-                <p class="w-full mt-4 text-3xl text-center md:w-3/4 md:text-left">Making Luxury Vacation Homes Truly Shareable</p>
+                <p class="mt-4 w-full text-3xl text-center md:w-3/4 md:text-left">Making Luxury Vacation Homes Truly Shareable</p>
               </div>
 
-              <div class="flex justify-center w-full mt-16 md:justify-start">
+              <div class="flex justify-center mt-16 w-full md:justify-start">
                 <%= link_to "View case study", wecasa_case_studies_path, class: "text-xl text-primary" %>
               </div>
             </div>
@@ -160,12 +167,12 @@
       </div>
 
       <button data-action="click->carousel#previous"
-        class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary left-4 top-1/2 bg-white/50 hover:bg-white">
+        class="absolute left-4 top-1/2 p-2 rounded-full transition -translate-y-1/2 text-primary bg-white/50 hover:bg-white">
         ◀
       </button>
 
       <button data-action="click->carousel#next"
-        class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary right-4 top-1/2 bg-white/50 hover:bg-white">
+        class="absolute right-4 top-1/2 p-2 rounded-full transition -translate-y-1/2 text-primary bg-white/50 hover:bg-white">
         ▶
       </button>
   </div>
@@ -191,7 +198,7 @@
       <p class="">Testimonials</p>
     </div>
 
-    <div class="flex flex-col items-center justify-center w-full gap-8 lg:gap-12 lg:flex-row">
+    <div class="flex flex-col gap-8 justify-center items-center w-full lg:gap-12 lg:flex-row">
       <%= render partial: "shared/testimonial-card", locals: {
         name: "Mark Proudfoot",
         message: "“Josiah excelled in building our company's software with clear and concise communication, ensuring a smooth and efficient development process.”",
