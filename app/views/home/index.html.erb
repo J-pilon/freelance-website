@@ -1,8 +1,8 @@
 <section class="flex items-center justify-center min-h-screen px-4 py-12 bg-background-navy md:px-8">
   <div class="flex flex-col items-center justify-center w-full h-full gap-8 content-container lg:flex-row">
     <div class="w-full space-y-6 text-center lg:w-full lg:text-left">
-      <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">Your local software <strong class="text-secondary">experts</strong> that deliver results</h1>
-      <p class="text-base text-white sm:text-lg">Our unique approach to software development focuses on understanding your concerns and presenting data to back up your decisions, ensuring that our custom software solutions meet and exceed your business objectives.</p>
+      <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">The product development partner for <strong class="text-secondary">early-stage Canadian startups</strong></h1>
+      <p class="text-base text-white sm:text-lg">We help founders ship their MVP, validate faster, and scale their product — without building a full in-house engineering team. From idea to production, we move at startup speed.</p>
     </div>
     <div class="flex justify-center w-full">
       <%= image_tag("icons/swoosh.svg", class: "") %>
@@ -11,6 +11,48 @@
 </section>
 
 <section class="px-4 py-16 bg-background-black md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-16 pill">
+      <p class="">Who we work best with</p>
+    </div>
+
+    <div class="w-full mb-16 text-center">
+      <p class="max-w-2xl mx-auto text-base text-white sm:text-lg">We partner with early-stage startups that are ready to move fast. If you're building a product and need a technical partner — not just a vendor — you're in the right place.</p>
+      <div class="flex flex-wrap justify-center gap-3 mt-8">
+        <span class="px-4 py-2 text-sm font-medium text-white rounded-full bg-white/10">Pre-seed to Series A</span>
+        <span class="px-4 py-2 text-sm font-medium text-white rounded-full bg-white/10">1–10 employees</span>
+        <span class="px-4 py-2 text-sm font-medium text-white rounded-full bg-white/10">Founder-led teams</span>
+        <span class="px-4 py-2 text-sm font-medium text-white rounded-full bg-white/10">MVP stage companies</span>
+      </div>
+    </div>
+
+    <div class="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
+      <div class="p-8 rounded-xl bg-white/5">
+        <h3 class="mb-4">Builder Founder</h3>
+        <p class="mb-6 text-white/80">You have the vision but need someone to build it. You're non-technical or semi-technical, under pressure to show traction, and need a trusted technical partner — not a dev shop that disappears after delivery.</p>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li>→ MVP development from scratch</li>
+          <li>→ Product validation & iteration</li>
+          <li>→ Replace manual workflows with software</li>
+          <li>→ Build your SaaS product</li>
+        </ul>
+      </div>
+
+      <div class="p-8 rounded-xl bg-white/5">
+        <h3 class="mb-4">Overloaded Technical Founder</h3>
+        <p class="mb-6 text-white/80">You're writing most of the code yourself. You need capacity, architecture guidance, and a team that can ship — so you can focus on the business instead of being stuck in the codebase.</p>
+        <ul class="space-y-2 text-sm text-white/70">
+          <li>→ Refactor and clean up your prototype</li>
+          <li>→ Extend your engineering capacity</li>
+          <li>→ Ship features faster</li>
+          <li>→ Add AI or third-party integrations</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-16 bg-background-navy md:px-8">
   <div class="flex flex-col items-center content-container">
     <div class="mb-16 pill">
       <p class="">What we stand for</p>
@@ -23,18 +65,18 @@
 
       <div class="w-full space-y-10 md:w-1/2">
         <div class="text-center md:text-left">
-          <h3 class="">Client-Focused Approach</h3>
-          <p class="">Your goals drive our roadmap. We listen before we build, and we adapt as your needs evolve. We don't chase trends—we focus on what moves your business forward. Every decision, from UX to infrastructure, is made with your success in mind.</p>
+          <h3 class="">Founder-First Partnership</h3>
+          <p class="">Your traction milestones drive our roadmap. We work as an extension of your founding team — listening before we build, adapting as your product evolves, and making every technical decision with your growth stage in mind. We succeed when you do.</p>
         </div>
 
         <div class="text-center md:text-left">
-          <h3 class="">Product-First Thinking</h3>
-          <p class="">We focus on what your users are really trying to accomplish and build features that move the needle. Whether it’s automating repetitive processes, optimizing critical workflows, or refining key user interactions, we care deeply about the “why” behind every feature. That lens leads to software that’s not only functional, but intuitive, impactful, and—most importantly—used.</p>
+          <h3 class="">Ship Fast, Validate First</h3>
+          <p class="">We build what your users need to validate your idea — not what looks impressive in a demo. Every feature is scoped around learning and traction. We help you get to your first users, first revenue, and first signal as quickly as possible — then scale from there.</p>
         </div>
         
         <div class="text-center md:text-left">
-          <h3 class="">On Budget, On Purpose</h3>
-          <p class="">We treat your budget like it’s our own. From day one, we prioritize the features that deliver the most value and avoid scope creep disguised as “nice-to-haves.” Our process is transparent, and our estimates are grounded in real experience—so you’re never caught off guard. Predictable spend, no surprises.</p>
+          <h3 class="">Runway-Conscious Development</h3>
+          <p class="">We treat your runway like it’s ours. We scope to what delivers the most value, cut what doesn’t, and give you predictable estimates grounded in real startup experience. No surprise invoices, no scope creep — just transparent execution built around your budget.</p>
         </div>
       </div>
     </div>
@@ -51,28 +93,65 @@
       <%= render partial: "shared/service-card", locals: {
         reverse: false,
         image_src: asset_path("web-application-dev.jpg"),
-        heading: "Web Application Design & Development",
-        description: "Transform your startup’s vision into a robust and scalable web application with ClientFirst Labs. Our team specializes in creating user-friendly, high-performance web applications tailored to meet your business needs. Benefit from our expertise in the latest technologies to ensure your application is secure, maintainable, and ready for future growth."
+        heading: "MVP & Web Application Development",
+        description: "Go from idea to a production-ready MVP without wasted time or over-engineered architecture. We scope, design, and build your web application around what you need to validate — fast. Whether you're raising a round or landing your first customers, we get you to launch with a product that’s solid, scalable, and built to grow."
       } %>
 
       <%= render partial: "shared/service-card", locals: {
         reverse: true,
         image_src: asset_path("mobile-dev.jpg"),
-        heading: "Mobile Application Design & Development",
-        description: "Enhance your startup’s reach with custom mobile applications designed and developed by ClientFirst Labs. We deliver seamless, intuitive mobile experiences that engage users and drive business growth. Whether it's for iOS or Android, our solutions are optimized for performance and usability, ensuring your app stands out in a competitive market."
+        heading: "Mobile App Development",
+        description: "Build a startup-grade iOS or Android app designed around user retention and product-market fit. We handle the full build — from UX through deployment — so you can focus on growth instead of managing a complex mobile codebase. Optimized for performance, built to iterate quickly as your product evolves."
       } %>
       
       <%= render partial: "shared/service-card", locals: {
         reverse: false,
         image_src: asset_path("modernization.webp"),
-        heading: "Website Modernization",
-        description: "Give your startup a competitive edge with a modernized website from ClientFirst Labs. We revamp outdated websites to improve aesthetics, functionality, and user experience, making your business more appealing and accessible to customers. Modernize your online presence to boost engagement, enhance SEO, and increase conversion rates."
+        heading: "Prototype Refactoring & Integrations",
+        description: "Stuck with messy early code that’s slowing you down? We clean up prototypes, refactor unstable foundations, and add the integrations your product needs — SaaS tools, payment systems, AI workflows, and automation. Turn your proof-of-concept into a product you can confidently demo, sell, and scale."
       } %>
     </div>
   </div>
 </section>
 
 <section class="px-4 py-16 bg-background-black md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-16 pill">
+      <p class="">Common startup projects</p>
+    </div>
+
+    <p class="max-w-2xl mb-16 text-base text-center text-white sm:text-lg">Not sure exactly what you need? Here are the projects we get pulled into most often by early-stage founders.</p>
+
+    <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="p-6 rounded-xl bg-white/5">
+        <h3 class="mb-3 text-lg">MVP Development</h3>
+        <p class="text-sm text-white/70">You have a validated idea and need a working product. We scope and build your MVP — fast, focused, and production-ready.</p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-white/5">
+        <h3 class="mb-3 text-lg">Prototype Refactoring</h3>
+        <p class="text-sm text-white/70">Your early prototype got you this far. Now it needs a clean foundation before you scale. We restructure it so your team can move fast without breaking things.</p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-white/5">
+        <h3 class="mb-3 text-lg">SaaS Integrations</h3>
+        <p class="text-sm text-white/70">Connect your product to Stripe, Twilio, HubSpot, or any third-party tool your business runs on. We own the integration end-to-end.</p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-white/5">
+        <h3 class="mb-3 text-lg">AI & Automation</h3>
+        <p class="text-sm text-white/70">Add AI-powered features, automate internal workflows, or embed LLMs into your product. We make AI practical — not just a feature on a roadmap.</p>
+      </div>
+
+      <div class="p-6 rounded-xl bg-white/5">
+        <h3 class="mb-3 text-lg">Replace Manual Workflows</h3>
+        <p class="text-sm text-white/70">Still running operations on spreadsheets or manual processes? We build lightweight internal tools and automations that eliminate bottlenecks as you scale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-16 bg-background-navy md:px-8">
   <div class="flex flex-col items-center content-container">
     <div class="mb-16 pill">
       <p class="">Our work</p>
@@ -174,13 +253,14 @@
 <section class="px-4 py-16 bg-background-navy md:px-8">
   <div class="flex flex-col items-center content-container">
     <div class="mb-16 pill">
-      <p class="">Ready to start</p>
+      <p class="">Book a founder call</p>
     </div>
 
-    <h2 class="max-w-xl text-2xl text-center text-white sm:text-3xl md:text-4xl">Let’s turn your ideas into results!</h2>
+    <h2 class="max-w-xl text-2xl text-center text-white sm:text-3xl md:text-4xl">Ready to build your startup product?</h2>
+    <p class="max-w-lg mt-4 text-base text-center text-white/80">Book a free 30-minute strategy call. We’ll talk through your idea, your stage, and whether we’re the right fit.</p>
 
     <div class="mt-8">
-      <%= link_to "Get in touch", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
+      <%= link_to "Book a Founder Strategy Call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
     </div>
   </div>
 </section>
