@@ -19,19 +19,19 @@
   }
 
   h1 {
-    @apply mb-4 text-3xl font-bold leading-tight tracking-wide sm:text-4xl md:text-5xl;
+    @apply mb-4 text-3xl font-bold tracking-wide leading-tight sm:text-4xl md:text-5xl;
   }
 
   h2 {
-    @apply mb-4 text-2xl font-bold leading-tight tracking-wide sm:text-3xl md:text-4xl;
+    @apply mb-4 text-2xl font-bold tracking-wide leading-tight sm:text-3xl md:text-4xl;
   }
 
   h3 {
-    @apply mb-3 text-xl font-bold leading-tight tracking-wide sm:text-2xl md:text-3xl;
+    @apply mb-3 text-xl font-bold tracking-wide leading-tight sm:text-2xl md:text-3xl;
   }
 
   h4 {
-    @apply text-lg sm:text-xl md:text-2xl lg:text-3xl leading-tight font-bold mb-2.5 tracking-wide;
+    @apply mb-2.5 text-lg font-bold tracking-wide leading-tight sm:text-xl md:text-2xl lg:text-3xl;
   }
 
   h5 {
@@ -39,7 +39,7 @@
   }
 
   h6 {
-    @apply text-sm sm:text-base md:text-lg leading-tight font-bold mb-1.5;
+    @apply mb-1.5 text-sm font-bold leading-tight sm:text-base md:text-lg;
   }
 
   p {
@@ -63,17 +63,17 @@
   }
 
   img {
-    @apply flex items-center justify-center object-cover w-full h-full;
+    @apply flex object-cover justify-center items-center w-full h-full;
   }
 
   section {
-    @apply flex flex-col w-full px-4 py-16 sm:px-8 md:px-24 md:py-20;
+    @apply flex flex-col px-4 py-16 w-full sm:px-8 md:px-24 md:py-20;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply text-gray-900 no-underline border-transparent btn bg-primary max-w-52;
+    @apply text-gray-900 no-underline border-transparent btn bg-primary;
   }
 
   /* .btn-secondary {
@@ -89,7 +89,7 @@
   }
 
   .pill {
-    @apply px-3 py-2 bg-gray-700 rounded-full whitespace-nowrap;
+    @apply px-3 py-2 whitespace-nowrap bg-gray-700 rounded-full;
     & > * {
       @apply font-semibold text-md text-primary;
     }
@@ -128,7 +128,7 @@
 
 @layer utilities {
   .btn {
-    @apply flex items-center justify-center font-bold whitespace-nowrap all-corners-box-shadow;
+    @apply flex justify-center items-center font-bold whitespace-nowrap all-corners-box-shadow;
     border-radius: 12px;
   }
 
@@ -165,15 +165,15 @@
   }
 
   .flex-col-center {
-    @apply flex flex-col items-center justify-center;
+    @apply flex flex-col justify-center items-center;
   }
 
   .flex-row-start {
-    @apply flex items-center justify-start;
+    @apply flex justify-start items-center;
   }
 
   .flex-row-center {
-    @apply flex items-center justify-center;
+    @apply flex justify-center items-center;
   }
 
   .icon {
@@ -182,7 +182,7 @@
   }
 
   .content-container {
-    @apply w-full mx-auto max-w-7xl;
+    @apply mx-auto w-full max-w-7xl;
   }
 
   .full-view-height {

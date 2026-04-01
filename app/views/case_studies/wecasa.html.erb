@@ -1,14 +1,14 @@
 <section class="px-4 py-12 text-center sm:px-8 md:px-16 md:text-left">
-  <div class="max-w-5xl mx-auto">
-    <div class="flex flex-col items-center gap-8 md:flex-row md:items-start">
+  <div class="mx-auto max-w-5xl">
+    <div class="flex flex-col gap-8 items-center md:flex-row md:items-start">
       <div class="flex-1 space-y-4">
-        <div  class="w-full max-w-[250px] mb-4 md:mb-0">
+        <div class="w-full max-w-[250px] mb-4 md:mb-0">
           <%= image_tag "wecasa/logo.svg", class: "object-fit" %>
         </div>
-        
-        <p class="text-lg text-white/80">Making Luxury Vacation Homes Truly Shareable</p>
+
+        <p class="text-lg text-white/80">How we helped a co-ownership startup eliminate support overhead and ship a scalable booking platform</p>
       </div>
-      
+
       <div class="flex-1">
         <div class="bg-transparent w-[500px] lg:w-[720px]">
           <%= image_tag "wecasa/hero.png", class: "object-fit w-full" %>
@@ -19,93 +19,125 @@
 </section>
 
 <section class="px-4 py-12 bg-background-black sm:px-8 md:px-16">
-  <div class="max-w-5xl mx-auto">
+  <div class="mx-auto max-w-5xl">
     <h3 class="mb-6 font-semibold">Results</h3>
 
     <div class="grid gap-8 md:grid-cols-3">
-      <div>
-        <h4 class="mb-3 font-bold">Equitable Booking Logic</h4>
-        <p class="">We engineered a custom rules engine that fairly distributes vacation time among multiple owners, accounting for seasonal demand, ownership share, and cancellation history.</p>
+      <div class="p-6 rounded-xl bg-white/5">
+        <p class="mb-2 text-3xl font-bold text-secondary">60%</p>
+        <h4 class="mb-2 font-bold">Fewer Support Tickets</h4>
+        <p class="text-sm text-white/70">Self-serve sandbox replaced manual onboarding calls, cutting support overhead in half.</p>
       </div>
 
-      <div>
-        <h4 class="mb-3 font-bold">Responsive Cross-Device Experience</h4>
-        <p class="">Built for elegance and usability, the platform delivers a seamless booking experience across mobile, tablet, and desktop—ensuring owners can manage their getaways from anywhere.</p>
+      <div class="p-6 rounded-xl bg-white/5">
+        <p class="mb-2 text-3xl font-bold text-secondary">↑ Activation</p>
+        <h4 class="mb-2 font-bold">Improved User Activation</h4>
+        <p class="text-sm text-white/70">Owners could explore the platform independently, leading to faster time-to-value and higher retention.</p>
       </div>
 
-      <div>
-        <h4 class="mb-3 font-bold">Seamless Owner Support</h4>
-        <p class="">With built-in communication tools, owners can connect with Wecasa at any point in their journey to guarantee an exceptional stay.</p>
+      <div class="p-6 rounded-xl bg-white/5">
+        <p class="mb-2 text-3xl font-bold text-secondary">Full Stack</p>
+        <h4 class="mb-2 font-bold">End-to-End Ownership</h4>
+        <p class="text-sm text-white/70">One partner handled product, engineering, and DevOps — no coordination overhead, no dropped context.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="px-4 py-12 bg-background-navy sm:px-8 md:px-16">
-  <div class="max-w-5xl mx-auto space-y-12">
-    <h3 class="text-xl font-semibold">The development process</h3>
+  <div class="mx-auto space-y-16 max-w-5xl">
 
-    <div  class="w-full max-w-[1024px] mb-4 md:mb-0">
-      <%= image_tag "wecasa/development-process.png", class: "object-fit" %>
+    <div class="grid gap-12 md:grid-cols-2">
+      <div>
+        <div class="mb-6 pill w-fit">
+          <p>Client Context</p>
+        </div>
+        <h3 class="mb-4 text-xl font-semibold">PropTech startup solving co-ownership friction</h3>
+        <p class="text-white/80">Wecasa is a Canadian startup building a platform for luxury vacation home co-ownership. Their product needed to handle complex multi-owner booking logic, provide a seamless onboarding experience, and scale without adding operational overhead. They came to us at a critical pre-scale stage — with a concept validated but a product that wasn't ready to grow.</p>
+      </div>
+
+      <div>
+        <div class="mb-6 pill w-fit">
+          <p>Challenge</p>
+        </div>
+        <h3 class="mb-4 text-xl font-semibold">Three blockers preventing growth</h3>
+        <ul class="space-y-3 text-white/80">
+          <li>→ No fair algorithm for distributing booking time across multiple owners with competing preferences</li>
+          <li>→ New users required manual onboarding support, creating support ticket volume that didn't scale</li>
+          <li>→ No CI/CD pipeline or DevOps foundation — shipping new features was slow and risky</li>
+        </ul>
+      </div>
     </div>
-    
-    <p class="">
-      Luxury, shared. That was Wecasa’s big idea—redefining how high-end vacation homes could be co-owned and enjoyed. But the concept hinged on one critical factor: fairness.<br><br> 
 
-      We kicked off by mapping out every edge case in their booking model—from long weekends to school holidays and high-season disputes. This required more than a calendar—it needed logic, math, and diplomacy. We collaborated closely with Wecasa’s team to develop a transparent, rules-based system that made booking feel effortless and equitable.<br><br> 
+    <div>
+      <div class="mb-6 pill w-fit">
+        <p>Solution</p>
+      </div>
+      <h3 class="mb-4 text-xl font-semibold">Full-stack product ownership from day one</h3>
+      <p class="mb-6 text-white/80">We took full ownership of the product — engineering, architecture, and deployment. No handoffs, no coordination overhead. Every decision was made with Wecasa's growth stage in mind.</p>
 
-      Design mattered just as much. Whether an owner was checking availability on their phone at the airport or planning a summer getaway from their desktop, the interface needed to feel intuitive and polished. So, we built a responsive front-end that met luxury expectations while keeping interactions fast and frustration-free.<br><br> 
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="p-5 rounded-xl bg-white/5">
+          <h4 class="mb-2 font-bold">Fair Booking Engine</h4>
+          <p class="text-sm text-white/70">Built a rules-based algorithm that distributes vacation time based on ownership share, seasonal demand, and cancellation history — automatically and transparently.</p>
+        </div>
 
-      Throughout the process, we maintained weekly feedback loops and tied every milestone back to key business goals—clarity for co-owners, confidence for investors, and scalability for the platform.
-    </p>
-    
-    <div class="mt-8">
-      <%= link_to "Get in touch", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
+        <div class="p-5 rounded-xl bg-white/5">
+          <h4 class="mb-2 font-bold">Self-Serve Sandbox</h4>
+          <p class="text-sm text-white/70">Designed and shipped a guided sandbox environment so new owners could explore the platform independently — eliminating the need for manual onboarding calls.</p>
+        </div>
+
+        <div class="p-5 rounded-xl bg-white/5">
+          <h4 class="mb-2 font-bold">CI/CD & DevOps Foundation</h4>
+          <p class="text-sm text-white/70">Established a full continuous integration pipeline, enabling the team to ship features faster and with confidence — without fear of production regressions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="mb-6 pill w-fit">
+        <p>Outcomes</p>
+      </div>
+      <h3 class="mb-4 text-xl font-semibold">Measurable results that moved the business</h3>
+      <ul class="space-y-3 text-white/80">
+        <li>→ <strong>60% reduction in support tickets</strong> — self-serve sandbox replaced manual onboarding</li>
+        <li>→ <strong>Improved user activation</strong> — owners reached first value faster without support dependency</li>
+        <li>→ <strong>Fair booking system in production</strong> — complex multi-owner logic shipped cleanly with no disputes post-launch</li>
+        <li>→ <strong>Faster iteration cycles</strong> — CI/CD pipeline cut deployment risk and accelerated feature delivery</li>
+      </ul>
+    </div>
+
+    <div class="grid gap-12 md:grid-cols-2">
+      <div>
+        <div class="mb-6 pill w-fit">
+          <p>Why this matters for startups</p>
+        </div>
+        <h3 class="mb-4 text-xl font-semibold">Startup velocity without the agency overhead</h3>
+        <p class="text-white/80">Wecasa didn't need a dev shop that delivered code and moved on. They needed a product partner who understood their growth stage and made engineering decisions that reduced operational risk. We shipped a full-stack platform — including the parts founders never think about, like DevOps and onboarding UX — so their team could focus on sales and fundraising instead of support queues.</p>
+      </div>
+
+      <div>
+        <div class="mb-6 pill w-fit">
+          <p>Tech Stack</p>
+        </div>
+        <div class="flex flex-wrap gap-2 mt-2">
+          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">Ruby on Rails</span>
+          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">Hotwire</span>
+          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">PostgreSQL</span>
+          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">AWS</span>
+          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">CI/CD</span>
+          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">React Native</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center mt-8">
+      <%= link_to "Book a Founder Strategy Call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
     </div>
   </div>
 </section>
 
-<section class="px-4 py-12 bg-background-black sm:px-8 md:px-16">
-  <div class="max-w-5xl mx-auto">
-    <h3 class="mb-6 text-xl font-semibold">Key Features</h3>
-    <div class="space-y-32">
-      <div class="flex flex-col items-center gap-8 md:flex-row">
-        <div  class="w-full max-w-[650px] min-w-[420px] mb-4 md:mb-0">
-          <%= image_tag "wecasa/booking-rules.png", class: "w-full" %>
-        </div>
-
-        <div class="text-center md:text-left">
-          <h4 class="mb-2 font-bold">Rules-Based Booking Engine</h4>
-          <p class="">Allocates vacation time fairly based on ownership percentage, preferred dates, and cancellation behavior—automatically enforcing fairness.</p>
-        </div>
-      </div>
-
-      <div class="flex flex-col items-center gap-8 md:flex-row-reverse">
-        <div  class="w-full max-w-[650px] min-w-[420px] mb-4 md:mb-0">
-          <%= image_tag "wecasa/responsive-design.png", class: "w-full" %>
-        </div>
-
-        <div class="text-center md:text-left">
-          <h4 class="mb-2 font-bold">Responsive Design for All Devices</h4>
-          <p class="">From tap-friendly mobile views to rich desktop interfaces, the app adapts beautifully to every screen size and context.</p>
-        </div>
-      </div>
-      
-      <div class="flex flex-col items-center gap-8 md:flex-row">
-        <div  class="w-full max-w-[650px] min-w-[420px] mb-4 md:mb-0">
-          <%= image_tag "wecasa/contact-us.png", class: "w-full" %>
-        </div>
-
-        <div class="text-center md:text-left">
-          <h4 class="mb-2 font-bold">Owner Concierge Access</h4>
-          <p class="">Integrated contact options ensure owners can reach Wecasa support before, during, or after their stay—with issues handled quickly and personally.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="min-h-[714px] bg-background-navy py-16 px-4 md:px-8">
+<section class="min-h-[400px] bg-background-black py-16 px-4 md:px-8">
   <div class="flex flex-col items-center content-container">
     <div class="mb-16 pill">
       <p class="">Get in touch</p>
