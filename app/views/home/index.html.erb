@@ -1,6 +1,9 @@
-<section class="flex items-center justify-center min-h-screen px-4 py-12 bg-background-navy md:px-8">
-  <div class="flex flex-col items-center justify-center w-full h-full gap-8 content-container lg:flex-row">
-    <div class="w-full space-y-6 text-center lg:w-full lg:text-left">
+<% content_for :title, "Startup Software Development Partner | ClientFirst Labs" %>
+<% content_for :meta_description, "ClientFirst Labs helps early-stage Canadian startups build MVPs, refactor prototypes, and ship production-ready software fast. Book a free founder strategy call." %>
+
+<section class="flex justify-center items-center px-4 py-12 min-h-screen bg-background-navy md:px-8">
+  <div class="flex flex-col gap-8 justify-center items-center w-full h-full content-container lg:flex-row">
+    <div class="space-y-6 w-full text-center lg:w-full lg:text-left">
       <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">The product development partner for <strong class="text-secondary">early-stage Canadian startups</strong></h1>
       <p class="text-base text-white sm:text-lg">We help founders ship their MVP, validate faster, and scale their product — without building a full in-house engineering team. From idea to production, we move at startup speed.</p>
     </div>
@@ -16,9 +19,9 @@
       <p class="">Who we work best with</p>
     </div>
 
-    <div class="w-full mb-16 text-center">
-      <p class="max-w-2xl mx-auto text-base text-white sm:text-lg">We partner with early-stage startups that are ready to move fast. If you're building a product and need a technical partner — not just a vendor — you're in the right place.</p>
-      <div class="flex flex-wrap justify-center gap-3 mt-8">
+    <div class="mb-16 w-full text-center">
+      <p class="mx-auto max-w-2xl text-base text-white sm:text-lg">We partner with early-stage startups that are ready to move fast. If you're building a product and need a technical partner — not just a vendor — you're in the right place.</p>
+      <div class="flex flex-wrap gap-3 justify-center mt-8">
         <span class="px-4 py-2 text-sm font-medium text-white rounded-full bg-white/10">Pre-seed to Series A</span>
         <span class="px-4 py-2 text-sm font-medium text-white rounded-full bg-white/10">1–10 employees</span>
         <span class="px-4 py-2 text-sm font-medium text-white rounded-full bg-white/10">Founder-led teams</span>
@@ -26,7 +29,7 @@
       </div>
     </div>
 
-    <div class="grid w-full grid-cols-1 gap-8 md:grid-cols-2">
+    <div class="grid grid-cols-1 gap-8 w-full md:grid-cols-2">
       <div class="p-8 rounded-xl bg-white/5">
         <h3 class="mb-4">Builder Founder</h3>
         <p class="mb-6 text-white/80">You have the vision but need someone to build it. You're non-technical or semi-technical, under pressure to show traction, and need a trusted technical partner — not a dev shop that disappears after delivery.</p>
@@ -59,11 +62,11 @@
     </div>
 
     <div class="flex flex-col items-start md:flex-row md:justify-between md:gap-16">
-      <div class="w-full mb-8 md:w-1/2 md:mb-0">
+      <div class="mb-8 w-full md:w-1/2 md:mb-0">
         <%= image_tag("Josiah-March2024-8-M.jpg", class: "rounded-xl shadow-lg w-full h-auto") %>
       </div>
 
-      <div class="w-full space-y-10 md:w-1/2">
+      <div class="space-y-10 w-full md:w-1/2">
         <div class="text-center md:text-left">
           <h3 class="">Founder-First Partnership</h3>
           <p class="">Your traction milestones drive our roadmap. We work as an extension of your founding team — listening before we build, adapting as your product evolves, and making every technical decision with your growth stage in mind. We succeed when you do.</p>
@@ -119,27 +122,45 @@
       <p class="">What we do</p>
     </div>
 
-    <div class="flex-col w-full space-y-16">
-      <%= render partial: "shared/service-card", locals: {
-        reverse: false,
-        image_src: asset_path("web-application-dev.jpg"),
-        heading: "MVP & Web Application Development",
-        description: "Go from idea to a production-ready MVP without wasted time or over-engineered architecture. We scope, design, and build your web application around what you need to validate — fast. Whether you're raising a round or landing your first customers, we get you to launch with a product that’s solid, scalable, and built to grow."
-      } %>
+    <div class="flex-col space-y-16 w-full">
+      <div>
+        <h2 class="sr-only">MVP Development</h2>
+        <%= render partial: "shared/service-card", locals: {
+          reverse: false,
+          image_src: asset_path("web-application-dev.jpg"),
+          heading: "MVP Development",
+          description: "Go from idea to a production-ready MVP without wasted time or over-engineered architecture. We scope, design, and build your web application around what you need to validate — fast. Whether you're raising a round or landing your first customers, we get you to launch with a product that’s solid, scalable, and built to grow."
+        } %>
+        <div class="flex justify-end mt-4">
+          <%= link_to "Learn about MVP development →", mvp_development_path, class: "text-primary text-sm font-medium" %>
+        </div>
+      </div>
 
-      <%= render partial: "shared/service-card", locals: {
-        reverse: true,
-        image_src: asset_path("mobile-dev.jpg"),
-        heading: "Mobile App Development",
-        description: "Build a startup-grade iOS or Android app designed around user retention and product-market fit. We handle the full build — from UX through deployment — so you can focus on growth instead of managing a complex mobile codebase. Optimized for performance, built to iterate quickly as your product evolves."
-      } %>
-      
-      <%= render partial: "shared/service-card", locals: {
-        reverse: false,
-        image_src: asset_path("modernization.webp"),
-        heading: "Prototype Refactoring & Integrations",
-        description: "Stuck with messy early code that’s slowing you down? We clean up prototypes, refactor unstable foundations, and add the integrations your product needs — SaaS tools, payment systems, AI workflows, and automation. Turn your proof-of-concept into a product you can confidently demo, sell, and scale."
-      } %>
+      <div>
+        <h2 class="sr-only">Mobile App Development</h2>
+        <%= render partial: "shared/service-card", locals: {
+          reverse: true,
+          image_src: asset_path("mobile-dev.jpg"),
+          heading: "Mobile App Development",
+          description: "Build a startup-grade iOS or Android app designed around user retention and product-market fit. We handle the full build — from UX through deployment — so you can focus on growth instead of managing a complex mobile codebase. Optimized for performance, built to iterate quickly as your product evolves."
+        } %>
+        <div class="flex justify-end mt-4">
+          <%= link_to "Learn about startup product development →", startup_product_development_path, class: "text-primary text-sm font-medium" %>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="sr-only">Prototype to Production</h2>
+        <%= render partial: "shared/service-card", locals: {
+          reverse: false,
+          image_src: asset_path("modernization.webp"),
+          heading: "Prototype to Production",
+          description: "Stuck with messy early code that’s slowing you down? We clean up prototypes, refactor unstable foundations, and add the integrations your product needs — SaaS tools, payment systems, AI workflows, and automation. Turn your proof-of-concept into a product you can confidently demo, sell, and scale."
+        } %>
+        <div class="flex justify-end mt-4">
+          <%= link_to "Learn about prototype to production →", prototype_to_production_path, class: "text-primary text-sm font-medium" %>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -150,7 +171,7 @@
       <p class="">Technical expertise</p>
     </div>
 
-    <div class="flex flex-col w-full gap-12 md:flex-row md:items-start">
+    <div class="flex flex-col gap-12 w-full md:flex-row md:items-start">
       <div class="md:w-1/2">
         <h2 class="mb-4 text-2xl font-bold text-white sm:text-3xl">Senior-level engineering across the full stack</h2>
         <p class="mb-6 text-white/80">We don't outsource, offshore, or hand off to junior developers. Every line of code is written by senior engineers with production startup experience. You get the depth of a technical co-founder with the flexibility of an external partner.</p>
@@ -159,29 +180,38 @@
 
       <div class="md:w-1/2">
         <div class="grid grid-cols-2 gap-3">
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5">
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
             <span class="text-sm font-medium text-white">Ruby on Rails</span>
           </div>
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5">
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
             <span class="text-sm font-medium text-white">Hotwire / Turbo</span>
           </div>
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5">
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
             <span class="text-sm font-medium text-white">PostgreSQL</span>
           </div>
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5">
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
             <span class="text-sm font-medium text-white">AWS</span>
           </div>
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5">
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
             <span class="text-sm font-medium text-white">Stripe</span>
           </div>
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5">
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
             <span class="text-sm font-medium text-white">OpenAI / LLMs</span>
           </div>
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5">
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
             <span class="text-sm font-medium text-white">CI/CD Pipelines</span>
           </div>
-          <div class="flex items-center gap-3 p-4 rounded-xl bg-white/5">
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
             <span class="text-sm font-medium text-white">Automation Systems</span>
+          </div>
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
+            <span class="text-sm font-medium text-white">NextJS</span>
+          </div>
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
+            <span class="text-sm font-medium text-white">NestJS</span>
+          </div>
+          <div class="flex gap-3 items-center p-4 rounded-xl bg-white/5">
+            <span class="text-sm font-medium text-white">React / React Native</span>
           </div>
         </div>
       </div>
@@ -195,9 +225,9 @@
       <p class="">Common startup projects</p>
     </div>
 
-    <p class="max-w-2xl mb-16 text-base text-center text-white sm:text-lg">Not sure exactly what you need? Here are the projects we get pulled into most often by early-stage founders.</p>
+    <p class="mb-16 max-w-2xl text-base text-center text-white sm:text-lg">Not sure exactly what you need? Here are the projects we get pulled into most often by early-stage founders.</p>
 
-    <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-6 w-full sm:grid-cols-2 lg:grid-cols-3">
       <div class="p-6 rounded-xl bg-white/5">
         <h3 class="mb-3 text-lg">MVP Development</h3>
         <p class="text-sm text-white/70">You have a validated idea and need a working product. We scope and build your MVP — fast, focused, and production-ready.</p>
@@ -214,8 +244,9 @@
       </div>
 
       <div class="p-6 rounded-xl bg-white/5">
-        <h3 class="mb-3 text-lg">AI & Automation</h3>
+        <h3 class="mb-3 text-lg">AI & Automation for Startups</h3>
         <p class="text-sm text-white/70">Add AI-powered features, automate internal workflows, or embed LLMs into your product. We make AI practical — not just a feature on a roadmap.</p>
+        <%= link_to "Learn more →", ai_automation_path, class: "text-primary text-xs font-medium mt-3 inline-block" %>
       </div>
 
       <div class="p-6 rounded-xl bg-white/5">
@@ -232,10 +263,10 @@
       <p class="">Real startup outcomes</p>
     </div>
 
-    <h2 class="max-w-2xl mb-6 text-2xl font-bold text-center text-white sm:text-3xl">Measurable results, not just delivered features</h2>
-    <p class="max-w-2xl mb-16 text-base text-center text-white/80">Every engagement is scoped around business outcomes. Here's what that looks like in practice.</p>
+    <h2 class="mb-6 max-w-2xl text-2xl font-bold text-center text-white sm:text-3xl">Measurable results, not just delivered features</h2>
+    <p class="mb-16 max-w-2xl text-base text-center text-white/80">Every engagement is scoped around business outcomes. Here's what that looks like in practice.</p>
 
-    <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="grid grid-cols-1 gap-6 w-full sm:grid-cols-2 lg:grid-cols-4">
       <div class="p-6 rounded-xl bg-white/5">
         <p class="mb-2 text-3xl font-bold text-secondary">60%</p>
         <h3 class="mb-2 text-lg">Fewer Support Tickets</h3>
@@ -270,36 +301,36 @@
     </div>
     
     <div class="flex flex-col items-center space-y-16 md:hidden">
-      <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-        <div class="flex justify-center w-full mb-4 md:mb-0">
+      <div class="flex flex-col justify-center items-center w-full md:gap-8 md:flex-row">
+        <div class="flex justify-center mb-4 w-full md:mb-0">
           <%= image_tag("aspire/case-study-home.png", class: "max-w-[500px]") %>
         </div>
 
         <div class="w-full">
           <div class="w-full">
             <h2 class="text-4xl text-center text-white md:text-left">Aspire</h2>
-            <p class="w-full mt-4 text-3xl text-center md:w-4/5 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
+            <p class="mt-4 w-full text-3xl text-center md:w-4/5 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
           </div>
 
-          <div class="flex justify-center w-full mt-16 md:justify-start">
+          <div class="flex justify-center mt-16 w-full md:justify-start">
             <%= link_to "View case study", aspire_case_studies_path, class: "text-xl text-primary" %>
           </div>
         </div>
       </div>
 
-      <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-        <div class="flex justify-center w-full mb-4 md:mb-0">
+      <div class="flex flex-col justify-center items-center w-full md:gap-8 md:flex-row">
+        <div class="flex justify-center mb-4 w-full md:mb-0">
           <%= image_tag("wecasa/case-study-home.png", class: "max-w-[500px]") %>
         </div>
 
         <div class="w-full">
           <div class="w-full">
             <h2 class="text-4xl text-center text-white md:text-left">Wecasa</h2>
-            <p class="w-full mt-4 text-3xl text-center md:w-4/5 md:text-left">Creating a Web and Mobile Platform to Simplify Second Home Management</p>
+            <p class="mt-4 w-full text-3xl text-center md:w-4/5 md:text-left">Creating a Web and Mobile Platform to Simplify Second Home Management</p>
           </div>
 
-          <div class="flex justify-center w-full mt-16 md:justify-start">
-            <%= link_to "View case study", "", class: "text-xl text-primary" %>
+          <div class="flex justify-center mt-16 w-full md:justify-start">
+            <%= link_to "View case study", wecasa_case_studies_path, class: "text-xl text-primary" %>
           </div>
         </div>
       </div>
@@ -308,22 +339,22 @@
     <div data-controller="carousel"
       data-carousel-autoplay-value="false"
       data-carousel-interval-value="5000"
-      class="relative hidden w-full max-w-5xl mx-auto overflow-hidden rounded-xl md:block">
+      class="hidden overflow-hidden relative mx-auto w-full max-w-5xl rounded-xl md:block">
 
       <div class="relative">
         <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
-          <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-            <div class="flex justify-center w-full mb-4 md:mb-0">
+          <div class="flex flex-col justify-center items-center w-full md:gap-8 md:flex-row">
+            <div class="flex justify-center mb-4 w-full md:mb-0">
               <%= image_tag("aspire/case-study-home.png", class: "max-w-[500px]") %>
             </div>
 
             <div class="w-full">
               <div class="w-full">
                 <h2 class="text-4xl text-center text-white md:text-left">Aspire</h2>
-                <p class="w-full mt-4 text-3xl text-center md:w-3/4 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
+                <p class="mt-4 w-full text-3xl text-center md:w-3/4 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
               </div>
 
-              <div class="flex justify-center w-full mt-16 md:justify-start">
+              <div class="flex justify-center mt-16 w-full md:justify-start">
                 <%= link_to "View case study", aspire_case_studies_path, class: "text-xl text-primary" %>
               </div>
             </div>
@@ -331,18 +362,18 @@
         </div>
 
         <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
-          <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-            <div class="flex justify-center w-full mb-4 md:mb-0">
+          <div class="flex flex-col justify-center items-center w-full md:gap-8 md:flex-row">
+            <div class="flex justify-center mb-4 w-full md:mb-0">
               <%= image_tag("wecasa/case-study-home.png", class: "max-w-[500px]") %>
             </div>
 
             <div class="w-full">
               <div class="w-full">
                 <h2 class="text-4xl text-center text-white md:text-left">Wecasa</h2>
-                <p class="w-full mt-4 text-3xl text-center md:w-3/4 md:text-left">Making Luxury Vacation Homes Truly Shareable</p>
+                <p class="mt-4 w-full text-3xl text-center md:w-3/4 md:text-left">Making Luxury Vacation Homes Truly Shareable</p>
               </div>
 
-              <div class="flex justify-center w-full mt-16 md:justify-start">
+              <div class="flex justify-center mt-16 w-full md:justify-start">
                 <%= link_to "View case study", wecasa_case_studies_path, class: "text-xl text-primary" %>
               </div>
             </div>
@@ -351,14 +382,66 @@
       </div>
 
       <button data-action="click->carousel#previous"
-        class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary left-4 top-1/2 bg-white/50 hover:bg-white">
+        class="absolute left-4 top-1/2 p-2 rounded-full transition -translate-y-1/2 text-primary bg-white/50 hover:bg-white">
         ◀
       </button>
 
       <button data-action="click->carousel#next"
-        class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary right-4 top-1/2 bg-white/50 hover:bg-white">
+        class="absolute right-4 top-1/2 p-2 rounded-full transition -translate-y-1/2 text-primary bg-white/50 hover:bg-white">
         ▶
       </button>
+  </div>
+</section>
+
+<section class="px-4 py-16 bg-background-black md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <div class="mb-16 pill">
+      <p class="">Common questions</p>
+    </div>
+
+    <h2 class="mb-12 max-w-2xl text-2xl font-bold text-center text-white sm:text-3xl">Founder FAQ</h2>
+
+    <div class="space-y-4 w-full max-w-3xl">
+      <details class="p-6 rounded-xl bg-white/5 group">
+        <summary class="flex justify-between items-center font-semibold list-none text-white cursor-pointer">
+          How long does MVP development take?
+          <span class="ml-4 transition-transform text-secondary group-open:rotate-180">▼</span>
+        </summary>
+        <p class="mt-4 text-sm text-white/70">Most MVPs take 8–16 weeks depending on scope and complexity. We start with a scoping call to understand your goals, then provide a realistic timeline before we write a single line of code. We scope to what validates your idea — not what looks impressive in a deck.</p>
+      </details>
+
+      <details class="p-6 rounded-xl bg-white/5 group">
+        <summary class="flex justify-between items-center font-semibold list-none text-white cursor-pointer">
+          How much does MVP development cost?
+          <span class="ml-4 transition-transform text-secondary group-open:rotate-180">▼</span>
+        </summary>
+        <p class="mt-4 text-sm text-white/70">MVP projects typically range from $15K–$60K+ depending on the product. We price based on scope, not hours — so you get a fixed deliverable with no surprise invoices. We'll give you a clear estimate after our discovery call.</p>
+      </details>
+
+      <details class="p-6 rounded-xl bg-white/5 group">
+        <summary class="flex justify-between items-center font-semibold list-none text-white cursor-pointer">
+          Do you work with early-stage startups?
+          <span class="ml-4 transition-transform text-secondary group-open:rotate-180">▼</span>
+        </summary>
+        <p class="mt-4 text-sm text-white/70">Yes — early-stage startups are our primary focus. We work with pre-seed through Series A founders, typically 1–10 person teams who need a technical partner rather than a traditional agency. We're built for founder speed.</p>
+      </details>
+
+      <details class="p-6 rounded-xl bg-white/5 group">
+        <summary class="flex justify-between items-center font-semibold list-none text-white cursor-pointer">
+          Can you help us refactor an existing prototype?
+          <span class="ml-4 transition-transform text-secondary group-open:rotate-180">▼</span>
+        </summary>
+        <p class="mt-4 text-sm text-white/70">Absolutely. Prototype-to-production refactoring is one of our most common engagements. We audit your existing codebase, identify the highest-risk areas, and refactor in a way that keeps your product live while building a foundation you can scale on.</p>
+      </details>
+
+      <details class="p-6 rounded-xl bg-white/5 group">
+        <summary class="flex justify-between items-center font-semibold list-none text-white cursor-pointer">
+          Do you work with Canadian startups outside Toronto?
+          <span class="ml-4 transition-transform text-secondary group-open:rotate-180">▼</span>
+        </summary>
+        <p class="mt-4 text-sm text-white/70">Yes. We work with Canadian startups coast to coast — Vancouver, Calgary, Montreal, Ottawa, and beyond. We're fully remote-first and designed to work with distributed founding teams wherever they are.</p>
+      </details>
+    </div>
   </div>
 </section>
 
@@ -369,7 +452,7 @@
     </div>
 
     <h2 class="max-w-xl text-2xl text-center text-white sm:text-3xl md:text-4xl">Ready to build your startup product?</h2>
-    <p class="max-w-lg mt-4 text-base text-center text-white/80">Book a free 30-minute strategy call. We’ll talk through your idea, your stage, and whether we’re the right fit.</p>
+    <p class="mt-4 max-w-lg text-base text-center text-white/80">Book a free 30-minute strategy call. We’ll talk through your idea, your stage, and whether we’re the right fit.</p>
 
     <div class="mt-8">
       <%= link_to "Book a Founder Strategy Call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
@@ -383,7 +466,7 @@
       <p class="">Testimonials</p>
     </div>
 
-    <div class="flex flex-col items-center justify-center w-full gap-8 lg:gap-12 lg:flex-row">
+    <div class="flex flex-col gap-8 justify-center items-center w-full lg:gap-12 lg:flex-row">
       <%= render partial: "shared/testimonial-card", locals: {
         name: "Mark Proudfoot",
         message: "“Josiah excelled in building our company's software with clear and concise communication, ensuring a smooth and efficient development process.”",
