@@ -1,8 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>FreelanceWebsite</title>
+    <title><%= content_for?(:title) ? yield(:title) : "Startup Software Development Partner | ClientFirst Labs" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : "ClientFirst Labs helps early-stage startups build MVPs, refactor prototypes, and ship production-ready software fast. Book a founder strategy call." %>">
+    <link rel="canonical" href="<%= request.original_url %>">
+    <meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : "Startup Software Development Partner | ClientFirst Labs" %>">
+    <meta property="og:description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : "ClientFirst Labs helps early-stage startups build MVPs, refactor prototypes, and ship production-ready software fast. Book a founder strategy call." %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : "Startup Software Development Partner | ClientFirst Labs" %>">
+    <meta name="twitter:description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : "ClientFirst Labs helps early-stage startups build MVPs, refactor prototypes, and ship production-ready software fast. Book a founder strategy call." %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
