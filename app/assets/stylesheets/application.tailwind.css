@@ -127,6 +127,14 @@
 }
 
 @layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
   .btn {
     @apply flex justify-center items-center font-bold whitespace-nowrap all-corners-box-shadow;
     border-radius: 12px;
