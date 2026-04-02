@@ -1,0 +1,126 @@
+<% content_for :title, "Startup Product Development — Blog | ClientFirst Labs" %>
+<% content_for :meta_description, "Practical guides for early-stage startup founders on MVP development, startup product development, refactoring, and AI. Written by engineers who build startup products." %>
+
+<section class="flex items-center justify-center min-h-[40vh] px-4 py-20 bg-background-navy md:px-8">
+  <div class="w-full content-container">
+    <div class="max-w-3xl">
+      <div class="mb-6 pill w-fit">
+        <p>Blog</p>
+      </div>
+      <h1 class="mb-6 text-4xl font-bold leading-tight text-white sm:text-5xl">Startup Product Development</h1>
+      <p class="text-lg text-white/80">Practical guides for founders on building, shipping, and scaling startup products. No fluff — just what we've learned from building real startup software.</p>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-16 bg-background-black md:px-8">
+  <div class="content-container">
+    <div class="mb-12">
+      <div class="mb-8 pill w-fit">
+        <p>For the Builder Founder</p>
+      </div>
+      <h2 class="mb-8 text-2xl font-bold text-white">Building your first product</h2>
+
+      <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="p-6 rounded-xl bg-white/5">
+          <span class="inline-block mb-3 text-xs font-medium text-white/50 uppercase tracking-wide">MVP Development</span>
+          <h3 class="mb-3 text-lg font-semibold text-white">How to Build an MVP: A Founder's Guide</h3>
+          <p class="mb-4 text-sm text-white/70">What an MVP actually is, what it isn't, and how to scope one that validates your idea without wasting runway.</p>
+          <span class="text-xs text-white/40 italic">Coming soon</span>
+        </div>
+
+        <div class="p-6 rounded-xl bg-white/5">
+          <span class="inline-block mb-3 text-xs font-medium text-white/50 uppercase tracking-wide">MVP Development</span>
+          <h3 class="mb-3 text-lg font-semibold text-white">MVP vs Prototype: What's the Difference?</h3>
+          <p class="mb-4 text-sm text-white/70">The distinction matters for your timeline, your budget, and your investor conversations. Here's how to think about it.</p>
+          <span class="text-xs text-white/40 italic">Coming soon</span>
+        </div>
+
+        <div class="p-6 rounded-xl bg-white/5">
+          <span class="inline-block mb-3 text-xs font-medium text-white/50 uppercase tracking-wide">Startup Product</span>
+          <h3 class="mb-3 text-lg font-semibold text-white">Building a Startup Technical Roadmap</h3>
+          <p class="mb-4 text-sm text-white/70">How to plan your product roadmap when you don't have a full engineering team — and what to prioritize at each stage.</p>
+          <span class="text-xs text-white/40 italic">Coming soon</span>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <%= link_to "Learn about MVP development →", mvp_development_path, class: "text-primary text-sm font-medium" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-16 bg-background-navy md:px-8">
+  <div class="content-container">
+    <div class="mb-12">
+      <div class="mb-8 pill w-fit">
+        <p>For the Technical Founder</p>
+      </div>
+      <h2 class="mb-8 text-2xl font-bold text-white">Scaling your startup codebase</h2>
+
+      <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="p-6 rounded-xl bg-white/5">
+          <span class="inline-block mb-3 text-xs font-medium text-white/50 uppercase tracking-wide">Prototype to Production</span>
+          <h3 class="mb-3 text-lg font-semibold text-white">When to Refactor Your MVP</h3>
+          <p class="mb-4 text-sm text-white/70">The five signals that tell you it's time to stop building on top of your prototype and invest in a clean foundation.</p>
+          <span class="text-xs text-white/40 italic">Coming soon</span>
+        </div>
+
+        <div class="p-6 rounded-xl bg-white/5">
+          <span class="inline-block mb-3 text-xs font-medium text-white/50 uppercase tracking-wide">Startup Architecture</span>
+          <h3 class="mb-3 text-lg font-semibold text-white">Scaling Startup Architecture: What Changes at Each Stage</h3>
+          <p class="mb-4 text-sm text-white/70">What your architecture should look like at pre-seed vs. seed vs. Series A — and how to avoid over-engineering early.</p>
+          <span class="text-xs text-white/40 italic">Coming soon</span>
+        </div>
+
+        <div class="p-6 rounded-xl bg-white/5">
+          <span class="inline-block mb-3 text-xs font-medium text-white/50 uppercase tracking-wide">AI for Startups</span>
+          <h3 class="mb-3 text-lg font-semibold text-white">Adding AI to Your Startup Product: Where to Start</h3>
+          <p class="mb-4 text-sm text-white/70">A practical framework for identifying which workflows and features in your product are worth automating or AI-powering first.</p>
+          <span class="text-xs text-white/40 italic">Coming soon</span>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <%= link_to "Learn about prototype to production →", prototype_to_production_path, class: "text-primary text-sm font-medium" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-16 bg-background-black md:px-8">
+  <div class="content-container">
+    <div class="mb-8 pill w-fit mx-auto">
+      <p>Our services</p>
+    </div>
+    <h2 class="mb-8 text-2xl font-bold text-center text-white sm:text-3xl">We build what we write about</h2>
+    <div class="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 max-w-4xl mx-auto">
+      <div class="p-6 rounded-xl bg-white/5 text-center">
+        <h3 class="mb-3 font-semibold text-white">MVP Development</h3>
+        <%= link_to "Learn more →", mvp_development_path, class: "text-primary text-sm font-medium" %>
+      </div>
+      <div class="p-6 rounded-xl bg-white/5 text-center">
+        <h3 class="mb-3 font-semibold text-white">Startup Product Development</h3>
+        <%= link_to "Learn more →", startup_product_development_path, class: "text-primary text-sm font-medium" %>
+      </div>
+      <div class="p-6 rounded-xl bg-white/5 text-center">
+        <h3 class="mb-3 font-semibold text-white">Prototype to Production</h3>
+        <%= link_to "Learn more →", prototype_to_production_path, class: "text-primary text-sm font-medium" %>
+      </div>
+      <div class="p-6 rounded-xl bg-white/5 text-center">
+        <h3 class="mb-3 font-semibold text-white">AI & Automation</h3>
+        <%= link_to "Learn more →", ai_automation_path, class: "text-primary text-sm font-medium" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="px-4 py-16 bg-background-navy md:px-8">
+  <div class="flex flex-col items-center content-container">
+    <h2 class="max-w-xl mb-4 text-2xl font-bold text-center text-white sm:text-3xl">Building a startup product?</h2>
+    <p class="max-w-lg mb-8 text-base text-center text-white/80">Book a free 30-minute strategy call with a senior engineer who builds startup products.</p>
+    <%= link_to "Book a Founder Strategy Call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
+    <p class="mt-6 text-sm text-white/50">Or <%= link_to "go back to the homepage", root_path, class: "text-primary" %></p>
+  </div>
+</section>
