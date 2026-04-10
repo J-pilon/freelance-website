@@ -1,45 +1,22 @@
-<footer class="px-4 py-12 bg-background-black border-t border-white/10 md:px-8">
-  <div class="content-container">
-    <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-
-      <div class="lg:col-span-1">
-        <%= link_to "ClientFirst Labs", root_path, class: "text-lg font-bold text-white no-underline hover:text-primary transition-colors" %>
-        <p class="mt-3 text-sm text-white/50 leading-relaxed">Startup software development partner for early-stage Canadian startups.</p>
-      </div>
-
-      <div>
-        <p class="mb-4 text-xs font-semibold tracking-widest uppercase text-white/40">Services</p>
-        <ul class="space-y-2 list-none pl-0 mb-0">
-          <li class="mb-0"><%= link_to "MVP Development", mvp_development_path, class: "text-sm text-white/60 no-underline hover:text-primary transition-colors" %></li>
-          <li class="mb-0"><%= link_to "Startup Product Development", startup_product_development_path, class: "text-sm text-white/60 no-underline hover:text-primary transition-colors" %></li>
-          <li class="mb-0"><%= link_to "Prototype to Production", prototype_to_production_path, class: "text-sm text-white/60 no-underline hover:text-primary transition-colors" %></li>
-          <li class="mb-0"><%= link_to "AI & Automation", ai_automation_path, class: "text-sm text-white/60 no-underline hover:text-primary transition-colors" %></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="mb-4 text-xs font-semibold tracking-widest uppercase text-white/40">Work</p>
-        <ul class="space-y-2 list-none pl-0 mb-0">
-          <li class="mb-0"><%= link_to "Aspire Case Study", aspire_case_studies_path, class: "text-sm text-white/60 no-underline hover:text-primary transition-colors" %></li>
-          <li class="mb-0"><%= link_to "Wecasa Case Study", wecasa_case_studies_path, class: "text-sm text-white/60 no-underline hover:text-primary transition-colors" %></li>
-          <li class="mb-0"><%= link_to "Blog", blog_path, class: "text-sm text-white/60 no-underline hover:text-primary transition-colors" %></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="mb-4 text-xs font-semibold tracking-widest uppercase text-white/40">Get in touch</p>
-        <ul class="space-y-2 list-none pl-0 mb-0">
-          <li class="mb-0"><%= link_to "josiah@clientfirstlabs.io", "mailto:josiah@clientfirstlabs.io", class: "text-sm text-white/60 no-underline hover:text-primary transition-colors" %></li>
-          <li class="mb-0"><span class="text-sm text-white/60">+1 (778) 344-4798</span></li>
-          <li class="mb-0 pt-2"><%= link_to "Book a Strategy Call →", "https://calendly.com/clientfirst-labs/discovery", class: "text-sm font-semibold text-primary no-underline hover:text-white transition-colors" %></li>
-        </ul>
-      </div>
-
+<footer class="!px-0 !py-0 bg-background-black">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] grid gap-5 py-10 md:[grid-template-columns:1.1fr_1fr_1fr]">
+    <div>
+      <h4 class="text-lg font-bold text-white no-underline transition-colors hover:text-primary">ClientFirst Labs</h4>
+      <p class="leading-[1.6] text-gray-300">Startup software development partner for Canadian founders building MVPs and production products.</p>
+      <p class="mt-2.5 text-[13px] text-gray-400">Vancouver, BC · Canada</p>
     </div>
-
-    <div class="pt-8 mt-10 border-t border-white/10 flex flex-col gap-2 sm:flex-row sm:justify-between sm:items-center">
-      <p class="text-xs text-white/30 mb-0">© <%= Time.current.year %> ClientFirst Labs Ltd. All rights reserved.</p>
-      <p class="text-xs text-white/30 mb-0">Vancouver, BC · Canada</p>
+    <div>
+      <h4 class="mb-3 font-mono text-[11px] tracking-[0.1em] uppercase text-gray-400">Services</h4>
+      <%= link_to "MVP Development", mvp_development_path, class: "block mb-2 text-sm text-gray-300 no-underline hover:text-primary" %>
+      <%= link_to "Mobile App Development", startup_product_development_path, class: "block mb-2 text-sm text-gray-300 no-underline hover:text-primary" %>
+      <%= link_to "Prototype to Production", prototype_to_production_path, class: "block mb-2 text-sm text-gray-300 no-underline hover:text-primary" %>
+      <%= link_to "AI & Automation", ai_automation_path, class: "block mb-2 text-sm text-gray-300 no-underline hover:text-primary" %>
+    </div>
+    <div>
+      <h4 class="mb-3 font-mono text-[11px] tracking-[0.1em] uppercase text-gray-400">Get In Touch</h4>
+      <%= link_to "josiah@clientfirstlabs.io", "mailto:josiah@clientfirstlabs.io", class: "block mb-2 text-sm text-gray-300 no-underline hover:text-primary" %>
+      <%= link_to "+1 (778) 344-4798", "tel:+17783444798", class: "block mb-2 text-sm text-gray-300 no-underline hover:text-primary" %>
+      <%= link_to "Book a Strategy Call", "https://calendly.com/clientfirst-labs/discovery", class: "block mb-2 text-sm text-gray-300 no-underline hover:text-primary" %>
     </div>
   </div>
 </footer>
