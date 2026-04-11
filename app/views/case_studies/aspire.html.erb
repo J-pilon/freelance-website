@@ -1,161 +1,146 @@
 <% content_for :title, "Aspire Case Study: InsurTech Startup Automation | ClientFirst Labs" %>
 <% content_for :meta_description, "How ClientFirst Labs helped Aspire, a Canadian InsurTech startup, eliminate 90% of manual work and unlock $1M+ in revenue per agent through end-to-end automation." %>
 
-<section class="px-4 py-12 text-center sm:px-8 md:px-16 md:text-left">
-  <div class="mx-auto max-w-5xl">
-    <div class="flex flex-col gap-8 items-center md:flex-row md:items-start">
-      <div class="flex-1 space-y-4">
-        <div class="w-full max-w-[250px] mb-4 md:mb-0">
-          <%= image_tag "aspire/logo.png", class: "object-fit" %>
+<div class="overflow-x-hidden text-gray-50">
+  <section class="!px-0 !py-0 border-b border-white/10 bg-background-navy">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-14">
+      <div class="flex flex-col gap-8 items-center md:flex-row md:items-start">
+        <div class="flex-1 space-y-4">
+          <div class="w-full max-w-[250px] mb-4 md:mb-0">
+            <%= image_tag "aspire/logo.png", class: "object-fit" %>
+          </div>
+
+          <p class="text-lg font-light leading-[1.65] text-gray-300">How we helped an InsurTech startup eliminate 90% of manual work and unlock $1M+ in revenue per agent</p>
         </div>
 
-        <p class="text-lg text-white/80">How we helped an InsurTech startup eliminate 90% of manual work and unlock $1M+ in revenue per agent</p>
-      </div>
-
-      <div class="flex-1">
-        <div class="w-full bg-transparent">
-          <%= image_tag "aspire/hero.png" %>
+        <div class="flex-1">
+          <div class="w-full bg-transparent">
+            <%= image_tag "aspire/hero.png" %>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="px-4 py-12 bg-background-black sm:px-8 md:px-16">
-  <div class="mx-auto max-w-5xl">
-    <h3 class="mb-6 font-semibold">Results</h3>
+  <section class="!px-0 !py-0 border-b border-white/10 bg-background-black">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-12">
+      <%= render partial: "shared/page/section_heading", locals: { label: "Results", title: "Outcomes that moved the business" } %>
 
-    <div class="grid gap-8 md:grid-cols-3">
-      <div class="p-6 rounded-xl bg-white/5">
-        <p class="mb-2 text-3xl font-bold text-secondary">90%</p>
-        <h4 class="mb-2 font-bold">Manual Work Eliminated</h4>
-        <p class="text-sm text-white/70">Repetitive agent workflows automated end-to-end, from onboarding to application tracking.</p>
-      </div>
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">90%</p>
+          <h4 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Manual Work Eliminated</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">Repetitive agent workflows automated end-to-end, from onboarding to application tracking.</p>
+        </div>
 
-      <div class="p-6 rounded-xl bg-white/5">
-        <p class="mb-2 text-3xl font-bold text-secondary">$100K</p>
-        <h4 class="mb-2 font-bold">Annual Savings</h4>
-        <p class="text-sm text-white/70">Automation reduced operational overhead by the equivalent of a full-time employee every year.</p>
-      </div>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">$100K</p>
+          <h4 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Annual Savings</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">Automation reduced operational overhead by the equivalent of a full-time employee every year.</p>
+        </div>
 
-      <div class="p-6 rounded-xl bg-white/5">
-        <p class="mb-2 text-3xl font-bold text-secondary">$1M+</p>
-        <h4 class="mb-2 font-bold">Revenue Unlocked Per Agent</h4>
-        <p class="text-sm text-white/70">The platform gave each agent the capacity to handle significantly more policies without adding headcount.</p>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">$1M+</p>
+          <h4 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Revenue Unlocked Per Agent</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">The platform gave each agent the capacity to handle significantly more policies without adding headcount.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="px-4 py-12 bg-background-navy sm:px-8 md:px-16">
-  <div class="mx-auto space-y-16 max-w-5xl">
-
-    <div class="grid gap-12 md:grid-cols-2">
-      <div>
-        <div class="mb-6 pill w-fit">
-          <p>Client Context</p>
+  <section class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+    <div class="mx-auto space-y-16 w-[min(1200px,calc(100%-48px))] py-12">
+      <div class="grid gap-12 md:grid-cols-2">
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Client Context", title: "InsurTech startup scaling independent agents" } %>
+          <p class="leading-[1.7] text-gray-300">Aspire is a Canadian InsurTech company building a digital platform for independent insurance agents. Their goal was to give agents the tools to work faster, manage more clients, and close more policies, without hiring more staff. When they came to us, they were manually running processes that should have been automated, and had no internal tooling to support their growing agent network.</p>
         </div>
-        <h3 class="mb-4 text-xl font-semibold">InsurTech startup scaling independent agents</h3>
-        <p class="text-white/80">Aspire is a Canadian InsurTech company building a digital platform for independent insurance agents. Their goal was to give agents the tools to work faster, manage more clients, and close more policies, without hiring more staff. When they came to us, they were manually running processes that should have been automated, and had no internal tooling to support their growing agent network.</p>
-      </div>
 
-      <div>
-        <div class="mb-6 pill w-fit">
-          <p>Challenge</p>
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Challenge", title: "Manual operations were capping growth" } %>
+          <ul class="!m-0 !p-0 list-none space-y-3">
+            <li class="!pl-0 text-sm text-gray-300">- Agents spent hours on repetitive onboarding tasks that should have been automated</li>
+            <li class="!pl-0 text-sm text-gray-300">- No internal tooling: workflows lived in spreadsheets and manual follow-ups</li>
+            <li class="!pl-0 text-sm text-gray-300">- No automation layer, meaning every new agent added proportional operational overhead</li>
+            <li class="!pl-0 text-sm text-gray-300">- Data scattered across multiple insurance portals with no unified view</li>
+          </ul>
         </div>
-        <h3 class="mb-4 text-xl font-semibold">Manual operations were capping growth</h3>
-        <ul class="space-y-3 text-white/80">
-          <li>→ Agents spent hours on repetitive onboarding tasks that should have been automated</li>
-          <li>→ No internal tooling: workflows lived in spreadsheets and manual follow-ups</li>
-          <li>→ No automation layer, meaning every new agent added proportional operational overhead</li>
-          <li>→ Data scattered across multiple insurance portals with no unified view</li>
-        </ul>
       </div>
     </div>
+  </section>
 
-    <div>
-      <div class="mb-6 pill w-fit">
-        <p>Solution</p>
-      </div>
-      <h3 class="mb-4 text-xl font-semibold">An automation-first platform built for scale</h3>
-      <p class="mb-6 text-white/80">We designed and built the Aspire platform from the ground up with one goal: let agents do more without working more. Every feature was scoped around eliminating manual effort and consolidating fragmented workflows into a single, reliable system.</p>
+  <section class="!px-0 !py-0 bg-background-black border-y border-white/10">
+    <div class="mx-auto space-y-16 w-[min(1200px,calc(100%-48px))] py-12">
+      <%= render partial: "shared/page/section_heading", locals: { label: "Solution", title: "An automation-first platform built for scale" } %>
+      <p class="mb-6 leading-[1.7] text-gray-300">We designed and built the Aspire platform from the ground up with one goal: let agents do more without working more. Every feature was scoped around eliminating manual effort and consolidating fragmented workflows into a single, reliable system.</p>
 
       <div class="grid gap-6 md:grid-cols-3">
-        <div class="p-5 rounded-xl bg-white/5">
-          <h4 class="mb-2 font-bold">End-to-End Automation Engine</h4>
-          <p class="text-sm text-white/70">Built automated workflows for repetitive agent tasks, from client onboarding to application status updates, achieving a sub-1% production error rate.</p>
+        <div class="p-5 bg-gray-800 rounded-xl border border-white/10">
+          <h4 class="mb-2 text-[24px] leading-[1.2] tracking-normal">End-to-End Automation Engine</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">Built automated workflows for repetitive agent tasks, from client onboarding to application status updates, achieving a sub-1% production error rate.</p>
         </div>
 
-        <div class="p-5 rounded-xl bg-white/5">
-          <h4 class="mb-2 font-bold">Internal Tooling Suite</h4>
-          <p class="text-sm text-white/70">Created custom internal tools that replaced spreadsheets with real-time dashboards, automated notifications, and centralized data across insurance portals.</p>
+        <div class="p-5 bg-gray-800 rounded-xl border border-white/10">
+          <h4 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Internal Tooling Suite</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">Created custom internal tools that replaced spreadsheets with real-time dashboards, automated notifications, and centralized data across insurance portals.</p>
         </div>
 
-        <div class="p-5 rounded-xl bg-white/5">
-          <h4 class="mb-2 font-bold">Unified Agent Workspace</h4>
-          <p class="text-sm text-white/70">Consolidated policy tracking, client management, and portal credentials into one interface, giving agents everything they need in a single workflow.</p>
-        </div>
-      </div>
-    </div>
-
-    <div>
-      <div class="mb-6 pill w-fit">
-        <p>Outcomes</p>
-      </div>
-      <h3 class="mb-4 text-xl font-semibold">Four metrics that tell the full story</h3>
-      <ul class="space-y-3 text-white/80">
-        <li>→ <strong>90% reduction in manual work</strong>: automation replaced the most time-consuming agent workflows</li>
-        <li>→ <strong>$100K annual savings</strong>: operational overhead reduced by the equivalent of a full-time employee</li>
-        <li>→ <strong>$1M+ revenue unlocked per agent</strong>: each agent could now manage a significantly larger book of business</li>
-        <li>→ <strong>&lt;1% production error rate</strong>: automation ran reliably at scale without manual oversight</li>
-      </ul>
-    </div>
-
-    <div class="grid gap-12 md:grid-cols-2">
-      <div>
-        <div class="mb-6 pill w-fit">
-          <p>Why this matters for startups</p>
-        </div>
-        <h3 class="mb-4 text-xl font-semibold">Scale your operations without scaling headcount</h3>
-        <p class="text-white/80">Aspire's challenge is one of the most common growth blockers early-stage startups face: every new customer or team member adds proportional operational cost. The answer isn't hiring faster. It's automating smarter. We built a system that let Aspire grow their agent network without growing their support burden. If your startup is hitting the same ceiling, this is exactly the kind of work we do.</p>
-      </div>
-
-      <div>
-        <div class="mb-6 pill w-fit">
-          <p>Tech Stack</p>
-        </div>
-        <div class="flex flex-wrap gap-2 mt-2">
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">Ruby on Rails</span>
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">PostgreSQL</span>
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">AWS</span>
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">Automation Systems</span>
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">Background Jobs</span>
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">REST APIs</span>
+        <div class="p-5 bg-gray-800 rounded-xl border border-white/10">
+          <h4 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Unified Agent Workspace</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">Consolidated policy tracking, client management, and portal credentials into one interface, giving agents everything they need in a single workflow.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="flex flex-col items-center gap-4 mt-8 sm:flex-row sm:justify-center">
-      <%= link_to "Book a Founder Strategy Call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
-      <%= link_to "See AI & Automation for Startups →", ai_automation_path, class: "text-primary font-medium" %>
-    </div>
-  </div>
-</section>
+  <section id="results" class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
+      <%= render partial: "shared/page/section_heading", locals: { label: "Outcomes", title: "Four metrics that tell the full story" } %>
 
-<section class="min-h-[400px] bg-background-black py-16 px-4 md:px-8">
-  <div class="flex flex-col items-center content-container">
-    <div class="mb-16 pill">
-      <p class="">Get in touch</p>
+      <div class="grid grid-cols-1 gap-4 mt-12 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">$100K</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Annual savings: operational overhead reduced by the equivalent of a full-time employee</p>
+        </article>
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">90%</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Manual work eliminated by automating repetitive agent workflows for InsurTech.</p>
+        </article>
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">$1M+</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Revenue capacity unlocked per agent without adding headcount.</p>
+        </article>
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">&lt;1%</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Production error rate: automation ran reliably at scale without manual oversight</p>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <div class="flex items-center mb-4 text-white">
-      <%= image_tag("icons/email-light.svg", class: "w-6 h-6") %>
-      <h3 class="ml-4"><%= link_to "josiah@clientfirstlabs.io", "mailto:josiah@clientfirstlabs.io" %></h3>
-    </div>
+  <section class="!px-0 !py-0 bg-background-black border-y border-white/10">
+    <div class="mx-auto space-y-16 w-[min(1200px,calc(100%-48px))] py-12">
+      <div class="grid gap-12 md:grid-cols-2">
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Why this matters for startups", title: "Scale your operations without scaling headcount" } %>
+          <p class="leading-[1.7] text-gray-300">Aspire's challenge is one of the most common growth blockers early-stage startups face: every new customer or team member adds proportional operational cost. The answer isn't hiring faster. It's automating smarter. We built a system that let Aspire grow their agent network without growing their support burden. If your startup is hitting the same ceiling, this is exactly the kind of work we do.</p>
+          <div class="mt-8"><%= link_to "See AI & Automation for Startups ->", ai_automation_path, class: "text-primary no-underline font-semibold hover:text-yellow-200" %></div>
+        </div>
 
-    <div class="flex items-center mb-4 text-white">
-      <%= image_tag("icons/phone-light.svg", class: "w-6 h-6") %>
-      <h4 class="ml-4">+1 (778) 344-4798</h4>
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Tech Stack", title: "Tools used in this build" } %>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">Ruby on Rails</span>
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">PostgreSQL</span>
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">AWS</span>
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">Automation Systems</span>
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">Background Jobs</span>
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">REST APIs</span>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <%= render partial: "shared/page/contact_block" %>
+</div>

@@ -1,0 +1,7 @@
+<div class="<%= local_assigns[:centered] ? 'text-center' : '' %>">
+  <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400"><%= label %></p>
+  <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal"><%= title %></h2>
+  <% if local_assigns[:subtitle].present? %>
+    <p class="<%= local_assigns[:centered] ? 'mx-auto' : '' %> max-w-[760px] text-lg font-light leading-[1.65] text-gray-300"><%= subtitle %></p>
+  <% end %>
+</div>

@@ -1,160 +1,146 @@
 <% content_for :title, "Wecasa Case Study: Startup Product Development | ClientFirst Labs" %>
 <% content_for :meta_description, "How ClientFirst Labs helped Wecasa, a Canadian PropTech startup, eliminate 60% of support tickets and ship a scalable co-ownership booking platform." %>
 
-<section class="px-4 py-12 text-center sm:px-8 md:px-16 md:text-left">
-  <div class="mx-auto max-w-5xl">
-    <div class="flex flex-col gap-8 items-center md:flex-row md:items-start">
-      <div class="flex-1 space-y-4">
-        <div class="w-full max-w-[250px] mb-4 md:mb-0">
-          <%= image_tag "wecasa/logo.svg", class: "object-fit" %>
+<div class="overflow-x-hidden text-gray-50">
+  <section class="!px-0 !py-0 border-b border-white/10 bg-background-navy">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-14">
+      <div class="flex flex-col gap-8 items-center md:flex-row md:items-start">
+        <div class="flex-1 space-y-4">
+          <div class="w-full max-w-[250px] mb-4 md:mb-0">
+            <%= image_tag "wecasa/logo.svg", class: "object-fit" %>
+          </div>
+
+          <p class="text-lg font-light leading-[1.65] text-gray-300">How we helped a co-ownership startup eliminate support overhead and ship a scalable booking platform</p>
         </div>
 
-        <p class="text-lg text-white/80">How we helped a co-ownership startup eliminate support overhead and ship a scalable booking platform</p>
-      </div>
-
-      <div class="flex-1">
-        <div class="bg-transparent w-[500px] lg:w-[720px]">
-          <%= image_tag "wecasa/hero.png", class: "object-fit w-full" %>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="px-4 py-12 bg-background-black sm:px-8 md:px-16">
-  <div class="mx-auto max-w-5xl">
-    <h3 class="mb-6 font-semibold">Results</h3>
-
-    <div class="grid gap-8 md:grid-cols-3">
-      <div class="p-6 rounded-xl bg-white/5">
-        <p class="mb-2 text-3xl font-bold text-secondary">60%</p>
-        <h4 class="mb-2 font-bold">Fewer Support Tickets</h4>
-        <p class="text-sm text-white/70">Self-serve sandbox replaced manual onboarding calls, cutting support overhead in half.</p>
-      </div>
-
-      <div class="p-6 rounded-xl bg-white/5">
-        <p class="mb-2 text-3xl font-bold text-secondary">↑ Activation</p>
-        <h4 class="mb-2 font-bold">Improved User Activation</h4>
-        <p class="text-sm text-white/70">Owners could explore the platform independently, leading to faster time-to-value and higher retention.</p>
-      </div>
-
-      <div class="p-6 rounded-xl bg-white/5">
-        <p class="mb-2 text-3xl font-bold text-secondary">Full Stack</p>
-        <h4 class="mb-2 font-bold">End-to-End Ownership</h4>
-        <p class="text-sm text-white/70">One partner handled product, engineering, and DevOps with no coordination overhead and no dropped context.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="px-4 py-12 bg-background-navy sm:px-8 md:px-16">
-  <div class="mx-auto space-y-16 max-w-5xl">
-
-    <div class="grid gap-12 md:grid-cols-2">
-      <div>
-        <div class="mb-6 pill w-fit">
-          <p>Client Context</p>
-        </div>
-        <h3 class="mb-4 text-xl font-semibold">PropTech startup solving co-ownership friction</h3>
-        <p class="text-white/80">Wecasa is a Canadian startup building a platform for luxury vacation home co-ownership. Their product needed to handle complex multi-owner booking logic, provide a seamless onboarding experience, and scale without adding operational overhead. They came to us at a critical pre-scale stage: their concept was validated, but the product wasn't ready to grow.</p>
-      </div>
-
-      <div>
-        <div class="mb-6 pill w-fit">
-          <p>Challenge</p>
-        </div>
-        <h3 class="mb-4 text-xl font-semibold">Three blockers preventing growth</h3>
-        <ul class="space-y-3 text-white/80">
-          <li>→ No fair algorithm for distributing booking time across multiple owners with competing preferences</li>
-          <li>→ New users required manual onboarding support, creating support ticket volume that didn't scale</li>
-          <li>→ No CI/CD pipeline or DevOps foundation, so shipping new features was slow and risky</li>
-        </ul>
-      </div>
-    </div>
-
-    <div>
-      <div class="mb-6 pill w-fit">
-        <p>Solution</p>
-      </div>
-      <h3 class="mb-4 text-xl font-semibold">Full-stack product ownership from day one</h3>
-      <p class="mb-6 text-white/80">We took full ownership of the product: engineering, architecture, and deployment. No handoffs, no coordination overhead. Every decision was made with Wecasa's growth stage in mind.</p>
-
-      <div class="grid gap-6 md:grid-cols-3">
-        <div class="p-5 rounded-xl bg-white/5">
-          <h4 class="mb-2 font-bold">Fair Booking Engine</h4>
-          <p class="text-sm text-white/70">Built a rules-based algorithm that distributes vacation time based on ownership share, seasonal demand, and cancellation history, automatically and transparently.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-white/5">
-          <h4 class="mb-2 font-bold">Self-Serve Sandbox</h4>
-          <p class="text-sm text-white/70">Designed and shipped a guided sandbox environment so new owners could explore the platform independently, eliminating the need for manual onboarding calls.</p>
-        </div>
-
-        <div class="p-5 rounded-xl bg-white/5">
-          <h4 class="mb-2 font-bold">CI/CD & DevOps Foundation</h4>
-          <p class="text-sm text-white/70">Established a full continuous integration pipeline, enabling the team to ship features faster and with confidence, without fear of production regressions.</p>
+        <div class="flex-1">
+          <div class="bg-transparent w-[500px] lg:w-[720px]">
+            <%= image_tag "wecasa/hero.png", class: "object-fit w-full" %>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <div>
-      <div class="mb-6 pill w-fit">
-        <p>Outcomes</p>
-      </div>
-      <h3 class="mb-4 text-xl font-semibold">Measurable results that moved the business</h3>
-      <ul class="space-y-3 text-white/80">
-        <li>→ <strong>60% reduction in support tickets</strong>: self-serve sandbox replaced manual onboarding</li>
-        <li>→ <strong>Improved user activation</strong>: owners reached first value faster without support dependency</li>
-        <li>→ <strong>Fair booking system in production</strong>: complex multi-owner logic shipped cleanly with no disputes post-launch</li>
-        <li>→ <strong>Faster iteration cycles</strong>: CI/CD pipeline cut deployment risk and accelerated feature delivery</li>
-      </ul>
-    </div>
+  <section class="!px-0 !py-0 border-b border-white/10 bg-background-black">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-12">
+      <%= render partial: "shared/page/section_heading", locals: { label: "Results", title: "Outcomes that moved the business" } %>
 
-    <div class="grid gap-12 md:grid-cols-2">
-      <div>
-        <div class="mb-6 pill w-fit">
-          <p>Why this matters for startups</p>
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">60%</p>
+          <h4 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Fewer Support Tickets</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">Self-serve sandbox replaced manual onboarding calls, cutting support overhead in half.</p>
         </div>
-        <h3 class="mb-4 text-xl font-semibold">Startup velocity without the agency overhead</h3>
-        <p class="text-white/80">Wecasa didn't need a dev shop that delivered code and moved on. They needed a product partner who understood their growth stage and made engineering decisions that reduced operational risk. We shipped a full-stack platform (including the parts founders never think about, like DevOps and onboarding UX) so their team could focus on sales and fundraising instead of support queues.</p>
-      </div>
 
-      <div>
-        <div class="mb-6 pill w-fit">
-          <p>Tech Stack</p>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">↑ Activation</p>
+          <h4 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Improved User Activation</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">Owners could explore the platform independently, leading to faster time-to-value and higher retention.</p>
         </div>
-        <div class="flex flex-wrap gap-2 mt-2">
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">Ruby on Rails</span>
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">Hotwire</span>
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">PostgreSQL</span>
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">AWS</span>
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">CI/CD</span>
-          <span class="px-3 py-1 text-sm font-medium text-white rounded-full bg-white/10">React Native</span>
+
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">Full Stack</p>
+          <h4 class="mb-2 text-[28px] leading-[1.15] tracking-normal">End-to-End Ownership</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">One partner handled product, engineering, and DevOps with no coordination overhead and no dropped context.</p>
         </div>
       </div>
     </div>
+  </section>
 
-    <div class="flex flex-col items-center gap-4 mt-8 sm:flex-row sm:justify-center">
-      <%= link_to "Book a Founder Strategy Call", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
-      <%= link_to "See Startup Product Development →", startup_product_development_path, class: "text-primary font-medium" %>
-    </div>
-  </div>
-</section>
+  <section class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+    <div class="mx-auto space-y-16 w-[min(1200px,calc(100%-48px))] py-12">
+      <div class="grid gap-12 md:grid-cols-2">
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Client Context", title: "PropTech startup solving co-ownership friction" } %>
+          <p class="leading-[1.7] text-gray-300">Wecasa is a Canadian startup building a platform for luxury vacation home co-ownership. Their product needed to handle complex multi-owner booking logic, provide a seamless onboarding experience, and scale without adding operational overhead. They came to us at a critical pre-scale stage: their concept was validated, but the product wasn't ready to grow.</p>
+        </div>
 
-<section class="min-h-[400px] bg-background-black py-16 px-4 md:px-8">
-  <div class="flex flex-col items-center content-container">
-    <div class="mb-16 pill">
-      <p class="">Get in touch</p>
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Challenge", title: "Three blockers preventing growth" } %>
+          <ul class="!m-0 !p-0 list-none space-y-3">
+            <li class="!pl-0 text-sm text-gray-300">- No fair algorithm for distributing booking time across multiple owners with competing preferences</li>
+            <li class="!pl-0 text-sm text-gray-300">- New users required manual onboarding support, creating support ticket volume that didn't scale</li>
+            <li class="!pl-0 text-sm text-gray-300">- No CI/CD pipeline or DevOps foundation, so shipping new features was slow and risky</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="flex items-center mb-4 text-white">
-      <%= image_tag("icons/email-light.svg", class: "w-6 h-6") %>
-      <h3 class="ml-4"><%= link_to "josiah@clientfirstlabs.io", "mailto:josiah@clientfirstlabs.io" %></h3>
-    </div>
+  <section class="!px-0 !py-0 bg-background-black border-y border-white/10">
+    <div class="mx-auto space-y-16 w-[min(1200px,calc(100%-48px))] py-12">
+        <%= render partial: "shared/page/section_heading", locals: { label: "Solution", title: "Full-stack product ownership from day one" } %>
+        <p class="mb-6 leading-[1.7] text-gray-300">We took full ownership of the product: engineering, architecture, and deployment. No handoffs, no coordination overhead. Every decision was made with Wecasa's growth stage in mind.</p>
 
-    <div class="flex items-center mb-4 text-white">
-      <%= image_tag("icons/phone-light.svg", class: "w-6 h-6") %>
-      <h4 class="ml-4">+1 (778) 344-4798</h4>
+        <div class="grid gap-6 md:grid-cols-3">
+          <div class="p-5 bg-gray-800 rounded-xl border border-white/10">
+            <h4 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Fair Booking Engine</h4>
+            <p class="text-sm leading-[1.6] text-gray-300">Built a rules-based algorithm that distributes vacation time based on ownership share, seasonal demand, and cancellation history, automatically and transparently.</p>
+          </div>
+
+          <div class="p-5 bg-gray-800 rounded-xl border border-white/10">
+            <h4 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Self-Serve Sandbox</h4>
+            <p class="text-sm leading-[1.6] text-gray-300">Designed and shipped a guided sandbox environment so new owners could explore the platform independently, eliminating the need for manual onboarding calls.</p>
+          </div>
+
+          <div class="p-5 bg-gray-800 rounded-xl border border-white/10">
+            <h4 class="mb-2 text-[24px] leading-[1.2] tracking-normal">CI/CD & DevOps Foundation</h4>
+            <p class="text-sm leading-[1.6] text-gray-300">Established a full continuous integration pipeline, enabling the team to ship features faster and with confidence, without fear of production regressions.</p>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <section id="results" class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
+      <%= render partial: "shared/page/section_heading", locals: { label: "Outcomes", title: "Measurable results that moved the business" } %>
+
+      <div class="grid grid-cols-1 gap-4 mt-12 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">60%</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">reduction in support tickets: self-serve sandbox replaced manual onboarding</p>
+        </article>
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">Improved user activation</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Owners reached first value faster without support dependency</p>
+        </article>
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">Fair booking system</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Complex multi-owner logic shipped cleanly with no disputes post-launch</p>
+        </article>
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">Faster iteration cycles</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Delivery pipeline cut deployment risk and accelerated feature delivery</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 bg-background-black border-y border-white/10">
+    <div class="mx-auto space-y-16 w-[min(1200px,calc(100%-48px))] py-12">
+      <div class="grid gap-12 md:grid-cols-2">
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Why this matters for startups", title: "Startup velocity without the agency overhead" } %>
+          <p class="leading-[1.7] text-gray-300">Wecasa didn't need a dev shop that delivered code and moved on. They needed a product partner who understood their growth stage and made engineering decisions that reduced operational risk. We shipped a full-stack platform (including the parts founders never think about, like DevOps and onboarding UX) so their team could focus on sales and fundraising instead of support queues.</p>
+          <div class="mt-8"><%= link_to "See Startup Product Development ->", startup_product_development_path, class: "text-primary no-underline font-semibold hover:text-yellow-200" %></div>
+        </div>
+
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Tech Stack", title: "Tools used in this build" } %>
+          <div class="flex flex-wrap gap-2 mt-2">
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">Ruby on Rails</span>
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">Hotwire</span>
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">PostgreSQL</span>
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">AWS</span>
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">CI/CD</span>
+            <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">React Native</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%= render partial: "shared/page/contact_block" %>
+</div>
