@@ -1,0 +1,1275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ClientFirst Labs — Process Loop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* --bg-black: #030712; */
+    --bg-navy: #111827;
+    --card-surface: #1F2937;
+    --yellow: #FFD701;
+    --blue: #ADD8E6;
+    --gray-300: #D1D5DB;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    /* background: var(--bg-black); */
+    font-family: 'Inter', sans-serif;
+    color: var(--gray-300);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .stage {
+    width: 100%;
+    max-width: 900px;
+    height: 900px;
+    margin: 0 auto;
+    position: relative;
+    background: var(--bg-navy);
+    overflow: hidden;
+  }
+
+  /* Swoosh SVG layer behind the card */
+  .swoosh-layer {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    will-change: transform, opacity;
+  }
+
+  .swoosh-path {
+    fill: none;
+    stroke: rgba(209, 213, 219, 0.12);
+    stroke-width: 1.5;
+  }
+
+  /* Safe area – central 80% */
+  .safe {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    height: 80%;
+  }
+
+  /* Primary card */
+  .card {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 70%;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    will-change: transform, opacity;
+    backdrop-filter: blur(2px);
+  }
+
+  .card-inner {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* ============ SCENE 1: CALL ============ */
+  .scene-call {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .call-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: 88%;
+  }
+
+  .figure-svg {
+    width: 38px;
+    height: 52px;
+    flex-shrink: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .figure-svg path,
+  .figure-svg circle {
+    fill: none;
+    stroke: var(--gray-300);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .waveform-wrap {
+    flex: 1;
+    height: 60px;
+    position: relative;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .waveform-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .waveform-path {
+    fill: none;
+    stroke: var(--yellow);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.85;
+  }
+
+  /* ============ SCENE 2: SCOPE ============ */
+  .scene-scope {
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .scope-arrows-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: visible;
+  }
+
+  .scope-arrow {
+    stroke: rgba(255, 255, 255, 0.18);
+    stroke-width: 1;
+    fill: none;
+    stroke-linecap: round;
+  }
+
+  .scope-center {
+    position: absolute;
+    left: 50%;
+    top: 47%;
+    transform: translate(-50%, -50%) scale(0.85);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--yellow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--bg-navy);
+    letter-spacing: 0.01em;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 2;
+  }
+
+  .scope-word {
+    position: absolute;
+    font-size: 11px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.72);
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+  }
+
+  .scope-timeline {
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    top: 55%;
+    height: 50px;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .timeline-svg {
+    position: absolute;
+    left: 0;
+    top: 4px;
+    width: 100%;
+    height: 4px;
+    overflow: visible;
+  }
+
+  .timeline-track {
+    stroke: rgba(255, 255, 255, 0.15);
+    stroke-width: 2;
+    fill: none;
+    stroke-linecap: round;
+  }
+
+  .tl-node {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
+    width: max-content;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .tl-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--yellow);
+    box-shadow: 0 0 8px rgba(255, 215, 1, 0.3);
+  }
+
+  .tl-label {
+    position: absolute;
+    left: 50%;
+    top: 16px;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.65);
+    white-space: nowrap;
+  }
+
+  .scope-timeline .tl-node:nth-child(even) .tl-label {
+    top: auto;
+    bottom: 16px;
+  }
+
+  /* ============ SCENE 3: PROTOTYPE ============ */
+  .browser {
+    position: absolute;
+    left: 8%;
+    top: 8%;
+    width: 84%;
+    height: 84%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    visibility: hidden;
+    opacity: 0;
+    transform-origin: center center;
+  }
+
+  .browser-chrome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 22px;
+    background: var(--card-surface);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 5px;
+  }
+  .chrome-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gray-300);
+    opacity: 0.55;
+  }
+
+  .browser-body {
+    position: absolute;
+    top: 22px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  /* Sketch SVG overlay */
+  .proto-sketch-svg {
+    position: absolute;
+    inset: 6%;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .sketch-line {
+    fill: none;
+    stroke: var(--gray-300);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.5;
+  }
+
+  /* Prototype UI elements */
+  .proto-ui {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .proto-header {
+    width: 100%;
+    height: 9%;
+    flex-shrink: 0;
+  }
+
+  .proto-avatar {
+    width: 20%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    margin-top: 5%;
+    flex-shrink: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .proto-avatar-art {
+    width: 84%;
+    height: 84%;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .avatar-backdrop { fill: #E75A24; }
+  .avatar-shirt { fill: #355EA8; }
+  .avatar-shoulder { fill: #173E70; }
+  .avatar-neck { fill: #E7C297; }
+  .avatar-face { fill: #F2D4AE; }
+  .avatar-hair { fill: #050A12; }
+  .avatar-feature { fill: #0B0F14; }
+  .avatar-mouth {
+    fill: none;
+    stroke: #0B0F14;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+
+  .proto-name {
+    width: 30%;
+    height: 2.5%;
+    border-radius: 3px;
+    margin-top: 4%;
+    flex-shrink: 0;
+  }
+
+  .proto-subtitle {
+    width: 20%;
+    height: 1.8%;
+    border-radius: 2px;
+    margin-top: 2%;
+    flex-shrink: 0;
+  }
+
+  .proto-stats {
+    display: flex;
+    gap: 5%;
+    width: 68%;
+    margin-top: 5%;
+    flex-shrink: 0;
+  }
+
+  .proto-stat {
+    flex: 1;
+    aspect-ratio: 2.2;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
+
+  .proto-stat-val {
+    width: 36%;
+    height: 4px;
+    border-radius: 2px;
+  }
+
+  .proto-stat-lbl {
+    width: 55%;
+    height: 3px;
+    border-radius: 2px;
+  }
+
+  .proto-card {
+    width: 78%;
+    height: 12%;
+    border-radius: 8px;
+    margin-top: 3.5%;
+    display: flex;
+    align-items: center;
+    padding: 0 6%;
+    gap: 6%;
+    flex-shrink: 0;
+  }
+
+  .proto-card-dot {
+    width: 11%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .proto-card-lines {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .proto-card-line {
+    height: 3px;
+    border-radius: 2px;
+    width: 82%;
+  }
+
+  .proto-card-line.short {
+    width: 52%;
+  }
+
+  .stat-chip {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-size: 9px;
+    color: var(--blue);
+    border: 1px solid rgba(173, 216, 230, 0.4);
+    padding: 2px 7px;
+    border-radius: 999px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 5;
+  }
+
+  /* ============ SCENE 4: LAUNCH ============ */
+  .scene-launch {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .launch-stars-svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .rocket-container {
+    position: absolute;
+    inset: 0;
+  }
+
+  .launch-rocket-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  /* Deployment progress bar */
+  .deploy-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--yellow);
+    transform-origin: left center;
+    transform: scaleX(0);
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  /* ============ Pill label below card ============ */
+  .scene-label {
+    position: absolute;
+    left: 50%;
+    bottom: 16%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    padding: 4px 12px;
+    visibility: hidden;
+    opacity: 0;
+    white-space: nowrap;
+  }
+
+  /* ============ Stage step indicators ============ */
+  .steps {
+    position: absolute;
+    left: 50%;
+    bottom: 6%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+  }
+  .step-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+  }
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+
+  <!-- Swoosh layer -->
+  <svg class="swoosh-layer" viewBox="0 0 900 506" preserveAspectRatio="none" aria-hidden="true">
+    <path id="swoosh" class="swoosh-path"
+          d="M 60 280 C 240 220, 360 340, 540 260 S 780 220, 840 250" />
+  </svg>
+
+  <!-- Card -->
+  <div class="card" id="card">
+    <div class="card-inner">
+
+      <!-- ============ SCENE 1: CALL ============ -->
+      <div class="scene-call" id="sceneCall">
+        <div class="call-row">
+          <svg class="figure-svg" id="figureLeft" viewBox="0 0 38 52">
+            <circle cx="19" cy="12" r="7" />
+            <path d="M 6 48 C 6 32, 32 32, 32 48" />
+          </svg>
+
+          <div class="waveform-wrap" id="waveformWrap">
+            <svg class="waveform-svg" viewBox="0 0 300 60" preserveAspectRatio="none">
+              <path id="waveformPath" class="waveform-path"
+                    d="M 0 30 Q 25 10, 50 30 T 100 30 T 150 30 T 200 30 T 250 30 T 300 30" />
+            </svg>
+          </div>
+
+          <svg class="figure-svg" id="figureRight" viewBox="0 0 38 52">
+            <circle cx="19" cy="12" r="7" />
+            <path d="M 6 48 C 6 32, 32 32, 32 48" />
+          </svg>
+        </div>
+      </div>
+
+      <!-- ============ SCENE 2: SCOPE ============ -->
+      <div class="scene-scope" id="sceneScope">
+        <svg class="scope-arrows-svg" id="scopeArrowsSvg"></svg>
+        <div class="scope-center" id="scopeCenter">Scope</div>
+        <div class="scope-word" data-sw style="left:32%;top:14%">Quality</div>
+        <div class="scope-word" data-sw style="left:50%;top:12%">Strategy</div>
+        <div class="scope-word" data-sw style="left:68%;top:14%">Budget</div>
+        <div class="scope-word" data-sw style="left:20%;top:26%">Evaluation</div>
+        <div class="scope-word" data-sw style="left:80%;top:24%">Testing</div>
+        <div class="scope-word" data-sw style="left:14%;top:40%">Architecture</div>
+        <div class="scope-word" data-sw style="left:86%;top:38%">Risk</div>
+        <div class="scope-word" data-sw style="left:16%;top:54%">Requirements</div>
+        <div class="scope-word" data-sw style="left:84%;top:52%">Dependencies</div>
+        <div class="scope-word" data-sw style="left:24%;top:66%">User Flows</div>
+        <div class="scope-word" data-sw style="left:76%;top:64%">Integrations</div>
+        <div class="scope-word" data-sw style="left:37%;top:75%">Milestones</div>
+        <div class="scope-word" data-sw style="left:63%;top:75%">Planning</div>
+        <div class="scope-word" data-sw style="left:50%;top:82%">Timeline</div>
+        <div class="scope-timeline" id="scopeTimeline">
+          <svg class="timeline-svg" viewBox="0 0 100 4" preserveAspectRatio="none">
+            <path id="timelineTrack" class="timeline-track" d="M 0 2 L 100 2" vector-effect="non-scaling-stroke" />
+          </svg>
+          <div class="tl-node" data-tn style="left:0%"><div class="tl-dot"></div><span class="tl-label">Evaluation</span></div>
+          <div class="tl-node" data-tn style="left:20%"><div class="tl-dot"></div><span class="tl-label">Validate</span></div>
+          <div class="tl-node" data-tn style="left:40%"><div class="tl-dot"></div><span class="tl-label">Strategy</span></div>
+          <div class="tl-node" data-tn style="left:60%"><div class="tl-dot"></div><span class="tl-label">Development</span></div>
+          <div class="tl-node" data-tn style="left:80%"><div class="tl-dot"></div><span class="tl-label">Test</span></div>
+          <div class="tl-node" data-tn style="left:100%"><div class="tl-dot"></div><span class="tl-label">Launch</span></div>
+        </div>
+      </div>
+
+      <!-- ============ SCENE 3: PROTOTYPE ============ -->
+      <div class="browser" id="browser">
+        <div class="browser-chrome">
+          <div class="chrome-dot"></div>
+          <div class="chrome-dot"></div>
+          <div class="chrome-dot"></div>
+        </div>
+        <div class="browser-body">
+          <svg class="proto-sketch-svg" id="protoSketch" viewBox="0 0 225 340" preserveAspectRatio="xMidYMid meet">
+            <path class="sketch-line" data-sk d="M 5 4 C 50 1, 150 6, 195 3 L 197 28 C 150 31, 50 26, 3 30 Z" />
+            <path class="sketch-line" data-sk d="M 100 50 C 118 47, 130 62, 128 78 C 130 94, 118 106, 100 104 C 82 106, 70 94, 72 78 C 70 62, 82 47, 100 50 Z" />
+            <path class="sketch-line" data-sk d="M 62 118 C 78 116, 122 117, 138 119" />
+            <path class="sketch-line" data-sk d="M 75 132 C 88 130, 112 131, 125 133" />
+            <path class="sketch-line" data-sk d="M 22 155 C 26 152, 82 153, 88 156 L 89 186 C 85 189, 24 188, 21 186 Z" />
+            <path class="sketch-line" data-sk d="M 42 165 C 50 163, 62 164, 70 166" />
+            <path class="sketch-line" data-sk d="M 38 176 C 48 174, 68 175, 74 177" />
+            <path class="sketch-line" data-sk d="M 112 155 C 116 152, 172 153, 178 156 L 179 186 C 175 189, 114 188, 111 186 Z" />
+            <path class="sketch-line" data-sk d="M 132 165 C 140 163, 152 164, 160 166" />
+            <path class="sketch-line" data-sk d="M 128 176 C 138 174, 158 175, 164 177" />
+            <path class="sketch-line" data-sk d="M 18 206 C 24 203, 176 204, 182 207 L 183 248 C 178 251, 22 250, 17 247 Z" />
+            <circle class="sketch-line" data-sk cx="40" cy="227" r="11" />
+            <path class="sketch-line" data-sk d="M 60 220 C 72 219, 140 220, 165 221" />
+            <path class="sketch-line" data-sk d="M 60 234 C 70 233, 115 234, 135 235" />
+            <path class="sketch-line" data-sk d="M 18 262 C 24 259, 176 260, 182 263 L 183 304 C 178 307, 22 306, 17 303 Z" />
+            <circle class="sketch-line" data-sk cx="40" cy="283" r="11" />
+            <path class="sketch-line" data-sk d="M 60 276 C 72 275, 140 276, 165 277" />
+            <path class="sketch-line" data-sk d="M 60 290 C 70 289, 115 290, 135 291" />
+          </svg>
+          <div class="proto-ui" id="protoUi">
+            <div class="proto-header" data-pu id="pHeader"></div>
+            <div class="proto-avatar" data-pu id="pAvatar">
+              <svg class="proto-avatar-art" id="pAvatarArt" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <circle class="avatar-backdrop" cx="50" cy="50" r="48"/>
+                <path class="avatar-shoulder" d="M 22 95 C 24 84, 33 77, 45 76 L 45 100 L 22 100 Z"/>
+                <path class="avatar-shirt" d="M 45 76 C 48 74, 52 74, 55 76 C 67 77, 76 84, 78 95 L 78 100 L 22 100 L 22 95 C 24 84, 33 77, 45 76 Z"/>
+                <path class="avatar-neck" d="M 44 65 L 56 65 L 56 73 C 52 77, 48 77, 44 73 Z"/>
+                <circle id="pAvatarHead" class="avatar-face" cx="50" cy="52" r="18"/>
+                <path id="pAvatarHair" class="avatar-hair" d="M 33 48 C 35 35, 45 31, 54 33 C 60 34, 66 37, 68 44 C 69 48, 68 53, 66 57 C 64 52, 59 50, 54 49 C 50 48, 45 47, 41 49 C 38 50, 35 52, 34 55 C 32 53, 32 50, 33 48 Z"/>
+                <circle class="avatar-feature" cx="44.5" cy="52" r="1.6"/>
+                <circle class="avatar-feature" cx="55.5" cy="52" r="1.6"/>
+                <path class="avatar-mouth" d="M 46 60 Q 50 63, 54 60"/>
+              </svg>
+            </div>
+            <div class="proto-name" data-pu id="pName"></div>
+            <div class="proto-subtitle" data-pu id="pSubtitle"></div>
+            <div class="proto-stats">
+              <div class="proto-stat" data-pu id="pStat1">
+                <div class="proto-stat-val" data-pv></div>
+                <div class="proto-stat-lbl" data-pl></div>
+              </div>
+              <div class="proto-stat" data-pu id="pStat2">
+                <div class="proto-stat-val" data-pv></div>
+                <div class="proto-stat-lbl" data-pl></div>
+              </div>
+            </div>
+            <div class="proto-card" data-pu id="pCard1">
+              <div class="proto-card-dot" data-pd></div>
+              <div class="proto-card-lines">
+                <div class="proto-card-line" data-pcl></div>
+                <div class="proto-card-line short" data-pcl></div>
+              </div>
+            </div>
+            <div class="proto-card" data-pu id="pCard2">
+              <div class="proto-card-dot" data-pd></div>
+              <div class="proto-card-lines">
+                <div class="proto-card-line" data-pcl></div>
+                <div class="proto-card-line short" data-pcl></div>
+              </div>
+            </div>
+          </div>
+          <div class="stat-chip" id="statChip">v1.0 — Production</div>
+        </div>
+        <div class="deploy-bar" id="deployBar"></div>
+      </div>
+
+      <!-- ============ SCENE 4: LAUNCH ============ -->
+      <div class="scene-launch" id="sceneLaunch">
+        <!-- Stars layer (independent of rocket transforms) -->
+        <svg class="launch-stars-svg" id="launchStarsSvg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet">
+          <circle data-lstar cx="42" cy="55" r="1.8" fill="#D1D5DB" opacity="0"/>
+          <circle data-lstar cx="355" cy="85" r="1.2" fill="#D1D5DB" opacity="0"/>
+          <circle data-lstar cx="78" cy="170" r="1.5" fill="#D1D5DB" opacity="0"/>
+          <circle data-lstar cx="325" cy="245" r="1" fill="#D1D5DB" opacity="0"/>
+          <circle data-lstar cx="55" cy="330" r="1.8" fill="#D1D5DB" opacity="0"/>
+          <circle data-lstar cx="372" cy="145" r="1.2" fill="#D1D5DB" opacity="0"/>
+          <circle data-lstar cx="148" cy="42" r="1.5" fill="#D1D5DB" opacity="0"/>
+          <circle data-lstar cx="275" cy="310" r="1" fill="#D1D5DB" opacity="0"/>
+          <circle data-lstar cx="28" cy="415" r="1.5" fill="#FFD701" opacity="0"/>
+          <circle data-lstar cx="382" cy="395" r="1" fill="#ADD8E6" opacity="0"/>
+          <circle data-lstar cx="190" cy="25" r="1.2" fill="#D1D5DB" opacity="0"/>
+          <circle data-lstar cx="310" cy="30" r="1" fill="#D1D5DB" opacity="0"/>
+          <circle id="rocketFlash" cx="200" cy="200" r="1.2" fill="#FFF8CC" opacity="0"/>
+        </svg>
+
+        <!-- Rocket container (transforms for movement + zoom) -->
+        <div class="rocket-container" id="rocketContainer">
+          <svg class="launch-rocket-svg" id="rocketSvg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid meet">
+            <!-- Launchpad -->
+            <g id="launchpad">
+              <line x1="148" y1="462" x2="252" y2="462" stroke="#D1D5DB" stroke-width="2" opacity="0.25"/>
+              <line x1="174" y1="462" x2="170" y2="474" stroke="#D1D5DB" stroke-width="1.5" opacity="0.18"/>
+              <line x1="226" y1="462" x2="230" y2="474" stroke="#D1D5DB" stroke-width="1.5" opacity="0.18"/>
+            </g>
+
+            <!-- Rocket assembly -->
+            <!-- Fins -->
+            <path d="M 184 425 L 166 458 L 184 445 Z" stroke="#D1D5DB" stroke-width="1.5" fill="rgba(31,41,55,0.4)" stroke-linejoin="round"/>
+            <path d="M 216 425 L 234 458 L 216 445 Z" stroke="#D1D5DB" stroke-width="1.5" fill="rgba(31,41,55,0.4)" stroke-linejoin="round"/>
+
+            <!-- Body -->
+            <path d="M 184 448 L 184 365 Q 184 352, 193 340 L 200 308 L 207 340 Q 216 352, 216 365 L 216 448 Z"
+                  stroke="#D1D5DB" stroke-width="1.5" fill="rgba(255,255,255,0.04)" stroke-linejoin="round"/>
+
+            <!-- Window frame -->
+            <circle cx="200" cy="385" r="14" stroke="#ADD8E6" stroke-width="1.5" fill="rgba(173,216,230,0.06)"/>
+
+            <!-- Yellow accent stripe -->
+            <line x1="187" y1="422" x2="213" y2="422" stroke="#FFD701" stroke-width="1.5" opacity="0.5"/>
+
+            <!-- Nozzle -->
+            <path d="M 192 448 L 208 448 L 205 458 L 195 458 Z" stroke="#D1D5DB" stroke-width="1" fill="rgba(31,41,55,0.3)"/>
+
+            <!-- Astronaut (inside window — tiny at normal scale, visible when zoomed) -->
+            <g id="astronautGroup" opacity="0">
+              <circle cx="200" cy="381" r="4.5" stroke="#D1D5DB" stroke-width="0.8" fill="rgba(17,24,39,0.8)"/>
+              <path d="M 196.2 379 A 4.5 4.5 0 0 1 203.8 379" stroke="#ADD8E6" stroke-width="0.8" fill="rgba(173,216,230,0.15)"/>
+              <line x1="200" y1="386" x2="200" y2="393" stroke="#D1D5DB" stroke-width="0.8"/>
+              <line x1="197" y1="389" x2="193" y2="393" stroke="#D1D5DB" stroke-width="0.8" stroke-linecap="round"/>
+              <line id="astronautArm" x1="203" y1="389" x2="208" y2="384" stroke="#FFD701" stroke-width="0.8" stroke-linecap="round"/>
+            </g>
+
+            <!-- Flame -->
+            <g id="flameGroup" opacity="0.6">
+              <path id="flameOuter" d="M 195 458 Q 190 480, 200 494 Q 210 480, 205 458"
+                    stroke="#FFD701" stroke-width="1.2" fill="rgba(255,215,1,0.08)"/>
+              <path id="flameInner" d="M 197 458 Q 195 472, 200 482 Q 205 472, 203 458"
+                    stroke="#FFD701" stroke-width="0.8" fill="rgba(255,215,1,0.18)"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Pill label -->
+  <div class="scene-label" id="sceneLabel">Discovery Call</div>
+
+  <!-- Step indicators -->
+  <div class="steps" id="steps">
+    <div class="step-dot" data-step="0"></div>
+    <div class="step-dot" data-step="1"></div>
+    <div class="step-dot" data-step="2"></div>
+    <div class="step-dot" data-step="3"></div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MorphSVGPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/DrawSVGPlugin.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  gsap.registerPlugin(MorphSVGPlugin, DrawSVGPlugin);
+  gsap.defaults({ ease: "power2.out" });
+
+  // ----- Debugging -----
+  DEBUG = false
+  START_LABEL = "prototype"
+  END_LABEL = "toLaunch"
+
+  
+  // ----- Element refs -----
+  const card        = document.getElementById('card');
+  const swoosh      = document.getElementById('swoosh');
+  const sceneCall   = document.getElementById('sceneCall');
+  const sceneScope  = document.getElementById('sceneScope');
+  const browser     = document.getElementById('browser');
+  const figureL     = document.getElementById('figureLeft');
+  const figureR     = document.getElementById('figureRight');
+  const waveWrap    = document.getElementById('waveformWrap');
+  const wavePath    = document.getElementById('waveformPath');
+  const statChip    = document.getElementById('statChip');
+  const deployBar   = document.getElementById('deployBar');
+  const sceneLabel  = document.getElementById('sceneLabel');
+  const stepDots    = document.querySelectorAll('.step-dot');
+  const stage       = document.getElementById('stage');
+
+  // ----- Scope scene refs -----
+  const scopeCenter    = document.getElementById('scopeCenter');
+  const scopeArrowsSvg = document.getElementById('scopeArrowsSvg');
+  const scopeWords     = sceneScope.querySelectorAll('[data-sw]');
+  const scopeTimeline  = document.getElementById('scopeTimeline');
+  const timelineTrack  = document.getElementById('timelineTrack');
+  const tlNodes        = scopeTimeline.querySelectorAll('[data-tn]');
+
+  // ----- Prototype scene refs -----
+  const protoSketch  = document.getElementById('protoSketch');
+  const sketchLines  = protoSketch.querySelectorAll('[data-sk]');
+  const protoUi      = document.getElementById('protoUi');
+  const pHeader      = document.getElementById('pHeader');
+  const pAvatar      = document.getElementById('pAvatar');
+  const pAvatarArt   = document.getElementById('pAvatarArt');
+  const pAvatarHead  = document.getElementById('pAvatarHead');
+  const pAvatarHair  = document.getElementById('pAvatarHair');
+  const pName        = document.getElementById('pName');
+  const pSubtitle    = document.getElementById('pSubtitle');
+  const pStat1       = document.getElementById('pStat1');
+  const pStat2       = document.getElementById('pStat2');
+  const pCard1       = document.getElementById('pCard1');
+  const pCard2       = document.getElementById('pCard2');
+  const statVals     = protoUi.querySelectorAll('[data-pv]');
+  const statLbls     = protoUi.querySelectorAll('[data-pl]');
+  const cardDots     = protoUi.querySelectorAll('[data-pd]');
+  const cardLines    = protoUi.querySelectorAll('[data-pcl]');
+
+  // ----- Launch scene refs -----
+  const sceneLaunch     = document.getElementById('sceneLaunch');
+  const rocketContainer = document.getElementById('rocketContainer');
+  const rocketSvg       = document.getElementById('rocketSvg');
+
+  // ViewBox proxy for crisp vector zooming (no CSS scale blur)
+  const vb = { x: 0, y: 0, w: 400, h: 500 };
+  function setVB() {
+    rocketSvg.setAttribute('viewBox', `${vb.x} ${vb.y} ${vb.w} ${vb.h}`);
+  }
+  const launchStars     = document.querySelectorAll('[data-lstar]');
+  const rocketFlash     = document.getElementById('rocketFlash');
+  const launchpadEl     = document.getElementById('launchpad');
+  const flameGroup      = document.getElementById('flameGroup');
+  const flameOuter      = document.getElementById('flameOuter');
+  const flameInner      = document.getElementById('flameInner');
+  const astronautGroup  = document.getElementById('astronautGroup');
+  const astronautArm    = document.getElementById('astronautArm');
+
+  // ----- Generate scope arrow paths -----
+  const scopeArrows = [];
+
+  function buildArrows() {
+    while (scopeArrowsSvg.firstChild) scopeArrowsSvg.removeChild(scopeArrowsSvg.firstChild);
+    scopeArrows.length = 0;
+    const container = sceneScope;
+    const cRect = container.getBoundingClientRect();
+    const svgW = cRect.width, svgH = cRect.height;
+    scopeArrowsSvg.setAttribute('viewBox', `0 0 ${svgW} ${svgH}`);
+    const centerRect = scopeCenter.getBoundingClientRect();
+    const cx = centerRect.left - cRect.left + centerRect.width / 2;
+    const cy = centerRect.top - cRect.top + centerRect.height / 2;
+    const centerRadius = centerRect.width / 2;
+    scopeWords.forEach(w => {
+      const wRect = w.getBoundingClientRect();
+      const wx = wRect.left - cRect.left + wRect.width / 2;
+      const wy = wRect.top - cRect.top + wRect.height / 2;
+      const dx = wx - cx, dy = wy - cy;
+      const len = Math.sqrt(dx * dx + dy * dy);
+      if (len === 0) return;
+      const sx = cx + dx * (centerRadius + 4) / len;
+      const sy = cy + dy * (centerRadius + 4) / len;
+      const ex = wx - dx * 8 / len;
+      const ey = wy - dy * 8 / len;
+      const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+      path.setAttribute('d', `M ${sx} ${sy} L ${ex} ${ey}`);
+      path.setAttribute('class', 'scope-arrow');
+      scopeArrowsSvg.appendChild(path);
+      scopeArrows.push(path);
+    });
+    gsap.set(scopeArrows, { drawSVG: "0% 0%" });
+  }
+
+  gsap.set(sceneScope, { autoAlpha: 1 });
+  gsap.set(scopeCenter, { autoAlpha: 1, scale: 1 });
+  gsap.set(scopeWords, { autoAlpha: 1 });
+  buildArrows();
+  gsap.set(sceneScope, { autoAlpha: 0 });
+  gsap.set(scopeCenter, { autoAlpha: 0, scale: 0.85 });
+  gsap.set(scopeWords, { autoAlpha: 0 });
+
+  // ----- Swoosh / Waveform variants -----
+  const SWOOSH_WAVE = "M 60 280 C 240 220, 360 340, 540 260 S 780 220, 840 250";
+  const SWOOSH_ARC  = "M 60 380 C 240 260, 480 140, 720 160 S 840 180, 860 170";
+  const WAVE_CURVE  = "M 0 30 Q 25 10, 50 30 T 100 30 T 150 30 T 200 30 T 250 30 T 300 30";
+  const WAVE_FLAT   = "M 0 30 L 50 30 L 100 30 L 150 30 L 200 30 L 250 30 L 300 30";
+
+  // ----- Wireframe color tokens -----
+  const WIRE_BG     = "rgba(209,213,219,0.08)";
+  const WIRE_BORDER = "rgba(209,213,219,0.15)";
+  const WIRE_FILL   = "rgba(209,213,219,0.12)";
+  const WIRE_LINE   = "rgba(209,213,219,0.15)";
+
+  // ----- Initial state -----
+  gsap.set(card, { opacity: 0, y: 8 });
+  gsap.set([sceneCall, sceneScope], { autoAlpha: 0 });
+  gsap.set(browser, { autoAlpha: 0, y: -20, scale: 1 });
+  gsap.set([figureL, figureR, waveWrap], { autoAlpha: 0 });
+
+  gsap.set(scopeCenter, { autoAlpha: 0, scale: 0.85 });
+  gsap.set(scopeWords, { autoAlpha: 0 });
+  gsap.set(scopeArrows, { drawSVG: "0% 0%" });
+  gsap.set(scopeTimeline, { autoAlpha: 0 });
+  gsap.set(tlNodes, { autoAlpha: 0, y: 8 });
+  gsap.set(timelineTrack, { drawSVG: "0% 0%" });
+
+  gsap.set(protoSketch, { autoAlpha: 0, y: 0 });
+  gsap.set(sketchLines, { drawSVG: "0% 0%", autoAlpha: 1 });
+  gsap.set(protoUi, { autoAlpha: 0, y: -20 });
+  gsap.set(pHeader, { backgroundColor: WIRE_BG, borderBottom: "1px solid " + WIRE_BORDER });
+  gsap.set(pAvatar, { backgroundColor: WIRE_BG, border: "1px dashed " + WIRE_BORDER });
+  gsap.set(pAvatarArt, { autoAlpha: 0, scale: 0.82, transformOrigin: "50% 50%" });
+  gsap.set([pAvatarHead, pAvatarHair], { y: 0 });
+  gsap.set([pName, pSubtitle], { backgroundColor: WIRE_FILL });
+  gsap.set([pStat1, pStat2], { backgroundColor: WIRE_BG, border: "1px solid " + WIRE_BORDER });
+  gsap.set(statVals, { backgroundColor: WIRE_FILL });
+  gsap.set(statLbls, { backgroundColor: WIRE_LINE });
+  gsap.set([pCard1, pCard2], { backgroundColor: WIRE_BG, border: "1px solid " + WIRE_BORDER });
+  gsap.set(cardDots, { backgroundColor: WIRE_FILL });
+  gsap.set(cardLines, { backgroundColor: WIRE_LINE });
+  gsap.set(statChip, { autoAlpha: 0 });
+  gsap.set(deployBar, { autoAlpha: 0, scaleX: 0 });
+
+  // Launch initial state
+  gsap.set(sceneLaunch, { autoAlpha: 0 });
+  vb.x = 0; vb.y = 0; vb.w = 400; vb.h = 500; setVB();
+  gsap.set(launchStars, { opacity: 0 });
+  gsap.set(rocketFlash, { opacity: 0, scale: 1 });
+  gsap.set(rocketContainer, { opacity: 1 });
+  gsap.set(astronautGroup, { opacity: 0 });
+  gsap.set(flameGroup, { opacity: 0.6 });
+
+  gsap.set(sceneLabel, { autoAlpha: 0 });
+  gsap.set([card, swoosh.parentNode], { willChange: "transform, opacity" });
+
+  // ----- Flame idle sub-timeline -----
+  const flameBob = gsap.timeline({ repeat: -1, yoyo: true, paused: true });
+  flameBob.to(flameOuter, { scaleY: 1.15, scaleX: 0.9, duration: 0.12, ease: "sine.inOut", svgOrigin: "200 458" }, 0);
+  flameBob.to(flameInner, { scaleY: 1.2, scaleX: 0.85, duration: 0.1, ease: "sine.inOut", svgOrigin: "200 458" }, 0);
+
+  // ----- Waveform sub-timeline -----
+  const waveBob = gsap.timeline({ repeat: -1, yoyo: true, paused: true });
+  waveBob.to(wavePath, {
+    duration: 1.2, ease: "sine.inOut",
+    attr: { d: "M 0 30 Q 25 50, 50 30 T 100 30 T 150 30 T 200 30 T 250 30 T 300 30" }
+  });
+
+  // ----- Helpers -----
+  const setActiveStep = (i) => {
+    stepDots.forEach((d, idx) => {
+      gsap.set(d, { backgroundColor: idx === i ? "#FFD701" : "rgba(255,255,255,0.2)" });
+    });
+  };
+  const setLabel = (text) => { sceneLabel.textContent = text; };
+
+  const resetScope = () => {
+    gsap.set(scopeCenter, { autoAlpha: 0, scale: 0.85 });
+    gsap.set(scopeWords, { autoAlpha: 0 });
+    gsap.set(scopeArrows, { drawSVG: "0% 0%" });
+    gsap.set(scopeTimeline, { autoAlpha: 0 });
+    gsap.set(tlNodes, { autoAlpha: 0, y: 8 });
+    gsap.set(timelineTrack, { drawSVG: "0% 0%" });
+  };
+
+  const resetProto = () => {
+    gsap.set(protoSketch, { autoAlpha: 0, y: 0 });
+    gsap.set(sketchLines, { drawSVG: "0% 0%", autoAlpha: 1 });
+    gsap.set(protoUi, { autoAlpha: 0, y: -20 });
+    gsap.set(pHeader, { backgroundColor: WIRE_BG, borderBottom: "1px solid " + WIRE_BORDER });
+    gsap.set(pAvatar, { backgroundColor: WIRE_BG, border: "1px dashed " + WIRE_BORDER });
+    gsap.set(pAvatarArt, { autoAlpha: 0, scale: 0.82, transformOrigin: "50% 50%" });
+    gsap.set([pAvatarHead, pAvatarHair], { y: 0 });
+    gsap.set([pName, pSubtitle], { backgroundColor: WIRE_FILL });
+    gsap.set([pStat1, pStat2], { backgroundColor: WIRE_BG, border: "1px solid " + WIRE_BORDER });
+    gsap.set(statVals, { backgroundColor: WIRE_FILL });
+    gsap.set(statLbls, { backgroundColor: WIRE_LINE });
+    gsap.set([pCard1, pCard2], { backgroundColor: WIRE_BG, border: "1px solid " + WIRE_BORDER });
+    gsap.set(cardDots, { backgroundColor: WIRE_FILL });
+    gsap.set(cardLines, { backgroundColor: WIRE_LINE });
+    gsap.set(statChip, { autoAlpha: 0 });
+  };
+
+  const resetLaunch = () => {
+    flameBob.pause();
+    gsap.set(sceneLaunch, { autoAlpha: 0 });
+    vb.x = 0; vb.y = 0; vb.w = 400; vb.h = 500; setVB();
+    gsap.set(launchStars, { opacity: 0, y: 0 });
+    gsap.set(rocketFlash, { opacity: 0, scale: 1 });
+    gsap.set(rocketContainer, { opacity: 1 });
+    gsap.set(launchpadEl, { opacity: 1 });
+    gsap.set(astronautGroup, { opacity: 0 });
+    gsap.set(flameGroup, { opacity: 0.6, scaleY: 1, svgOrigin: "200 458" });
+    gsap.set(flameOuter, { scaleX: 1, scaleY: 1 });
+    gsap.set(flameInner, { scaleX: 1, scaleY: 1 });
+  };
+
+  setActiveStep(0);
+
+  // ====================================================================
+  // MASTER TIMELINE
+  // ====================================================================
+  const tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+
+  // ============================================================
+  // SCENE 1 — CALL
+  // ============================================================
+  tl.addLabel("call");
+  tl.call(() => { setActiveStep(0); setLabel("Discovery Call"); });
+
+  tl.to(card, { opacity: 1, y: 0, duration: 0.5 }, "call");
+  tl.set(sceneCall, { autoAlpha: 1 }, "call");
+  tl.to([figureL, figureR, waveWrap], {
+    autoAlpha: 1, duration: 0.45, stagger: 0.05
+  }, "call+=0.15");
+  tl.to(sceneLabel, { autoAlpha: 1, duration: 0.4 }, "call+=0.25");
+  tl.call(() => { waveBob.restart(); }, null, "call+=0.4");
+  tl.to({}, { duration: 2.2 }, "call+=0.5");
+
+  // ----- Transition CALL → SCOPE -----
+  tl.addLabel("toScope", "call+=2.7");
+  tl.call(() => { waveBob.pause(); }, null, "toScope");
+  tl.to(wavePath, { duration: 0.5, attr: { d: WAVE_FLAT } }, "toScope");
+  tl.to([figureL, figureR], { autoAlpha: 0, duration: 0.4 }, "toScope");
+  tl.to(waveWrap, { autoAlpha: 0, duration: 0.3 }, "toScope+=0.1");
+  tl.to(sceneLabel, {
+    autoAlpha: 0, duration: 0.25, onComplete: () => setLabel("Scope & Plan")
+  }, "toScope+=0.05");
+  tl.to(sceneLabel, { autoAlpha: 1, duration: 0.3 }, "toScope+=0.35");
+  tl.to(sceneCall, { autoAlpha: 0, duration: 0.25 }, "toScope+=0.3");
+  tl.set(sceneScope, { autoAlpha: 1 }, "toScope+=0.3");
+  tl.to(scopeCenter, { autoAlpha: 1, scale: 1, duration: 0.45, ease: "power2.out" }, "toScope+=0.35");
+  tl.to(scopeArrows, { drawSVG: "0% 100%", duration: 0.5, stagger: 0.025, ease: "power1.out" }, "toScope+=0.45");
+  tl.to(scopeWords, { autoAlpha: 0.72, duration: 0.35, stagger: 0.025, ease: "power2.out" }, "toScope+=0.55");
+
+  // ============================================================
+  // SCENE 2 — SCOPE
+  // ============================================================
+  tl.addLabel("scope", "toScope+=0.95");
+  tl.call(() => { setActiveStep(1); }, null, "scope");
+  tl.to({}, { duration: 1.4 }, "scope");
+
+  tl.addLabel("cloudToTimeline", "scope+=1.4");
+  tl.to(scopeArrows, { drawSVG: "50% 50%", duration: 0.5, stagger: 0.02, ease: "power2.inOut" }, "cloudToTimeline");
+  tl.to(scopeWords, { autoAlpha: 0, duration: 0.4, stagger: 0.02, ease: "power2.inOut" }, "cloudToTimeline+=0.1");
+  tl.to(scopeCenter, { autoAlpha: 0, scale: 0.5, duration: 0.45, ease: "power2.inOut" }, "cloudToTimeline+=0.2");
+  tl.to(scopeTimeline, { autoAlpha: 1, duration: 0.3 }, "cloudToTimeline+=0.6");
+  tl.to(timelineTrack, { drawSVG: "0% 100%", duration: 0.7, ease: "power1.inOut" }, "cloudToTimeline+=0.65");
+  tl.to(tlNodes, { autoAlpha: 1, y: 0, duration: 0.3, stagger: 0.09, ease: "power2.out" }, "cloudToTimeline+=0.75");
+  tl.to({}, { duration: 1.4 }, "cloudToTimeline+=1.5");
+
+  // ----- Transition SCOPE → PROTOTYPE -----
+  tl.addLabel("toProto", "cloudToTimeline+=2.9");
+  tl.to(scopeTimeline, { autoAlpha: 0, duration: 0.35, ease: "power2.inOut" }, "toProto");
+  tl.to(sceneLabel, {
+    autoAlpha: 0, duration: 0.25, onComplete: () => setLabel("Prototype")
+  }, "toProto+=0.1");
+  tl.to(sceneLabel, { autoAlpha: 1, duration: 0.3 }, "toProto+=0.4");
+  tl.to(sceneScope, { autoAlpha: 0, duration: 0.25 }, "toProto+=0.35");
+  tl.set(browser, { autoAlpha: 1 }, "toProto+=0.35");
+  tl.fromTo(browser, { y: -20, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 0.55 }, "toProto+=0.35");
+
+  // ============================================================
+  // SCENE 3 — PROTOTYPE
+  // ============================================================
+  tl.addLabel("prototype", "toProto+=0.95");
+  tl.call(() => { setActiveStep(2); }, null, "prototype");
+
+  tl.to(protoSketch, { autoAlpha: 1, duration: 0.15 }, "prototype");
+  tl.to(sketchLines, { drawSVG: "0% 100%", duration: 0.7, stagger: 0.035, ease: "power1.out" }, "prototype+=0.05");
+  tl.to({}, { duration: 0.3 }, "prototype+=0.8");
+
+  tl.addLabel("toWire", "prototype+=1.1");
+  tl.to(protoSketch, { autoAlpha: 0, y: 22, duration: 0.75, ease: "power2.inOut" }, "toWire");
+  tl.to(sketchLines, { autoAlpha: 0, duration: 0.6, ease: "power2.inOut" }, "toWire+=0.08");
+  tl.fromTo(protoUi, { autoAlpha: 0, y: -22 }, { autoAlpha: 1, y: 0, duration: 0.85, ease: "power2.out" }, "toWire+=0.12");
+  tl.to({}, { duration: 0.45 }, "toWire+=0.75");
+
+  tl.addLabel("toRefined", "toWire+=0.85");
+  tl.to(pHeader, { backgroundColor: "rgba(255,215,1,0.1)", borderBottom: "1px solid rgba(255,215,1,0.2)", duration: 0.45, ease: "power2.inOut" }, "toRefined");
+  tl.to(pAvatar, { backgroundColor: "rgba(209,213,219,0.15)", border: "1.5px solid rgba(209,213,219,0.3)", duration: 0.45, ease: "power2.inOut" }, "toRefined+=0.05");
+  tl.to(pAvatarArt, { autoAlpha: 1, scale: 1, duration: 0.42, ease: "back.out(1.7)" }, "toRefined+=0.08");
+  tl.to([pName, pSubtitle], { backgroundColor: "rgba(209,213,219,0.22)", duration: 0.4, ease: "power2.inOut" }, "toRefined+=0.08");
+  tl.to([pStat1, pStat2], { backgroundColor: "rgba(209,213,219,0.12)", border: "1px solid rgba(209,213,219,0.22)", duration: 0.4, ease: "power2.inOut" }, "toRefined+=0.1");
+  tl.to([pCard1, pCard2], { backgroundColor: "rgba(209,213,219,0.1)", border: "1px solid rgba(209,213,219,0.2)", duration: 0.4, stagger: 0.06, ease: "power2.inOut" }, "toRefined+=0.12");
+  tl.to(statVals, { backgroundColor: "rgba(209,213,219,0.2)", duration: 0.35 }, "toRefined+=0.15");
+  tl.to(statLbls, { backgroundColor: "rgba(209,213,219,0.18)", duration: 0.35 }, "toRefined+=0.15");
+  tl.to(cardLines, { backgroundColor: "rgba(209,213,219,0.22)", duration: 0.35 }, "toRefined+=0.15");
+  tl.to(cardDots[0], { backgroundColor: "rgba(255,215,1,0.25)", duration: 0.35 }, "toRefined+=0.2");
+  tl.to(cardDots[1], { backgroundColor: "rgba(173,216,230,0.25)", duration: 0.35 }, "toRefined+=0.25");
+  tl.to([pAvatarHead, pAvatarHair], { y: -1.3, duration: 0.16, yoyo: true, repeat: 3, ease: "sine.inOut" }, "toRefined+=0.24");
+  tl.to({}, { duration: 0.35 }, "toRefined+=0.5");
+
+  tl.addLabel("toPolished", "toRefined+=0.85");
+  tl.to(pHeader, { backgroundColor: "rgba(255,215,1,0.18)", borderBottom: "1px solid rgba(255,215,1,0.35)", duration: 0.5, ease: "power2.inOut" }, "toPolished");
+  tl.to(pAvatar, { backgroundColor: "rgba(173,216,230,0.2)", border: "2px solid rgba(173,216,230,0.6)", duration: 0.5, ease: "power2.inOut" }, "toPolished+=0.05");
+  tl.to(pName, { backgroundColor: "rgba(255,255,255,0.45)", duration: 0.45, ease: "power2.inOut" }, "toPolished+=0.08");
+  tl.to(pSubtitle, { backgroundColor: "rgba(255,255,255,0.25)", duration: 0.45, ease: "power2.inOut" }, "toPolished+=0.1");
+  tl.to(pStat1, { backgroundColor: "rgba(255,215,1,0.12)", border: "1px solid rgba(255,215,1,0.3)", duration: 0.45, ease: "power2.inOut" }, "toPolished+=0.1");
+  tl.to(pStat2, { backgroundColor: "rgba(173,216,230,0.1)", border: "1px solid rgba(173,216,230,0.3)", duration: 0.45, ease: "power2.inOut" }, "toPolished+=0.13");
+  tl.to(statVals[0], { backgroundColor: "rgba(255,215,1,0.45)", duration: 0.4 }, "toPolished+=0.15");
+  tl.to(statLbls, { backgroundColor: "rgba(255,255,255,0.25)", duration: 0.35 }, "toPolished+=0.15");
+  tl.to(pCard1, { backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", duration: 0.45, ease: "power2.inOut" }, "toPolished+=0.15");
+  tl.to(statVals[1], { backgroundColor: "rgba(173,216,230,0.4)", duration: 0.4 }, "toPolished+=0.18");
+  tl.to(pCard2, { backgroundColor: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.12)", duration: 0.45, ease: "power2.inOut" }, "toPolished+=0.2");
+  tl.to(cardDots[0], { backgroundColor: "rgba(255,215,1,0.7)", duration: 0.4 }, "toPolished+=0.2");
+  tl.to(cardLines, { backgroundColor: "rgba(255,255,255,0.2)", duration: 0.35 }, "toPolished+=0.2");
+  tl.to(cardDots[1], { backgroundColor: "rgba(173,216,230,0.65)", duration: 0.4 }, "toPolished+=0.25");
+  tl.to(statChip, { autoAlpha: 0.9, duration: 0.35 }, "toPolished+=0.35");
+
+  // Yellow completion bar sweeps left → right across bottom of mockup
+  tl.set(deployBar, { autoAlpha: 1 }, "toPolished+=0.4");
+  tl.to(deployBar, { scaleX: 1, duration: 0.5, ease: "power1.inOut" }, "toPolished+=0.4");
+
+  tl.to({}, { duration: 0.8 }, "toPolished+=0.6");
+
+  // ----- Transition PROTOTYPE → LAUNCH -----
+  tl.addLabel("toLaunch", "toPolished+=1.4");
+
+  // Deploy bar draws across browser bottom
+  tl.set(deployBar, { autoAlpha: 1 }, "toLaunch");
+  tl.to(deployBar, { scaleX: 1, duration: 0.6, ease: "power1.inOut" }, "toLaunch");
+
+  // Swoosh morphs
+  tl.to(swoosh, { duration: 0.7, ease: "power1.inOut", morphSVG: SWOOSH_ARC }, "toLaunch");
+
+  // Cross-dissolve: browser out, launch scene in
+  tl.to(browser, { autoAlpha: 0, duration: 0.5, ease: "power2.inOut" }, "toLaunch+=0.5");
+  tl.to(sceneLaunch, { autoAlpha: 1, duration: 0.5, ease: "power2.inOut" }, "toLaunch+=0.55");
+
+  // Label cross-fade
+  tl.to(sceneLabel, {
+    autoAlpha: 0, duration: 0.25, onComplete: () => setLabel("Launch")
+  }, "toLaunch+=0.3");
+  tl.to(sceneLabel, { autoAlpha: 1, duration: 0.3 }, "toLaunch+=0.6");
+
+  // ============================================================
+  // SCENE 4 — LAUNCH (rocket sequence)
+  // ============================================================
+  tl.addLabel("launch", "toLaunch+=0.9");
+  tl.call(() => { setActiveStep(3); }, null, "launch");
+
+  // ---- Stage 1: Pre-launch ----
+  // Stars fade in gently
+  tl.to(launchStars, { opacity: 0.35, duration: 0.4, stagger: 0.03 }, "launch");
+
+  // Start flame flicker
+  tl.call(() => { flameBob.restart(); }, null, "launch");
+
+  // Subtle pre-launch vibration on rocket (via viewBox micro-shift)
+  tl.to(vb, { x: 1, duration: 0.05, yoyo: true, repeat: 7, ease: "sine.inOut", onUpdate: setVB }, "launch+=0.2");
+
+  // Pre-launch hold
+  tl.to({}, { duration: 0.4 }, "launch+=0.5");
+
+  // ---- Stage 2: Lift-off ----
+  tl.addLabel("liftoff", "launch+=0.9");
+
+  // Flame intensifies
+  tl.to(flameGroup, { opacity: 1, scaleY: 1.6, svgOrigin: "200 458", duration: 1.0, ease: "power2.out" }, "liftoff");
+
+  // Camera pans up with rocket (viewBox shifts down to reveal upward motion)
+  tl.to(vb, { x: 50, y: -80, w: 300, h: 500, duration: 1.0, ease: "power2.in", onUpdate: setVB }, "liftoff+=0.1");
+
+  // Launchpad fades
+  tl.to(launchpadEl, { opacity: 0, duration: 1.0 }, "liftoff+=.55");
+
+  // Stars drift down slightly (parallax)
+  tl.to(launchStars, { y: 12, duration: 1.5, ease: "none" }, "liftoff+=0.1");
+
+  // ---- Stage 3: Close-up zoom ----
+  tl.addLabel("closeup", "liftoff+=1.0");
+
+  // Zoom into cockpit area (viewBox tightens on window — stays vector-crisp)
+  tl.to(vb, { x: 182, y: 365, w: 36, h: 45, duration: 0.9, ease: "power2.inOut", onUpdate: setVB }, "closeup");
+
+  // Stars brighten during zoom
+  tl.to(launchStars, { opacity: 0.5, duration: 0.5 }, "closeup");
+
+  // Astronaut fades in as zoom completes
+  tl.to(astronautGroup, { opacity: 1, duration: 0.4, ease: "power2.out" }, "closeup+=0.5");
+
+  // Astronaut waves
+  tl.to(astronautArm, {
+    rotation: -35, svgOrigin: "203 389",
+    duration: 0.2, yoyo: true, repeat: 5, ease: "sine.inOut"
+  }, "closeup+=0.7");
+
+  // Hold close-up
+  tl.to({}, { duration: 0.3 }, "closeup+=1.5");
+
+  // ---- Stage 4: Zoom to space ----
+  tl.addLabel("spaceZoom", "closeup+=1.8");
+
+  // Astronaut fades
+  tl.to(astronautGroup, { opacity: 0, duration: 0.25 }, "spaceZoom");
+
+  // Camera zooms way out — rocket becomes a tiny speck (viewBox expands dramatically)
+  tl.to(vb, { x: -400, y: -700, w: 1200, h: 1500, duration: 0.8, ease: "power2.in", onUpdate: setVB }, "spaceZoom+=0.1");
+
+  // Flame trail elongates as rocket accelerates
+  tl.to(flameGroup, { scaleY: 3, svgOrigin: "200 458", duration: 0.5, ease: "power2.in" }, "spaceZoom+=0.1");
+  tl.to(rocketContainer, { opacity: 0, duration: 0.16, ease: "power2.in" }, "spaceZoom+=0.7");
+  tl.to(rocketFlash, { opacity: 1, scale: 3.6, duration: 0.12, ease: "power3.out", svgOrigin: "200 85" }, "spaceZoom+=0.9");
+  tl.to(rocketFlash, { opacity: 0, scale: 26, duration: 0.45, ease: "expo.out", svgOrigin: "200 85" }, "spaceZoom+=1.0");
+
+  // Stars streak downward (hyperspace feel)
+  tl.to(launchStars, { y: 180, opacity: 0.7, duration: 0.7, stagger: 0.02, ease: "power1.in" }, "spaceZoom+=0.1");
+
+  // Stars fade as scene ends
+  tl.to(launchStars, { opacity: 0, duration: 0.3 }, "spaceZoom+=0.6");
+
+  // Stop flame
+  tl.call(() => { flameBob.pause(); }, null, "spaceZoom+=0.7");
+
+  // Hold — the rocket is a tiny speck
+  tl.to({}, { duration: 0.5 }, "spaceZoom+=1.0");
+
+  // ============================================================
+  // LOOP BRIDGE — LAUNCH → CALL
+  // ============================================================
+  tl.addLabel("toCall", "spaceZoom+=1.3");
+
+  // Scene-launch fades out
+  tl.to(sceneLaunch, { autoAlpha: 0, duration: 0.5 }, "toCall");
+
+  // Swoosh morphs back
+  tl.to(swoosh, { duration: 0.6, ease: "power1.inOut", morphSVG: SWOOSH_WAVE }, "toCall");
+
+  // Reset all transient state so the loop restart is clean
+  tl.call(() => {
+    gsap.set(deployBar, { scaleX: 0, autoAlpha: 0 });
+    gsap.set(browser, { scale: 1, y: -20, autoAlpha: 0 });
+    gsap.set(wavePath, { attr: { d: WAVE_CURVE } });
+    gsap.set(sceneLabel, { autoAlpha: 0 });
+    gsap.set([figureL, figureR, waveWrap], { autoAlpha: 0 });
+    gsap.set(sceneCall, { autoAlpha: 0 });
+    gsap.set(card, { opacity: 0, y: 8 });
+    resetScope();
+    resetProto();
+    resetLaunch();
+  }, null, "toCall+=0.5");
+
+  if (DEBUG) {
+    tl.pause();
+    const launchStart = tl.labels[START_LABEL];
+    const loopEnd = tl.labels[END_LABEL];
+    gsap.delayedCall(0.1, () => {
+      tl.seek(launchStart).play();
+      tl.eventCallback("onUpdate", () => {
+        if (tl.time() >= loopEnd) {
+          resetLaunch();
+          tl.seek(launchStart).play();
+        }
+      });
+    });
+  }
+});
+</script>
+</body>
+</html>
