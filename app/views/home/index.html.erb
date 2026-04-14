@@ -146,6 +146,18 @@
       <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400">Our work</p>
       <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal">Recent startup products <em class="italic text-primary">we shipped</em></h2>
       <div class="grid gap-5 mt-14 md:grid-cols-2">
+        <article class="overflow-hidden bg-gray-800 rounded-xl border border-white/10 md:col-span-2">
+          <div class="w-full h-[360px] p-3">
+            <div class="flex justify-center items-center w-full h-full rounded-lg border border-dashed border-white/20 bg-background-navy/70">
+              <p class="px-6 font-mono text-xs tracking-[0.12em] text-center uppercase text-gray-400">Case study image placeholder</p>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="mb-2 text-[30px] leading-tight tracking-normal">Biohub Platform</h3>
+            <p class="mb-[18px] text-gray-300">Shipping secure portal workflows and authorization-critical product features for a B2B startup under tight delivery timelines.</p>
+            <%= link_to "View case study ->", biohub_platform_case_studies_path, class: "text-sm font-semibold no-underline text-primary hover:text-yellow-200" %>
+          </div>
+        </article>
         <article class="overflow-hidden bg-gray-800 rounded-xl border border-white/10">
           <%= image_tag("aspire/case-study-home.png", alt: "Aspire case study", class: "w-full h-[360px] object-cover p-3") %>
           <div class="p-6">

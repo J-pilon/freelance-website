@@ -1,0 +1,124 @@
+<% content_for :title, "Case Study: BC Government Secure Data Initiative | ClientFirst Labs" %>
+<% content_for :meta_description, "How ClientFirst Labs supported a BC Government initiative to protect sensitive data with secure request workflows, traceability, and role-based access controls." %>
+
+<div class="overflow-x-hidden text-gray-50">
+  <section class="!px-0 !py-0 border-b border-white/10 bg-background-navy">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-14">
+      <div class="grid gap-8 items-center md:grid-cols-2">
+        <div>
+          <div class="flex flex-wrap gap-6 items-center mb-6">
+            <%= image_tag "biohub/BC-gov-logo.svg", alt: "BC Government logo", class: "h-10 w-auto" %>
+            <%= image_tag "biohub/button-logo.svg", alt: "BioHub Platform logo", class: "h-10 w-auto" %>
+          </div>
+          <%= render partial: "shared/page/section_heading", locals: {
+            label: "BC Government Initiative",
+            title: "Protecting Sensitive Environmental Data with Secure, Role-Aware Access"
+          } %>
+          <div class="mt-6">
+            <p class="text-lg font-light leading-[1.65] text-gray-300">The BioHub Platform was built to help users discover environmental data and securely request access to sensitive records through a centralized, role-aware portal.</p>
+          </div>
+        </div>
+
+        <div class="w-full h-[320px] rounded-xl border border-dashed border-white/20 bg-gray-800/60 flex items-center justify-center">
+          <p class="px-6 font-mono text-xs tracking-[0.12em] text-center uppercase text-gray-400">Case study image placeholder</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 border-b border-white/10 bg-background-black">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-12">
+      <%= render partial: "shared/page/section_heading", locals: { label: "Results", title: "Outcomes from the engagement" } %>
+
+      <div class="grid gap-8 md:grid-cols-3">
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">25%</p>
+          <h4 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Faster Feature Delivery</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">Faster shipping improved validation velocity and customer feedback loops while protecting runway.</p>
+        </div>
+
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">100%</p>
+          <h4 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Traceable Data Access Requests</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">Stronger traceability reduced compliance risk and lowered the cost of governance as the product scaled.</p>
+        </div>
+
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">Lower Ops</p>
+          <h4 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Secure Self-Serve Flows</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">The team spent less time on repetitive coordination and more time on growth priorities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+    <div class="mx-auto space-y-16 w-[min(1200px,calc(100%-48px))] py-12">
+      <div class="grid gap-12 md:grid-cols-2">
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Context", title: "A BC Government initiative requiring secure data access at scale" } %>
+          <p class="leading-[1.7] text-gray-300">ClientFirst Labs partnered with <strong>Button Inc</strong> on the delivery of BioHub, a BC Government initiative focused on protecting sensitive environmental records while enabling responsible access. The platform had to support public discovery, authenticated request workflows, and strict role-based controls in one centralized product experience.</p>
+        </div>
+
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Challenge", title: "Increase delivery speed while preserving security and governance" } %>
+          <ul class="!m-0 !p-0 list-none space-y-3">
+            <li class="!pl-0 text-sm text-gray-300">- User journeys were fragmented between search, feature details, submissions, and access requests</li>
+            <li class="!pl-0 text-sm text-gray-300">- Authorization logic had to enforce team, policy, and system-user rules across multiple endpoints</li>
+            <li class="!pl-0 text-sm text-gray-300">- Stakeholders needed complete request traceability for governance, audit readiness, and operational follow-up</li>
+            <li class="!pl-0 text-sm text-gray-300">- Portal capabilities were missing for users to track submission and ticket status</li>
+            <li class="!pl-0 text-sm text-gray-300">- API and frontend consistency needed to improve as security-sensitive scope expanded</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 bg-background-black border-y border-white/10">
+    <div class="mx-auto space-y-16 w-[min(1200px,calc(100%-48px))] py-12">
+      <%= render partial: "shared/page/section_heading", locals: { label: "Our approach", title: "Security-first delivery" } %>
+      <p class="mb-6 leading-[1.7] text-gray-300">Our team operated as an extension of the delivery function, shipping in test-backed increments while keeping environmental data protection, traceability, and workflow clarity as non-negotiable requirements. We prioritized implementation decisions that strengthened both user experience and governance outcomes.</p>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        <div class="p-5 bg-gray-800 rounded-xl border border-white/10">
+          <h4 class="mb-2 text-[24px] leading-[1.2] tracking-normal">An effective user portal</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">We launched clear portal pages where users can see their submissions and tickets in one place, with straightforward status visibility and fewer support questions.</p>
+        </div>
+
+        <div class="p-5 bg-gray-800 rounded-xl border border-white/10">
+          <h4 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Strong access controls for sensitive data</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">We tightened who can see and do what across the platform so sensitive records stay protected and teams can operate with clearer permission boundaries.</p>
+        </div>
+
+        <div class="p-5 bg-gray-800 rounded-xl border border-white/10">
+          <h4 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Fully trackable data requests</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">Each access request now connects to an operational ticket, giving the team a complete trail from submission to follow-up for governance and compliance reviews.</p>
+        </div>
+
+        <div class="p-5 bg-gray-800 rounded-xl border border-white/10">
+          <h4 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Faster and more reliable user journeys</h4>
+          <p class="text-sm leading-[1.6] text-gray-300">We improved the highest-traffic pages so users can find data, understand secure record rules, and complete request flows with fewer dead ends and less confusion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+    <div class="mx-auto space-y-16 w-[min(1200px,calc(100%-48px))] py-12">
+      <div class="grid gap-12 md:grid-cols-2">
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Results", title: "What changed after delivery" } %>
+          <p class="mb-4 leading-[1.7] text-gray-300">The initiative gained stronger security operations without slowing delivery. Users could discover environmental data and move through secure access requests with clearer workflows, while the team gained complete request traceability from submission to ticket follow-up.</p>
+          <p class="mb-4 leading-[1.7] text-gray-300">The delivery team also improved consistency across routing and API behavior, and increased release confidence through broader test coverage in critical security-sensitive flows.</p>
+        </div>
+        
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Founder takeaway", title: "Why this engagement model worked" } %>
+          <p class="leading-[1.7] text-gray-300">This engagement worked because ClientFirst Labs combined rapid execution with governance-aware engineering decisions from the start. We treated security controls, traceability, and user workflow quality as core product requirements, not post-launch fixes. For founders in regulated or security-sensitive domains, this approach protects trust while maintaining delivery momentum.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%= render partial: "shared/page/contact_block" %>
+</div>
