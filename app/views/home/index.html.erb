@@ -1,236 +1,249 @@
-<section class="flex items-center justify-center min-h-screen px-4 py-12 bg-background-navy md:px-8">
-  <div class="flex flex-col items-center justify-center w-full h-full gap-8 content-container lg:flex-row">
-    <div class="w-full space-y-6 text-center lg:w-full lg:text-left">
-      <h1 class="text-3xl font-bold leading-tight sm:text-4xl md:text-5xl">Your local software <strong class="text-secondary">experts</strong> that deliver results</h1>
-      <p class="text-base text-white sm:text-lg">Our unique approach to software development focuses on understanding your concerns and presenting data to back up your decisions, ensuring that our custom software solutions meet and exceed your business objectives.</p>
-    </div>
-    <div class="flex justify-center w-full">
-      <%= image_tag("icons/swoosh.svg", class: "") %>
-    </div>
-  </div>
-</section>
+<% content_for :title, "Startup Software Development Partner | ClientFirst Labs" %>
+<% content_for :meta_description, "ClientFirst Labs helps early-stage Canadian startups build MVPs, refactor prototypes, and ship production-ready software fast. Book a free founder strategy call." %>
 
-<section class="px-4 py-16 bg-background-black md:px-8">
-  <div class="flex flex-col items-center content-container">
-    <div class="mb-16 pill">
-      <p class="">What we stand for</p>
-    </div>
 
-    <div class="flex flex-col items-start md:flex-row md:justify-between md:gap-16">
-      <div class="w-full mb-8 md:w-1/2 md:mb-0">
-        <%= image_tag("Josiah-March2024-8-M.jpg", class: "rounded-xl shadow-lg w-full h-auto") %>
-      </div>
-
-      <div class="w-full space-y-10 md:w-1/2">
-        <div class="text-center md:text-left">
-          <h3 class="">Client-Focused Approach</h3>
-          <p class="">Your goals drive our roadmap. We listen before we build, and we adapt as your needs evolve. We don't chase trends—we focus on what moves your business forward. Every decision, from UX to infrastructure, is made with your success in mind.</p>
-        </div>
-
-        <div class="text-center md:text-left">
-          <h3 class="">Product-First Thinking</h3>
-          <p class="">We focus on what your users are really trying to accomplish and build features that move the needle. Whether it’s automating repetitive processes, optimizing critical workflows, or refining key user interactions, we care deeply about the “why” behind every feature. That lens leads to software that’s not only functional, but intuitive, impactful, and—most importantly—used.</p>
-        </div>
-        
-        <div class="text-center md:text-left">
-          <h3 class="">On Budget, On Purpose</h3>
-          <p class="">We treat your budget like it’s our own. From day one, we prioritize the features that deliver the most value and avoid scope creep disguised as “nice-to-haves.” Our process is transparent, and our estimates are grounded in real experience—so you’re never caught off guard. Predictable spend, no surprises.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="px-4 py-16 bg-background-navy md:px-8">
-  <div class="flex flex-col items-center content-container">
-    <div class="mb-16 pill">
-      <p class="">What we do</p>
-    </div>
-
-    <div class="flex-col w-full space-y-16">
-      <%= render partial: "shared/service-card", locals: {
-        reverse: false,
-        image_src: asset_path("web-application-dev.jpg"),
-        heading: "Web Application Design & Development",
-        description: "Transform your startup’s vision into a robust and scalable web application with ClientFirst Labs. Our team specializes in creating user-friendly, high-performance web applications tailored to meet your business needs. Benefit from our expertise in the latest technologies to ensure your application is secure, maintainable, and ready for future growth."
-      } %>
-
-      <%= render partial: "shared/service-card", locals: {
-        reverse: true,
-        image_src: asset_path("mobile-dev.jpg"),
-        heading: "Mobile Application Design & Development",
-        description: "Enhance your startup’s reach with custom mobile applications designed and developed by ClientFirst Labs. We deliver seamless, intuitive mobile experiences that engage users and drive business growth. Whether it's for iOS or Android, our solutions are optimized for performance and usability, ensuring your app stands out in a competitive market."
-      } %>
-      
-      <%= render partial: "shared/service-card", locals: {
-        reverse: false,
-        image_src: asset_path("modernization.webp"),
-        heading: "Website Modernization",
-        description: "Give your startup a competitive edge with a modernized website from ClientFirst Labs. We revamp outdated websites to improve aesthetics, functionality, and user experience, making your business more appealing and accessible to customers. Modernize your online presence to boost engagement, enhance SEO, and increase conversion rates."
-      } %>
-    </div>
-  </div>
-</section>
-
-<section class="px-4 py-16 bg-background-black md:px-8">
-  <div class="flex flex-col items-center content-container">
-    <div class="mb-16 pill">
-      <p class="">Our work</p>
-    </div>
-    
-    <div class="flex flex-col items-center space-y-16 md:hidden">
-      <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-        <div class="flex justify-center w-full mb-4 md:mb-0">
-          <%= image_tag("aspire/case-study-home.png", class: "max-w-[500px]") %>
-        </div>
-
-        <div class="w-full">
-          <div class="w-full">
-            <h2 class="text-4xl text-center text-white md:text-left">Aspire</h2>
-            <p class="w-full mt-4 text-3xl text-center md:w-4/5 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
+<div class="overflow-x-hidden text-gray-50 bg-background-blue">
+  <section id="home" class="">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))]">
+      <div class="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]">
+        <div>
+          <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400">Vancouver, BC · Canadian Startup Partner</p>
+          <h1 class="mb-6 max-w-4xl text-[clamp(42px,6vw,88px)] leading-[1.06] font-normal tracking-normal">The product development partner for <strong class="italic font-normal text-primary">early-stage Canadian startups</strong></h1>
+          <p class="max-w-3xl text-lg font-light leading-[1.65] text-gray-300">We help founders ship their MVP, validate faster, and scale their product, without building a full in-house engineering team. From idea to production, we move at startup speed.</p>
+          <div class="flex flex-wrap gap-3.5 mt-8">
+            <%= link_to "Book a Founder Strategy Call", "https://calendly.com/clientfirst-labs/discovery", class: "inline-block rounded-md border border-transparent bg-primary px-6 py-3.5 text-sm font-semibold text-gray-900 no-underline shadow-[0_0_6px_1px_#ffd701] transition duration-200 hover:-translate-y-px hover:opacity-90" %>
+            <a href="#what-we-do" class="inline-block px-6 py-3.5 text-sm font-semibold text-gray-300 no-underline rounded-md border transition duration-200 border-white/10 hover:border-secondary hover:text-gray-50">See what we build</a>
           </div>
 
-          <div class="flex justify-center w-full mt-16 md:justify-start">
-            <%= link_to "View case study", aspire_case_studies_path, class: "text-xl text-primary" %>
-          </div>
-        </div>
-      </div>
-
-      <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-        <div class="flex justify-center w-full mb-4 md:mb-0">
-          <%= image_tag("wecasa/case-study-home.png", class: "max-w-[500px]") %>
-        </div>
-
-        <div class="w-full">
-          <div class="w-full">
-            <h2 class="text-4xl text-center text-white md:text-left">Wecasa</h2>
-            <p class="w-full mt-4 text-3xl text-center md:w-4/5 md:text-left">Creating a Web and Mobile Platform to Simplify Second Home Management</p>
-          </div>
-
-          <div class="flex justify-center w-full mt-16 md:justify-start">
-            <%= link_to "View case study", "", class: "text-xl text-primary" %>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div data-controller="carousel"
-      data-carousel-autoplay-value="false"
-      data-carousel-interval-value="5000"
-      class="relative hidden w-full max-w-5xl mx-auto overflow-hidden rounded-xl md:block">
-
-      <div class="relative">
-        <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
-          <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-            <div class="flex justify-center w-full mb-4 md:mb-0">
-              <%= image_tag("aspire/case-study-home.png", class: "max-w-[500px]") %>
+          <div class="grid grid-cols-1 gap-3.5 mt-11 sm:grid-cols-2">
+            <div class="p-3.5 rounded-lg border border-white/10 bg-white/5">
+              <p class="mb-1.5 font-normal leading-none text-secondary text-[26px] sm:text-[28px] whitespace-nowrap">7+</p>
+              <p class="font-mono text-[11px] tracking-[0.05em] uppercase text-gray-400">Years Experience</p>
             </div>
-
-            <div class="w-full">
-              <div class="w-full">
-                <h2 class="text-4xl text-center text-white md:text-left">Aspire</h2>
-                <p class="w-full mt-4 text-3xl text-center md:w-3/4 md:text-left">Empowering Insurance Agents with a Breakthrough Digital</p>
-              </div>
-
-              <div class="flex justify-center w-full mt-16 md:justify-start">
-                <%= link_to "View case study", aspire_case_studies_path, class: "text-xl text-primary" %>
-              </div>
+            <div class="p-3.5 rounded-lg border border-white/10 bg-white/5">
+              <p class="mb-1.5 font-normal leading-none text-secondary text-[26px] sm:text-[28px] whitespace-nowrap">No Outsourcing</p>
+              <p class="font-mono text-[11px] tracking-[0.05em] uppercase text-gray-400">Direct Senior Work</p>
+            </div>
+            <div class="p-3.5 rounded-lg border border-white/10 bg-white/5">
+              <p class="mb-1.5 font-normal leading-none text-secondary text-[26px] sm:text-[28px] whitespace-nowrap">Startup-Paced</p>
+              <p class="font-mono text-[11px] tracking-[0.05em] uppercase text-gray-400">Fast Iteration</p>
+            </div>
+            <div class="p-3.5 rounded-lg border border-white/10 bg-white/5">
+              <p class="mb-1.5 font-normal leading-none text-secondary text-[26px] sm:text-[28px] whitespace-nowrap">Production</p>
+              <p class="font-mono text-[11px] tracking-[0.05em] uppercase text-gray-400">Complex Systems Shipped</p>
             </div>
           </div>
         </div>
 
-        <div data-carousel-target="slide" class="flex items-center justify-center hidden w-full text-2xl font-bold text-white bg-transparent h-[420px]">
-          <div class="flex flex-col items-center justify-center w-full md:gap-8 md:flex-row">
-            <div class="flex justify-center w-full mb-4 md:mb-0">
-              <%= image_tag("wecasa/case-study-home.png", class: "max-w-[500px]") %>
-            </div>
+        <div class="rounded-[14px]">
+          <iframe src="process-loop.html" class="w-full rounded-[10px] object-contain" style="height:900px; background: transparent;" title="Process animation" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <div class="w-full">
-              <div class="w-full">
-                <h2 class="text-4xl text-center text-white md:text-left">Wecasa</h2>
-                <p class="w-full mt-4 text-3xl text-center md:w-3/4 md:text-left">Making Luxury Vacation Homes Truly Shareable</p>
-              </div>
+  <section id="who-we-work-with" class="!px-0 !py-0 bg-background-black border-y border-white/10">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
+      <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400">Who we work best with</p>
+      <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal">Built for founders who need a <em class="italic text-primary">technical partner</em></h2>
+      <p class="max-w-[750px] text-lg font-light leading-[1.65] text-gray-300">We partner with early-stage startups that are ready to move fast. If you are building a product and need a technical partner, not just a vendor, you are in the right place.</p>
+      <div class="flex flex-wrap gap-2.5 mt-7">
+        <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">Pre-seed to Series A</span>
+        <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">1-10 employees</span>
+        <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">Founder-led teams</span>
+        <span class="px-3.5 py-2 text-[13px] text-gray-300 rounded-full border border-white/10">MVP stage companies</span>
+      </div>
+      <div class="grid gap-5 mt-12 md:grid-cols-2">
+        <article class="p-7 bg-gray-800 rounded-xl border border-white/10">
+          <h3 class="mb-3 text-3xl tracking-normal leading-tight">Builder Founder</h3>
+          <p class="mb-3.5 leading-[1.7] text-gray-300">You have the vision but need someone to build it. You are non-technical or semi-technical, under pressure to show traction, and need a trusted technical partner.</p>
+          <ul class="!m-0 !p-0 list-none">
+            <li class="mb-2 !pl-0 text-sm text-gray-300">- MVP development from scratch</li>
+            <li class="mb-2 !pl-0 text-sm text-gray-300">- Product validation and iteration</li>
+            <li class="mb-2 !pl-0 text-sm text-gray-300">- Replace manual workflows with software</li>
+            <li class="mb-0 !pl-0 text-sm text-gray-300">- Build your SaaS product</li>
+          </ul>
+        </article>
+        <article class="p-7 bg-gray-800 rounded-xl border border-white/10">
+          <h3 class="mb-3 text-3xl tracking-normal leading-tight">Overloaded Technical Founder</h3>
+          <p class="mb-3.5 leading-[1.7] text-gray-300">You are writing most of the code yourself. You need capacity, architecture guidance, and a team that can ship, so you can focus on the business.</p>
+          <ul class="!m-0 !p-0 list-none">
+            <li class="mb-2 !pl-0 text-sm text-gray-300">- Refactor and clean up your prototype</li>
+            <li class="mb-2 !pl-0 text-sm text-gray-300">- Extend your engineering capacity</li>
+            <li class="mb-2 !pl-0 text-sm text-gray-300">- Ship features faster</li>
+            <li class="mb-0 !pl-0 text-sm text-gray-300">- Add AI and third-party integrations</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
 
-              <div class="flex justify-center w-full mt-16 md:justify-start">
-                <%= link_to "View case study", wecasa_case_studies_path, class: "text-xl text-primary" %>
-              </div>
-            </div>
+  <section class="!px-0 !py-0" id="what-we-do">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
+      <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400">What we do</p>
+      <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal">From MVP to production, built at <em class="italic text-primary">startup speed</em></h2>
+      <p class="max-w-[750px] text-lg font-light leading-[1.65] text-gray-300">Every engagement is scoped around validation and traction, so your product reaches real users fast and scales cleanly.</p>
+
+      <div class="flex flex-col gap-[18px] mt-14">
+        <article class="grid overflow-hidden gap-6 items-center rounded-xl border border-white/10 bg-background-navy md:grid-cols-2">
+          <%= image_tag asset_path("web-application-dev.jpg"), alt: "MVP development service", class: "w-full h-full min-h-[280px] object-cover" %>
+          <div class="p-[30px]">
+            <h3 class="mb-3 text-[28px] leading-[1.15] tracking-normal">MVP Development</h3>
+            <p class="mb-[18px] leading-[1.7] text-gray-300">Go from idea to a production-ready MVP without wasted time or over-engineered architecture. We scope, design, and build your web application around what you need to validate.</p>
+            <%= link_to "Learn about MVP development ->", mvp_development_path, class: "text-sm font-semibold no-underline text-primary hover:text-yellow-200" %>
+          </div>
+        </article>
+
+        <article class="grid overflow-hidden gap-6 items-center rounded-xl border border-white/10 bg-background-navy md:grid-cols-2">
+          <%= image_tag asset_path("mobile-dev.jpg"), alt: "Mobile app development service", class: "w-full h-full min-h-[280px] object-cover md:order-2" %>
+          <div class="p-[30px] md:order-1">
+            <h3 class="mb-3 text-[28px] leading-[1.15] tracking-normal">Mobile App Development</h3>
+            <p class="mb-[18px] leading-[1.7] text-gray-300">Build a startup-grade iOS or Android app designed around user retention and product-market fit. We handle the full build from UX through deployment so you can focus on growth.</p>
+            <%= link_to "Learn about mobile app development ->", mobile_development_path, class: "text-sm font-semibold no-underline text-primary hover:text-yellow-200" %>
+          </div>
+        </article>
+
+        <article class="grid overflow-hidden gap-6 items-center rounded-xl border border-white/10 bg-background-navy md:grid-cols-2">
+          <%= image_tag asset_path("modernization.webp"), alt: "Prototype to production service", class: "w-full h-full min-h-[280px] object-cover" %>
+          <div class="p-[30px]">
+            <h3 class="mb-3 text-[28px] leading-[1.15] tracking-normal">Prototype to Production</h3>
+            <p class="mb-[18px] leading-[1.7] text-gray-300">Stuck with messy early code that is slowing you down? We clean up prototypes, refactor unstable foundations, and add the integrations your product needs.</p>
+            <%= link_to "Learn about prototype to production ->", prototype_to_production_path, class: "text-sm font-semibold no-underline text-primary hover:text-yellow-200" %>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="!px-0 !py-0 bg-background-black border-y border-white/10">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
+      <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400">Real startup outcomes</p>
+      <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal">Measurable results, not just <em class="italic text-primary">delivered features</em></h2>
+      <p class="max-w-[750px] text-lg font-light leading-[1.65] text-gray-300">Every engagement is scoped around business outcomes. Here is what that looks like in practice.</p>
+      <div class="grid grid-cols-1 gap-4 mt-12 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">60%</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Fewer support tickets through self-serve onboarding for a co-ownership platform.</p>
+        </article>
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">90%</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Manual work eliminated by automating repetitive agent workflows for InsurTech.</p>
+        </article>
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">$1M+</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Revenue capacity unlocked per agent without adding headcount.</p>
+        </article>
+        <article class="p-5 rounded-[10px] border border-white/10 bg-gray-800">
+          <h3 class="mb-2 font-normal leading-none text-secondary text-[42px]">Ship</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Production-ready MVPs scoped to validate quickly and scale confidently.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0" id="our-work">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
+      <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400">Our work</p>
+      <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal">Recent startup products <em class="italic text-primary">we shipped</em></h2>
+      <div class="grid gap-5 mt-14 md:grid-cols-2">
+        <article class="overflow-hidden bg-gray-800 rounded-xl border border-white/10">
+          <%= image_tag("aspire/case-study-home.png", alt: "Aspire case study", class: "w-full h-[360px] object-cover p-3") %>
+          <div class="p-6">
+            <h3 class="mb-2 text-[30px] leading-tight tracking-normal">Aspire</h3>
+            <p class="mb-[18px] text-gray-300">Empowering insurance agents with a breakthrough digital platform.</p>
+            <%= link_to "View case study ->", aspire_case_studies_path, class: "text-sm font-semibold no-underline text-primary hover:text-yellow-200" %>
+          </div>
+        </article>
+        <article class="overflow-hidden bg-gray-800 rounded-xl border border-white/10">
+          <%= image_tag("wecasa/case-study-home.png", alt: "Wecasa case study", class: "w-full h-[360px] object-cover p-3") %>
+          <div class="p-6">
+            <h3 class="mb-2 text-[30px] leading-tight tracking-normal">Wecasa</h3>
+            <p class="mb-[18px] text-gray-300">Creating a web and mobile platform to simplify second home management.</p>
+            <%= link_to "View case study ->", wecasa_case_studies_path, class: "text-sm font-semibold no-underline text-primary hover:text-yellow-200" %>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 bg-background-black border-y border-white/10">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
+      <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400">What we stand for</p>
+      <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal">Founder-first partnership with <em class="italic text-primary">runway-conscious execution</em></h2>
+      <div class="grid items-start gap-9 mt-14 lg:grid-cols-[390px_1fr]">
+        <%= image_tag("Josiah-March2024-8-M.jpg", alt: "Josiah Pilon, Founder of ClientFirst Labs", class: "w-full rounded-xl border border-white/10 object-cover") %>
+        <div>
+          <p class="max-w-[750px] mb-5 text-lg font-light leading-[1.65] text-gray-300">Your traction milestones drive our roadmap. We work as an extension of your founding team, making every technical decision with your growth stage in mind.</p>
+          <div class="p-[14px_16px] mb-2.5 text-sm leading-[1.6] text-gray-300 rounded-lg border border-white/10 bg-white/5">Founder-First Partnership: we listen before we build, adapt as your product evolves, and align execution to your traction goals.</div>
+          <div class="p-[14px_16px] mb-2.5 text-sm leading-[1.6] text-gray-300 rounded-lg border border-white/10 bg-white/5">Ship Fast, Validate First: we focus on what users need now, not vanity scope that burns runway.</div>
+          <div class="p-[14px_16px] mb-2.5 text-sm leading-[1.6] text-gray-300 rounded-lg border border-white/10 bg-white/5">Runway-Conscious Development: no surprise invoices, no scope creep, transparent estimates and clear trade-offs.</div>
+          <div class="mt-[18px]">
+            <%= link_to "Book a Founder Strategy Call", "https://calendly.com/clientfirst-labs/discovery", class: "inline-block rounded-md border border-transparent bg-primary px-6 py-3.5 text-sm font-semibold text-gray-900 no-underline shadow-[0_0_6px_1px_#ffd701] transition duration-200 hover:-translate-y-px hover:opacity-90" %>
           </div>
         </div>
       </div>
-
-      <button data-action="click->carousel#previous"
-        class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary left-4 top-1/2 bg-white/50 hover:bg-white">
-        ◀
-      </button>
-
-      <button data-action="click->carousel#next"
-        class="absolute p-2 transition -translate-y-1/2 rounded-full text-primary right-4 top-1/2 bg-white/50 hover:bg-white">
-        ▶
-      </button>
-  </div>
-</section>
-
-<section class="px-4 py-16 bg-background-navy md:px-8">
-  <div class="flex flex-col items-center content-container">
-    <div class="mb-16 pill">
-      <p class="">Ready to start</p>
     </div>
+  </section>
 
-    <h2 class="max-w-xl text-2xl text-center text-white sm:text-3xl md:text-4xl">Let’s turn your ideas into results!</h2>
-
-    <div class="mt-8">
-      <%= link_to "Get in touch", "https://calendly.com/clientfirst-labs/discovery", class: "btn-primary btn-lg hover:text-gray-800" %>
+  <section class="!px-0 !py-0" id="faq">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
+      <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400">Common questions</p>
+      <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal">Founder <em class="italic text-primary">FAQ</em></h2>
+      <div class="flex flex-col gap-3 mt-12">
+        <details class="p-[16px_18px] rounded-[10px] border border-white/10 bg-gray-800">
+          <summary class="font-semibold text-gray-50 cursor-pointer">How long does MVP development take?</summary>
+          <p class="mt-2.5 text-sm leading-[1.7] text-gray-300">Most MVPs take 8 to 16 weeks depending on scope and complexity. We scope to what validates your idea, not what looks impressive in a deck.</p>
+        </details>
+        <details class="p-[16px_18px] rounded-[10px] border border-white/10 bg-gray-800">
+          <summary class="font-semibold text-gray-50 cursor-pointer">How much does MVP development cost?</summary>
+          <p class="mt-2.5 text-sm leading-[1.7] text-gray-300">MVP projects typically range from $15K to $60K+ depending on product complexity. We price based on scope so you get a fixed deliverable with no surprise invoices.</p>
+        </details>
+        <details class="p-[16px_18px] rounded-[10px] border border-white/10 bg-gray-800">
+          <summary class="font-semibold text-gray-50 cursor-pointer">Do you work with early-stage startups?</summary>
+          <p class="mt-2.5 text-sm leading-[1.7] text-gray-300">Yes. Early-stage startups are our primary focus. We usually partner with pre-seed through Series A teams that need a technical partner, not a traditional agency.</p>
+        </details>
+        <details class="p-[16px_18px] rounded-[10px] border border-white/10 bg-gray-800">
+          <summary class="font-semibold text-gray-50 cursor-pointer">Can you help us refactor an existing prototype?</summary>
+          <p class="mt-2.5 text-sm leading-[1.7] text-gray-300">Absolutely. Prototype-to-production refactoring is one of our most common engagements. We keep your product live while building a foundation you can scale on.</p>
+        </details>
+        <details class="p-[16px_18px] rounded-[10px] border border-white/10 bg-gray-800">
+          <summary class="font-semibold text-gray-50 cursor-pointer">Do you work with Canadian startups outside Vancouver?</summary>
+          <p class="mt-2.5 text-sm leading-[1.7] text-gray-300">Yes. We work with startups coast to coast including Toronto, Calgary, Montreal, Ottawa, and beyond. We are remote-first and optimized for distributed teams.</p>
+        </details>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="px-4 py-16 bg-background-black md:px-8">
-  <div class="flex flex-col items-center content-container">
-    <div class="mb-16 pill">
-      <p class="">Testimonials</p>
+  <section class="!px-0 !py-0 bg-background-black border-y border-white/10">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
+      <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400">Testimonials</p>
+      <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal">What founders say after they <em class="italic text-primary">ship with us</em></h2>
+      <div class="grid gap-4 mt-[52px] lg:grid-cols-3">
+        <article class="p-5 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-3.5 text-[21px] leading-[1.5] text-gray-50">"Josiah excelled in building our company's software with clear and concise communication, ensuring a smooth and efficient development process."</p>
+          <p class="pt-3 text-[13px] leading-[1.5] text-gray-300 border-t border-white/10">Mark Proudfoot · President, Wecasa</p>
+        </article>
+        <article class="p-5 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-3.5 text-[21px] leading-[1.5] text-gray-50">"Meeting a tight deadline, ClientFirst Labs agility and precision propelled our project beyond expectations and showcased dependable startup-focused expertise."</p>
+          <p class="pt-3 text-[13px] leading-[1.5] text-gray-300 border-t border-white/10">Aaron Dufall · President, Scalelabs</p>
+        </article>
+        <article class="p-5 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-3.5 text-[21px] leading-[1.5] text-gray-50">"Josiah's proactive approach to learning and staying ahead of industry trends is evident in the high-quality work he consistently delivers."</p>
+          <p class="pt-3 text-[13px] leading-[1.5] text-gray-300 border-t border-white/10">Roger Kondrat · President, OpenRangeDevs</p>
+        </article>
+      </div>
     </div>
+  </section>
 
-    <div class="flex flex-col items-center justify-center w-full gap-8 lg:gap-12 lg:flex-row">
-      <%= render partial: "shared/testimonial-card", locals: {
-        name: "Mark Proudfoot",
-        message: "“Josiah excelled in building our company's software with clear and concise communication, ensuring a smooth and efficient development process.”",
-        title: "President",
-        company: "Wecasa"
-      } %>
-
-      <%= render partial: "shared/testimonial-card", locals: {
-        name: "Aaron Dufall",
-        message: "“Meeting a tight deadline, Josiah's agility and precision in developing key features not only propelled our project beyond expectations but also showcased his dependable expertise in software development tailored to our needs.”",
-        title: "President",
-        company: "Scalelabs"
-      } %>
-      
-      <%= render partial: "shared/testimonial-card", locals: {
-        name: "Roger Kondrat",
-        message: "“Josiah's dedication to self-improvement is truly remarkable. His proactive approach to learning and staying ahead of industry trends is evident in the high-quality work he consistently delivers.”",
-        title: "President",
-        company: "OpenRangeDevs"
-      } %>
+  <section id="book-a-call" class="!px-0 !py-0 text-center border-y border-white/10 bg-[linear-gradient(180deg,rgba(255,215,1,0.06),rgba(173,216,230,0.04))]">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
+      <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-50">Book a founder call</p>
+      <h2 class="mb-4 text-[clamp(38px,5vw,70px)] leading-[1.08] font-normal tracking-normal">Ready to build your <em class="italic text-primary">startup product?</em></h2>
+      <p class="max-w-[700px] mx-auto mb-6 text-lg font-light leading-[1.65] text-gray-300">Book a free 30-minute strategy call. We will talk through your idea, your stage, and whether we are the right fit.</p>
+      <div class="flex flex-wrap gap-3.5 justify-center">
+        <%= link_to "Book a Founder Strategy Call", "https://calendly.com/clientfirst-labs/discovery", class: "inline-block rounded-md border border-transparent bg-primary px-6 py-3.5 text-sm font-semibold text-gray-900 no-underline shadow-[0_0_6px_1px_#ffd701] transition duration-200 hover:-translate-y-px hover:opacity-90" %>
+        <%= link_to "josiah@clientfirstlabs.io", "mailto:josiah@clientfirstlabs.io", class: "inline-block px-6 py-3.5 text-sm font-semibold text-gray-300 no-underline transition duration-200 border rounded-md border-white/10 hover:border-secondary hover:text-gray-50" %>
+      </div>
     </div>
-  </div>
-</section>
-
-<section class="min-h-[714px] bg-background-navy py-16 px-4 md:px-8" data-scroll-into-view-target="contactInfo">
-  <div class="flex flex-col items-center content-container">
-    <div class="mb-16 pill">
-      <p class="">Get in touch</p>
-    </div>
-
-    <div class="flex items-center mb-4 text-white">
-      <%= image_tag("icons/email-light.svg", class: "w-6 h-6") %>
-      <h3 class="ml-4"><%= link_to "josiah@clientfirstlabs.io", "mailto:josiah@clientfirstlabs.io" %></h3>
-    </div>
-
-    <div class="flex items-center mb-4 text-white">
-      <%= image_tag("icons/phone-light.svg", class: "w-6 h-6") %>
-      <h4 class="ml-4">+1 (778) 344-4798</h4>
-    </div>
-  </div>
-</section>
-
+  </section>
+</div>

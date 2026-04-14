@@ -1,0 +1,146 @@
+<% content_for :title, "Mobile App Development for Startups | ClientFirst Labs" %>
+<% content_for :meta_description, "ClientFirst Labs helps startup founders launch and scale iOS and Android apps with a senior technical partner. Book a founder strategy call." %>
+
+<div class="overflow-x-hidden text-gray-50 bg-background-navy">
+  <%= render partial: "shared/page/page_hero", locals: {
+    label: "Mobile Development",
+    title: "Mobile App Development for Startup Founders",
+    description: "Launch your product on the App Store and Google Play without burning runway on missed timelines, unstable releases, or agency handoffs. We design, build, and ship production-ready mobile apps with founder-level transparency.",
+    cta_text: "Book a Founder Strategy Call",
+    cta_url: "https://calendly.com/clientfirst-labs/discovery"
+  } %>
+
+  <section class="!px-0 !py-0 bg-background-black">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+      <div class="grid grid-cols-1 gap-6 w-full sm:grid-cols-3">
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">8-16</p>
+          <h3 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Weeks to Launch</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Most founder-led MVP apps ship in 8-16 weeks when scope is tied to traction goals.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">2</p>
+          <h3 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Stores, One Build Plan</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">One roadmap to launch iOS and Android together without duplicating planning or product effort.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">Weekly</p>
+          <h3 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Founder Visibility</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Weekly demos, release checkpoints, and direct access to the senior engineer building your app.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+      <div class="grid gap-16 md:grid-cols-2">
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Who this is for", title: "Founders going mobile for traction" } %>
+          <p class="mb-6 leading-[1.7] text-gray-300">You have product demand and now need a mobile app users can trust. You are preparing for investor updates, customer pilots, or public launch and cannot afford missed app review cycles, app crashes, or vendor silence.</p>
+          <ul class="!m-0 !p-0 list-none space-y-3">
+            <li class="!pl-0 text-sm text-gray-300">- Pre-seed to Series A startup founders</li>
+            <li class="!pl-0 text-sm text-gray-300">- Teams launching first iOS and Android apps</li>
+            <li class="!pl-0 text-sm text-gray-300">- Founders replacing manual workflows with mobile UX</li>
+            <li class="!pl-0 text-sm text-gray-300">- Product teams that need predictable release velocity</li>
+          </ul>
+        </div>
+
+        <div>
+          <%= render partial: "shared/page/section_heading", locals: { label: "Founder pain", title: "What usually goes wrong with mobile builds" } %>
+          <p class="mb-6 leading-[1.7] text-gray-300">Most founders fear the same things: spending months building features users never activate, failing app review at launch, and inheriting code nobody can maintain. Those failures drain runway and confidence fast.</p>
+          <ul class="!m-0 !p-0 list-none space-y-3">
+            <li class="!pl-0 text-sm text-gray-300">- Delayed launches from unclear app store requirements</li>
+            <li class="!pl-0 text-sm text-gray-300">- Costly rewrites when early architecture cannot scale</li>
+            <li class="!pl-0 text-sm text-gray-300">- Low retention from weak onboarding and UX decisions</li>
+            <li class="!pl-0 text-sm text-gray-300">- No ownership after launch for fixes, analytics, and updates</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 bg-background-black">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+      <%= render partial: "shared/page/section_heading", locals: { label: "What we build", title: "Production-ready mobile products", centered: true } %>
+      <div class="grid grid-cols-1 gap-6 w-full sm:grid-cols-2 lg:grid-cols-4">
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Cross-Platform App</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">React Native apps built for iOS and Android with clean architecture and shared product logic.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Backend & API</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Secure APIs, auth, payments, notifications, and integrations that power mobile experiences at scale.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Release Infrastructure</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">CI/CD, crash monitoring, analytics events, and release workflows that keep shipping predictable.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Post-Launch Iteration</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Roadmap support for onboarding, retention, feature experiments, and store-rating improvements.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+      <%= render partial: "shared/page/section_heading", locals: { label: "Our process", title: "How we launch your app successfully", centered: true } %>
+      <div class="grid grid-cols-1 gap-6 w-full sm:grid-cols-2 lg:grid-cols-4">
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-2 text-[34px] font-normal leading-none text-secondary">01</p>
+          <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Product & Store Strategy</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">We define the launch scope, map store requirements, and align the release plan to your traction milestones.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-2 text-[34px] font-normal leading-none text-secondary">02</p>
+          <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Build Sprint Cycles</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Weekly sprints with demos and direct founder feedback so priorities stay tied to business outcomes.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-2 text-[34px] font-normal leading-none text-secondary">03</p>
+          <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">QA & Pre-Launch Hardening</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">Device testing, crash checks, and release QA before we submit to iOS and Android app stores.</p>
+        </div>
+        <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+          <p class="mb-2 text-[34px] font-normal leading-none text-secondary">04</p>
+          <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Launch & Optimize</h3>
+          <p class="text-sm leading-[1.6] text-gray-300">We monitor launch metrics, ship fixes fast, and prioritize iterations that improve activation and retention.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 bg-background-black">
+    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+      <%= render partial: "shared/page/section_heading", locals: { label: "Related services", title: "Where to go next", centered: true } %>
+      <div class="grid grid-cols-1 gap-6 mx-auto w-full max-w-3xl sm:grid-cols-3">
+        <div class="p-6 text-center bg-gray-800 rounded-xl border border-white/10">
+          <h3 class="mb-3 text-[24px] leading-[1.2] tracking-normal">Prototype to Production</h3>
+          <p class="mb-4 text-sm leading-[1.6] text-gray-300">Already have an early build? We clean it up and get it production-ready.</p>
+          <%= link_to "Learn more ->", prototype_to_production_path, class: "text-primary text-sm no-underline font-semibold hover:text-yellow-200" %>
+        </div>
+        <div class="p-6 text-center bg-gray-800 rounded-xl border border-white/10">
+          <h3 class="mb-3 text-[24px] leading-[1.2] tracking-normal">Startup Product Development</h3>
+          <p class="mb-4 text-sm leading-[1.6] text-gray-300">Long-term product development partnership for scaling startups.</p>
+          <%= link_to "Learn more ->", startup_product_development_path, class: "text-primary text-sm no-underline font-semibold hover:text-yellow-200" %>
+        </div>
+        <div class="p-6 text-center bg-gray-800 rounded-xl border border-white/10">
+          <h3 class="mb-3 text-[24px] leading-[1.2] tracking-normal">AI & Automation</h3>
+          <p class="mb-4 text-sm leading-[1.6] text-gray-300">Add AI-powered features and workflows to your startup product.</p>
+          <%= link_to "Learn more ->", ai_automation_path, class: "text-primary text-sm no-underline font-semibold hover:text-yellow-200" %>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%= render partial: "shared/page/final_cta", locals: {
+    label: "Book a founder call",
+    title: "Ready to launch your mobile app?",
+    description: "Book a free 30-minute strategy call. We will review your product goals, launch timeline, and what it takes to ship to iOS and Android with confidence.",
+    cta_text: "Book a Founder Strategy Call",
+    cta_url: "https://calendly.com/clientfirst-labs/discovery",
+    helper_html: "Or #{link_to('go back to the homepage', root_path, class: 'text-primary no-underline hover:text-yellow-200')} · #{link_to('read the blog', blog_path, class: 'text-primary no-underline hover:text-yellow-200')}"
+  } %>
+</div>

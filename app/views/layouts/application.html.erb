@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>FreelanceWebsite</title>
+    <title><%= content_for?(:title) ? yield(:title) : "Startup Software Development Partner | ClientFirst Labs" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : "ClientFirst Labs helps early-stage startups build MVPs, refactor prototypes, and ship production-ready software fast. Book a founder strategy call." %>">
+    <link rel="canonical" href="<%= request.original_url %>">
+    <meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : "Startup Software Development Partner | ClientFirst Labs" %>">
+    <meta property="og:description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : "ClientFirst Labs helps early-stage startups build MVPs, refactor prototypes, and ship production-ready software fast. Book a founder strategy call." %>">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : "Startup Software Development Partner | ClientFirst Labs" %>">
+    <meta name="twitter:description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : "ClientFirst Labs helps early-stage startups build MVPs, refactor prototypes, and ship production-ready software fast. Book a founder strategy call." %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -15,6 +27,7 @@
     <main class="min-h-screen bg-background-navy" data-controller="scroll-into-view">
       <%= render partial: "shared/navbar" %>
       <div class=""><%= yield %></div>
+      <%= render partial: "shared/footer" %>
     </main>
   </body>
 </html>

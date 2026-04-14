@@ -1,0 +1,137 @@
+<% content_for :title, "Startup Product Development | ClientFirst Labs" %>
+<% content_for :meta_description, "Long-term startup product development and SaaS development for early-stage Canadian startups. Senior engineers who work as your technical partner." %>
+
+<div class="overflow-x-hidden text-gray-50 bg-background-navy">
+  <%= render partial: "shared/page/page_hero", locals: {
+    label: "Startup Product Development",
+    title: "Startup Product Development",
+    description: "Build your SaaS product with a technical partner who moves at startup speed. Senior engineers, direct communication, and an engineering culture built around your growth stage.",
+    cta_text: "Book a Founder Strategy Call",
+    cta_url: "https://calendly.com/clientfirst-labs/discovery"
+  } %>
+
+<section class="!px-0 !py-0 bg-background-black">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+    <div class="grid grid-cols-1 gap-6 w-full sm:grid-cols-3">
+      <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+        <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">Senior</p>
+        <h3 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Engineers Only</h3>
+        <p class="text-sm leading-[1.6] text-gray-300">You work directly with the senior engineer building your product. No project manager middlemen, no juniors.</p>
+      </div>
+      <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+        <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">Full</p>
+        <h3 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Stack Coverage</h3>
+        <p class="text-sm leading-[1.6] text-gray-300">Web, mobile, API, DevOps, integrations. We handle the full technical surface of your product.</p>
+      </div>
+      <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+        <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">Flexible</p>
+        <h3 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Engagement Models</h3>
+        <p class="text-sm leading-[1.6] text-gray-300">Project-based or ongoing retainer. Structured around your runway, not our billing preferences.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+    <div class="grid gap-16 md:grid-cols-2">
+      <div>
+        <%= render partial: "shared/page/section_heading", locals: { label: "Who this is for", title: "Startups building serious products" } %>
+        <p class="mb-6 leading-[1.7] text-gray-300">You've validated your idea and now you need to build and iterate fast. You need a technical partner embedded in your product. Not a freelancer picking up tickets, and not an agency that throws headcount at the problem.</p>
+        <ul class="!m-0 !p-0 list-none space-y-3">
+          <li class="!pl-0 text-sm text-gray-300">- Seed to Series A startups</li>
+          <li class="!pl-0 text-sm text-gray-300">- SaaS products needing ongoing development</li>
+          <li class="!pl-0 text-sm text-gray-300">- Founders who want an engineering partner, not a vendor</li>
+          <li class="!pl-0 text-sm text-gray-300">- Teams preparing for investor demos or customer launches</li>
+        </ul>
+      </div>
+
+      <div>
+        <%= render partial: "shared/page/section_heading", locals: { label: "What's included", title: "End-to-end product engineering" } %>
+        <p class="mb-6 leading-[1.7] text-gray-300">We take ownership of the full engineering function so your founding team can focus on sales, fundraising, and customers instead of managing developers.</p>
+        <ul class="!m-0 !p-0 list-none space-y-3">
+          <li class="!pl-0 text-sm text-gray-300">- Feature development and iteration</li>
+          <li class="!pl-0 text-sm text-gray-300">- Architecture decisions and technical direction</li>
+          <li class="!pl-0 text-sm text-gray-300">- Third-party integrations (Stripe, APIs, SaaS tools)</li>
+          <li class="!pl-0 text-sm text-gray-300">- DevOps, CI/CD, and deployment</li>
+          <li class="!pl-0 text-sm text-gray-300">- Performance and scalability work</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="!px-0 !py-0 bg-background-black">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+    <%= render partial: "shared/page/section_heading", locals: { label: "Tech stack", title: "Built for startup pragmatism", centered: true } %>
+    <div class="grid grid-cols-2 gap-3 mx-auto max-w-2xl sm:grid-cols-4">
+      <div class="flex justify-center items-center p-4 bg-gray-800 rounded-xl border border-white/10">
+        <span class="text-sm font-medium text-white">Ruby on Rails</span>
+      </div>
+      <div class="flex justify-center items-center p-4 bg-gray-800 rounded-xl border border-white/10">
+        <span class="text-sm font-medium text-white">React / Hotwire</span>
+      </div>
+      <div class="flex justify-center items-center p-4 bg-gray-800 rounded-xl border border-white/10">
+        <span class="text-sm font-medium text-white">PostgreSQL</span>
+      </div>
+      <div class="flex justify-center items-center p-4 bg-gray-800 rounded-xl border border-white/10">
+        <span class="text-sm font-medium text-white">AWS</span>
+      </div>
+      <div class="flex justify-center items-center p-4 bg-gray-800 rounded-xl border border-white/10">
+        <span class="text-sm font-medium text-white">Stripe</span>
+      </div>
+      <div class="flex justify-center items-center p-4 bg-gray-800 rounded-xl border border-white/10">
+        <span class="text-sm font-medium text-white">OpenAI / LLMs</span>
+      </div>
+      <div class="flex justify-center items-center p-4 bg-gray-800 rounded-xl border border-white/10">
+        <span class="text-sm font-medium text-white">React Native</span>
+      </div>
+      <div class="flex justify-center items-center p-4 bg-gray-800 rounded-xl border border-white/10">
+        <span class="text-sm font-medium text-white">CI/CD Pipelines</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+    <%= render partial: "shared/page/section_heading", locals: { label: "Real outcome", title: "See it in action", centered: true } %>
+    <div class="p-8 mx-auto mt-8 max-w-2xl bg-gray-800 rounded-xl border border-white/10">
+      <p class="mb-4 leading-[1.7] text-gray-300">We took full product ownership for Wecasa, a Canadian co-ownership startup, building their booking platform, self-serve onboarding, and DevOps foundation. Result: 60% fewer support tickets and faster iteration cycles.</p>
+      <%= link_to "Read the Wecasa case study ->", wecasa_case_studies_path, class: "text-primary no-underline font-semibold hover:text-yellow-200" %>
+    </div>
+  </div>
+</section>
+
+<section class="!px-0 !py-0 bg-background-black">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+    <%= render partial: "shared/page/section_heading", locals: { label: "Related services", title: "Where to go next", centered: true } %>
+    <div class="grid grid-cols-1 gap-6 mx-auto w-full max-w-3xl sm:grid-cols-3">
+      <div class="p-6 text-center bg-gray-800 rounded-xl border border-white/10">
+        <h3 class="mb-3 text-[24px] leading-[1.2] tracking-normal">MVP Development</h3>
+        <p class="mb-4 text-sm leading-[1.6] text-gray-300">Need to go from zero to a working product first?</p>
+        <%= link_to "Learn more ->", mvp_development_path, class: "text-primary text-sm no-underline font-semibold hover:text-yellow-200" %>
+      </div>
+      <div class="p-6 text-center bg-gray-800 rounded-xl border border-white/10">
+        <h3 class="mb-3 text-[24px] leading-[1.2] tracking-normal">Prototype to Production</h3>
+        <p class="mb-4 text-sm leading-[1.6] text-gray-300">Refactor an existing codebase into a scalable foundation.</p>
+        <%= link_to "Learn more ->", prototype_to_production_path, class: "text-primary text-sm no-underline font-semibold hover:text-yellow-200" %>
+      </div>
+      <div class="p-6 text-center bg-gray-800 rounded-xl border border-white/10">
+        <h3 class="mb-3 text-[24px] leading-[1.2] tracking-normal">AI & Automation</h3>
+        <p class="mb-4 text-sm leading-[1.6] text-gray-300">Add AI features and automation workflows to your product.</p>
+        <%= link_to "Learn more ->", ai_automation_path, class: "text-primary text-sm no-underline font-semibold hover:text-yellow-200" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render partial: "shared/page/final_cta", locals: {
+  label: "Book a founder call",
+  title: "Ready to build your startup product?",
+  description: "Book a free 30-minute strategy call. We will talk through your product, your stage, and how we can move fast together.",
+  cta_text: "Book a Founder Strategy Call",
+  cta_url: "https://calendly.com/clientfirst-labs/discovery",
+  helper_html: "Or #{link_to('go back to the homepage', root_path, class: 'text-primary no-underline hover:text-yellow-200')} · #{link_to('read the blog', blog_path, class: 'text-primary no-underline hover:text-yellow-200')}"
+} %>
+</div>

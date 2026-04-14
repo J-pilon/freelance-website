@@ -1,0 +1,12 @@
+<section class="!px-0 !py-0 border-b border-white/10">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-20">
+    <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400"><%= label %></p>
+    <h1 class="mb-6 max-w-4xl text-[clamp(42px,6vw,88px)] leading-[1.06] font-normal tracking-normal"><%= title %></h1>
+    <p class="max-w-3xl text-lg font-light leading-[1.65] text-gray-300"><%= description %></p>
+    <% if local_assigns[:cta_text].present? %>
+      <div class="mt-8">
+        <%= link_to cta_text, cta_url, class: "inline-block rounded-md border border-transparent bg-primary px-6 py-3.5 text-sm font-semibold text-gray-900 no-underline shadow-[0_0_6px_1px_#ffd701] transition duration-200 hover:-translate-y-px hover:opacity-90" %>
+      </div>
+    <% end %>
+  </div>
+</section>

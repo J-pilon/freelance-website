@@ -1,0 +1,124 @@
+<% content_for :title, "Prototype to Production: Refactor Your MVP | ClientFirst Labs" %>
+<% content_for :meta_description, "Refactor your MVP and turn your early prototype into a production-ready codebase. ClientFirst Labs helps Canadian startups clean up technical debt and ship with confidence." %>
+
+<div class="overflow-x-hidden text-gray-50 bg-background-navy">
+  <%= render partial: "shared/page/page_hero", locals: {
+    label: "Prototype to Production",
+    title: "Prototype to Production",
+    description: "Your early prototype got you here. Now you need a foundation that scales. We audit, refactor, and rebuild what is holding you back while keeping your product live.",
+    cta_text: "Book a Founder Strategy Call",
+    cta_url: "https://calendly.com/clientfirst-labs/discovery"
+  } %>
+
+<section class="!px-0 !py-0 bg-background-black">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+    <div class="grid grid-cols-1 gap-6 w-full sm:grid-cols-3">
+      <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+        <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">Zero</p>
+        <h3 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Downtime Refactors</h3>
+        <p class="text-sm leading-[1.6] text-gray-300">We refactor incrementally so your product stays live and your users don't notice a thing.</p>
+      </div>
+      <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+        <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">Audit</p>
+        <h3 class="mb-2 text-[28px] leading-[1.15] tracking-normal">First Approach</h3>
+        <p class="text-sm leading-[1.6] text-gray-300">We start with a codebase audit before writing a line. You know exactly what's risky and why before we touch it.</p>
+      </div>
+      <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+        <p class="mb-1.5 text-[42px] font-normal leading-none text-secondary">Scale</p>
+        <h3 class="mb-2 text-[28px] leading-[1.15] tracking-normal">Ready Foundation</h3>
+        <p class="text-sm leading-[1.6] text-gray-300">We leave you with a codebase your team can confidently build on: clean, documented, and built to grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="!px-0 !py-0 bg-background-navy border-y border-white/10">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+    <div class="grid gap-16 md:grid-cols-2">
+      <div>
+        <%= render partial: "shared/page/section_heading", locals: { label: "Signs you need this", title: "Is your prototype slowing you down?" } %>
+        <p class="mb-6 leading-[1.7] text-gray-300">Most early-stage codebases were built to validate, not to scale. That's fine at the start, but at some point, technical debt becomes the biggest blocker to growth.</p>
+        <ul class="!m-0 !p-0 list-none space-y-3">
+          <li class="!pl-0 text-sm text-gray-300">- Shipping new features takes longer than it should</li>
+          <li class="!pl-0 text-sm text-gray-300">- Bugs keep coming back in the same places</li>
+          <li class="!pl-0 text-sm text-gray-300">- You're nervous to demo or sell the product</li>
+          <li class="!pl-0 text-sm text-gray-300">- Onboarding a new developer feels risky</li>
+          <li class="!pl-0 text-sm text-gray-300">- Your architecture can't handle more users</li>
+        </ul>
+      </div>
+
+      <div>
+        <%= render partial: "shared/page/section_heading", locals: { label: "What we do", title: "A structured path from messy to maintainable" } %>
+        <p class="mb-6 leading-[1.7] text-gray-300">We don't rewrite everything from scratch. We audit first, prioritize the highest-risk areas, and refactor incrementally, so you're never waiting months for something to ship.</p>
+        <ul class="!m-0 !p-0 list-none space-y-3">
+          <li class="!pl-0 text-sm text-gray-300">- Full codebase audit and risk assessment</li>
+          <li class="!pl-0 text-sm text-gray-300">- Architecture refactoring and code cleanup</li>
+          <li class="!pl-0 text-sm text-gray-300">- Test coverage and CI/CD setup</li>
+          <li class="!pl-0 text-sm text-gray-300">- Third-party integration cleanup</li>
+          <li class="!pl-0 text-sm text-gray-300">- Documentation and handoff</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="!px-0 !py-0 bg-background-black">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+    <%= render partial: "shared/page/section_heading", locals: { label: "Our process", title: "How prototype-to-production works", centered: true } %>
+    <div class="grid grid-cols-1 gap-6 w-full sm:grid-cols-2 lg:grid-cols-4">
+      <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+        <p class="mb-2 text-[34px] font-normal leading-none text-secondary">01</p>
+        <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Codebase Audit</h3>
+        <p class="text-sm leading-[1.6] text-gray-300">We review your entire codebase and identify what's risky, what's blocking growth, and what can stay as-is for now.</p>
+      </div>
+      <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+        <p class="mb-2 text-[34px] font-normal leading-none text-secondary">02</p>
+        <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Priority Plan</h3>
+        <p class="text-sm leading-[1.6] text-gray-300">We present a prioritized refactoring plan with clear rationale, timelines, and tradeoffs. You decide what to tackle first.</p>
+      </div>
+      <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+        <p class="mb-2 text-[34px] font-normal leading-none text-secondary">03</p>
+        <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Incremental Refactor</h3>
+        <p class="text-sm leading-[1.6] text-gray-300">We work in phases so your product stays live throughout. No big-bang rewrites, no months of darkness.</p>
+      </div>
+      <div class="p-6 bg-gray-800 rounded-xl border border-white/10">
+        <p class="mb-2 text-[34px] font-normal leading-none text-secondary">04</p>
+        <h3 class="mb-2 text-[24px] leading-[1.2] tracking-normal">Handoff</h3>
+        <p class="text-sm leading-[1.6] text-gray-300">We document the architecture, set up CI/CD, and hand off a codebase your team can confidently own.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="!px-0 !py-0 bg-background-black">
+  <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-16">
+    <%= render partial: "shared/page/section_heading", locals: { label: "Related services", title: "Where to go next", centered: true } %>
+    <div class="grid grid-cols-1 gap-6 mx-auto w-full max-w-3xl sm:grid-cols-3">
+      <div class="p-6 text-center bg-gray-800 rounded-xl border border-white/10">
+        <h3 class="mb-3 text-[24px] leading-[1.2] tracking-normal">MVP Development</h3>
+        <p class="mb-4 text-sm leading-[1.6] text-gray-300">Build your MVP right the first time: scoped to validate, built to scale.</p>
+        <%= link_to "Learn more ->", mvp_development_path, class: "text-primary text-sm no-underline font-semibold hover:text-yellow-200" %>
+      </div>
+      <div class="p-6 text-center bg-gray-800 rounded-xl border border-white/10">
+        <h3 class="mb-3 text-[24px] leading-[1.2] tracking-normal">Startup Product Development</h3>
+        <p class="mb-4 text-sm leading-[1.6] text-gray-300">Ongoing product engineering after your foundation is solid.</p>
+        <%= link_to "Learn more ->", startup_product_development_path, class: "text-primary text-sm no-underline font-semibold hover:text-yellow-200" %>
+      </div>
+      <div class="p-6 text-center bg-gray-800 rounded-xl border border-white/10">
+        <h3 class="mb-3 text-[24px] leading-[1.2] tracking-normal">AI & Automation</h3>
+        <p class="mb-4 text-sm leading-[1.6] text-gray-300">Add AI and automation on top of a clean codebase.</p>
+        <%= link_to "Learn more ->", ai_automation_path, class: "text-primary text-sm no-underline font-semibold hover:text-yellow-200" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%= render partial: "shared/page/final_cta", locals: {
+  label: "Book a founder call",
+  title: "Ready to refactor your <em>MVP</em>?",
+  description: "Book a free 30-minute call. We will review your situation and tell you honestly whether a refactor is the right move and what it would take.",
+  cta_text: "Book a Founder Strategy Call",
+  cta_url: "https://calendly.com/clientfirst-labs/discovery",
+  helper_html: "Or #{link_to('go back to the homepage', root_path, class: 'text-primary no-underline hover:text-yellow-200')} · #{link_to('read the blog', blog_path, class: 'text-primary no-underline hover:text-yellow-200')}"
+} %>
+</div>
