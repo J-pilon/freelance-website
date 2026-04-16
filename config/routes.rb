@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resource :case_studies, only: [] do
     get 'aspire', on: :member, to: 'case_studies#aspire', as: :aspire
     get 'wecasa', on: :member, to: 'case_studies#wecasa', as: :wecasa
+    get 'biohub-platform', on: :member, to: 'case_studies#biohub_platform', as: :biohub_platform
   end
 
   get '/services/mvp-development',             to: 'services#mvp_development',            as: :mvp_development
