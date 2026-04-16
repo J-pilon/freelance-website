@@ -148,8 +148,9 @@
       <div class="grid gap-5 mt-14 md:grid-cols-2">
         <article class="overflow-hidden bg-gray-800 rounded-xl border border-white/10 md:col-span-2">
           <div class="w-full h-[360px] p-3">
-            <div class="flex justify-center items-center w-full h-full rounded-lg border border-dashed border-white/20 bg-background-navy/70">
-              <p class="px-6 font-mono text-xs tracking-[0.12em] text-center uppercase text-gray-400">Case study image placeholder</p>
+            <div class="flex gap-10 justify-around items-center w-full h-full rounded-lg border border-white/10 bg-background-navy/70">
+              <%= image_tag("biohub/button-logo.svg", alt: "Biohub logo", class: "w-full max-w-[280px] object-contain") %>
+              <%= image_tag("biohub/BC-gov-logo.svg", alt: "BC Gov logo", class: "w-full max-w-[280px] object-contain") %>
             </div>
           </div>
           <div class="p-6">
@@ -229,8 +230,19 @@
   <section class="!px-0 !py-0 bg-background-black border-y border-white/10">
     <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-24">
       <p class="mb-4 font-mono text-[11px] tracking-[0.12em] uppercase text-gray-400">Testimonials</p>
-      <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal">What founders say after they <em class="italic text-primary">ship with us</em></h2>
-      <div class="grid gap-4 mt-[52px] lg:grid-cols-3">
+      <h2 class="mb-[18px] text-[clamp(34px,4.7vw,64px)] leading-[1.08] font-normal tracking-normal">What others say after they <em class="italic text-primary">ship with us</em></h2>
+      <div class="grid gap-4 mt-[52px] md:grid-cols-2">
+        <article class="flex flex-col p-5 bg-gray-800 rounded-xl border border-white/10" data-controller="expand-text">
+          <p class="mb-3.5 text-[21px] leading-[1.5] text-gray-50" data-expand-text-target="text">"ClientFirst Labs was an exceptional contributor to our development team. They integrated seamlessly into the team's dynamic and consistently delivered high-quality features, often anticipating upcoming needs before they were formally defined. They made meaningful improvements across the entire codebase, contributing to both frontend and API development. Beyond delivery, they demonstrated a clear commitment to deepening his technical expertise. Any future team will benefit from their capability, initiative, and thoughtful approach to software development."</p>
+          <button
+            type="button"
+            data-expand-text-target="toggle"
+            data-action="expand-text#toggle"
+            aria-expanded="false"
+            class="self-start mb-3.5 text-[13px] font-semibold text-primary/80 hover:text-primary underline-offset-2 hover:underline transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded"
+          >See more</button>
+          <p class="pt-3 mt-auto text-[13px] leading-[1.5] text-gray-300 border-t border-white/10">Macgregor Aubertin-Young · Fish and Wildlife Applications Team Lead, BC Government</p>
+        </article>
         <article class="p-5 bg-gray-800 rounded-xl border border-white/10">
           <p class="mb-3.5 text-[21px] leading-[1.5] text-gray-50">"Josiah excelled in building our company's software with clear and concise communication, ensuring a smooth and efficient development process."</p>
           <p class="pt-3 text-[13px] leading-[1.5] text-gray-300 border-t border-white/10">Mark Proudfoot · President, Wecasa</p>

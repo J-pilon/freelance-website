@@ -2,25 +2,34 @@
 <% content_for :meta_description, "How ClientFirst Labs supported a BC Government initiative to protect sensitive data with secure request workflows, traceability, and role-based access controls." %>
 
 <div class="overflow-x-hidden text-gray-50">
-  <section class="!px-0 !py-0 border-b border-white/10 bg-background-navy">
-    <div class="mx-auto w-[min(1200px,calc(100%-48px))] py-14">
-      <div class="grid gap-8 items-center md:grid-cols-2">
-        <div>
-          <div class="flex flex-wrap gap-6 items-center mb-6">
-            <%= image_tag "biohub/BC-gov-logo.svg", alt: "BC Government logo", class: "h-10 w-auto" %>
-            <%= image_tag "biohub/button-logo.svg", alt: "BioHub Platform logo", class: "h-10 w-auto" %>
-          </div>
-          <%= render partial: "shared/page/section_heading", locals: {
-            label: "BC Government Initiative",
-            title: "Protecting Sensitive Environmental Data with Secure, Role-Aware Access"
-          } %>
-          <div class="mt-6">
-            <p class="text-lg font-light leading-[1.65] text-gray-300">The BioHub Platform was built to help users discover environmental data and securely request access to sensitive records through a centralized, role-aware portal.</p>
-          </div>
-        </div>
+  <section class="relative !px-0 !py-0 border-b border-white/10 overflow-hidden min-h-[800px] flex items-center">
+    <%= image_tag "biohub/biohub-application.png",
+        alt: "Biohub platform application interface",
+        class: "absolute inset-0 w-full h-full object-cover object-top" %>
 
-        <div class="w-full h-[320px] rounded-xl border border-dashed border-white/20 bg-gray-800/60 flex items-center justify-center">
-          <p class="px-6 font-mono text-xs tracking-[0.12em] text-center uppercase text-gray-400">Case study image placeholder</p>
+    <div class="absolute inset-0 bg-gradient-to-r from-background-navy/95 via-background-navy/80 to-background-navy/40"></div>
+
+    <div class="flex absolute top-4 right-4 z-10 gap-2">
+      <div class="px-3 py-1.5 rounded-full border backdrop-blur border-white/20 bg-background-black/60">
+        <p class="font-mono text-[10px] tracking-[0.14em] uppercase text-gray-300">Secure data portal</p>
+      </div>
+      <div class="px-3 py-1.5 rounded-full border backdrop-blur border-white/20 bg-background-black/60">
+        <p class="font-mono text-[10px] tracking-[0.14em] uppercase text-gray-300">Role-aware workflows</p>
+      </div>
+    </div>
+
+    <div class="relative z-10 mx-auto w-[min(1200px,calc(100%-48px))] py-14">
+      <div class="max-w-xl">
+        <div class="flex flex-wrap gap-6 items-center mb-6">
+          <%= image_tag "biohub/BC-gov-logo.svg", alt: "BC Government logo", class: "h-10 w-auto" %>
+          <%= image_tag "biohub/button-logo.svg", alt: "BioHub Platform logo", class: "h-10 w-auto" %>
+        </div>
+        <%= render partial: "shared/page/section_heading", locals: {
+          label: "BC Government Initiative",
+          title: "Protecting Sensitive Environmental Data with Secure, Role-Aware Access"
+        } %>
+        <div class="mt-6">
+          <p class="text-lg font-light leading-[1.65] text-gray-300">The BioHub Platform was built to help users discover environmental data and securely request access to sensitive records through a centralized, role-aware portal.</p>
         </div>
       </div>
     </div>
@@ -117,6 +126,22 @@
           <p class="leading-[1.7] text-gray-300">This engagement worked because ClientFirst Labs combined rapid execution with governance-aware engineering decisions from the start. We treated security controls, traceability, and user workflow quality as core product requirements, not post-launch fixes. For founders in regulated or security-sensitive domains, this approach protects trust while maintaining delivery momentum.</p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="!px-0 !py-0 border-b border-white/10 bg-background-black">
+    <div class="mx-auto w-[min(800px,calc(100%-48px))] py-10 md:py-12">
+      <article class="flex flex-col p-5 bg-gray-800 rounded-xl border border-white/10" data-controller="expand-text">
+        <p class="mb-3.5 text-[21px] leading-[1.5] text-gray-50" data-expand-text-target="text">"ClientFirst Labs was an exceptional contributor to our development team. They integrated seamlessly into the team's dynamic and consistently delivered high-quality features, often anticipating upcoming needs before they were formally defined. They made meaningful improvements across the entire codebase, contributing to both frontend and API development. Beyond delivery, they demonstrated a clear commitment to deepening his technical expertise. Any future team will benefit from their capability, initiative, and thoughtful approach to software development."</p>
+        <button
+          type="button"
+          data-expand-text-target="toggle"
+          data-action="expand-text#toggle"
+          aria-expanded="false"
+          class="self-start mb-3.5 text-[13px] font-semibold text-primary/80 hover:text-primary underline-offset-2 hover:underline transition-colors duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 rounded"
+        >See more</button>
+        <p class="pt-3 mt-auto text-[13px] leading-[1.5] text-gray-300 border-t border-white/10">Macgregor Aubertin-Young · Fish and Wildlife Applications Team Lead, BC Government</p>
+      </article>
     </div>
   </section>
 
